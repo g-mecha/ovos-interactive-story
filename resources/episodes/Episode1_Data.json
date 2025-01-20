@@ -1,0 +1,141 @@
+{
+    "rooms":
+    {
+
+        "template": 
+        {
+            "description": "description",
+            "question": "question",
+            "choises":
+            {
+                "room_0":
+                {
+                    "keywords" : ["keyword_0", "keyword_1"]
+                },
+                "room_1":
+                {
+                    "keywords" : ["keyword_0", "keyword_1"]
+                }
+            }
+        },
+        "template_end": 
+        {
+            "description": "Ending",
+            "end": true,
+            "ending_type": "death|finish"
+        },
+
+        "start": 
+        {
+            "description": "You are in your living room feeling bored. You feel hungry but you can't be bothered to cook. Time to get something.",
+            "question": "What do you want? A pizza? A hamburger? Or a salad?",
+            "choises":
+            {
+                "pizza":
+                {
+                    "keywords" : ["pizza"]
+                },
+                "burger":
+                {
+                    "keywords" : ["hamburger", "burger"]
+                },
+                "salad":
+                {
+                    "keywords" : ["salad"]
+                }
+            }
+        },
+
+        "pizza": 
+        {
+            "description": "You are at the pizzeria. But what kind of pizza do you take?",
+            "question": "Cheese?, Mushroom?, or Pineapple?",
+            "choises":
+            {
+                "pizza_cheese":
+                {
+                    "keywords" : ["cheese"]
+                },
+                "pizza_mushroom":
+                {
+                    "keywords" : ["mushroom", "mushrooms"]
+                },
+                "pizza_pineapple":
+                {
+                    "keywords" : ["pineapple", "trash", "cringe"]
+                }
+            }
+        },
+        "pizza_cheese": 
+        {
+            "description": "You get yourself a cheese pizza. Lovely cheeeese.",
+            "end": true,
+            "ending_type": "finish"
+        },
+
+        "pizza_mushroom": 
+        {
+            "description": "You get yourself a mushroom pizza. You tasted better, but you also tasted worse.",
+            "end": true,
+            "ending_type": "finish"
+        },
+
+        "pizza_pineapple": 
+        {
+            "description": "You take one bite and die of cringe. What were you thinking?",
+            "end": true,
+            "ending_type": "death"
+        },
+
+        "burger": 
+        {
+            "description": "You are at the local burger joint. There are several burgers on the menu. What burger do you get?",
+            "question": "Cheese?, Chicken?, or a Beast Burger?",
+            "choises":
+            {
+                "burger_cheese":
+                {
+                    "keywords" : ["cheese", "cheese burger"]
+                },
+                "burger_chicken":
+                {
+                    "keywords" : ["Chicken", "Chicken burger"]
+                },
+                "burger_beast":
+                {
+                    "keywords" : ["beast", "beast burger", "mrbeast burger", "mr beast burger"]
+                }
+            }
+        },
+
+        "burger_cheese": 
+        {
+            "description": "You get yourself a cheese burger. Lovely cheeeese.",
+            "end": true,
+            "ending_type": "finish"
+        },
+
+        "burger_chicken": 
+        {
+            "description": "A good old chicken burger. This is great",
+            "end": true,
+            "ending_type": "finish"
+        },
+
+        "burger_beast": 
+        {
+            "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
+            "end": true,
+            "ending_type": "death"
+        },
+
+        "salad": 
+        {
+            "description": "Bro who eat's a salad. To bad!",
+            "end": true,
+            "ending_type": "death"
+        }
+
+    }
+}
+

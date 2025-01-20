@@ -1,0 +1,25 @@
+{
+    "rooms":
+    {
+        "start": 
+        {
+            "description": "Episode 3",
+            "question": "What do you want? A pizza? A hamburger? Or a salad?",
+            "choises":
+            {
+                "pizza":
+                {
+                    "keywords" : ["pizza"]
+                },
+                "burger":
+                {
+                    "keywords" : ["hamburger", "burger"]
+                },
+                "salad":
+                {
+                    "keywords" : ["salad"]
+                }
+            }
+        }
+    }
+}

@@ -10,6 +10,10 @@ class MyGameSkill(ConversationalGameSkill):
                          skill_icon=game_image,
                          game_image=game_image,
                          *args, **kwargs)
+        
+        self.episode_data = None
+        self.episode_number = 0
+        self.number_of_episodes = 0
 
     def on_play_game(self):
         """called by ocp_pipeline when 'play XXX' matches the game"""
