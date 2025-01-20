@@ -17,8 +17,12 @@ class MyGameSkill(ConversationalGameSkill):
 
     def on_play_game(self):
         """called by ocp_pipeline when 'play XXX' matches the game"""
-        self.speak("on_game_command will be called for every"
-                   " user utterance after this until game exit")
+        # os.path.join(os.path.dirname(__file__), "res", "images", "game.png")
+        self.number_of_episodes = sum(1 for _, _, files in os.walk(f'{self.root_dir}/resources/episodes') for f in files)
+        self.gui.show_text(f"{self.number_of_episodes}")
+
+        # select_episode(number_of_episodes)
+        
 
     def on_stop_game(self):
         """called when game is stopped for any reason
