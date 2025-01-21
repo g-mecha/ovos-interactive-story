@@ -22,7 +22,7 @@
         {
             "description": "Ending",
             "end": true,
-            "ending_type": "death|finish"
+            "ending_type": "win|fail"
         },
 
         "start": 
@@ -66,21 +66,21 @@
         {
             "description": "You get yourself a cheese pizza. Lovely cheeeese.",
             "end": true,
-            "ending_type": "finish"
+            "ending_type": "win"
         },
 
         "pizza_mushroom": 
         {
             "description": "You get yourself a mushroom pizza. You tasted better, but you also tasted worse.",
             "end": true,
-            "ending_type": "finish"
+            "ending_type": "win"
         },
 
         "pizza_pineapple": 
         {
             "description": "You take one bite and die of cringe. What were you thinking?",
             "end": true,
-            "ending_type": "death"
+            "ending_type": "fail"
         },
 
         "burger": 
@@ -108,28 +108,28 @@
         {
             "description": "You get yourself a cheese burger. Lovely cheeeese.",
             "end": true,
-            "ending_type": "finish"
+            "ending_type": "win"
         },
 
         "burger_chicken": 
         {
             "description": "A good old chicken burger. This is great",
             "end": true,
-            "ending_type": "finish"
+            "ending_type": "win"
         },
 
         "burger_beast": 
         {
             "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
             "end": true,
-            "ending_type": "death"
+            "ending_type": "fail"
         },
 
         "salad": 
         {
             "description": "Bro who eat's a salad. To bad!",
             "end": true,
-            "ending_type": "death"
+            "ending_type": "fail"
         }
 
     }

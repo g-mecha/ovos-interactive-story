@@ -92,17 +92,42 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_to_player_utterance = True
 
     def main_game_loop(self):
-        self.gui.show_text(f"{self.current_room}")
-        if 'end' not in self.current_room:
-            self.show_room(self.current_room)
-            self.ask_question(self.current_room)
-            # next_room = get_action(current_room)
-            # current_room = episode_data['rooms'][next_room]
+        current_room = self.current_room
+        if 'end' not in current_room:
+            self.show_room(current_room)
+            self.ask_question(current_room)
 
-        # if 'end' in current_room:
-        #     end_of_game(current_room)
+        if 'end' in current_room:
+            self.end_of_path(current_room)
 
-    # main_game_loop()
+    def end_of_path(self, current_room):
+        self.show_room(current_room)
+        ending_type = current_room['ending_type']
+
+        if (ending_type == "fail"):
+            self.speak("game over", wait=True)
+            # if (get_player_inupt("Do you want to play again?") == "yes"):
+            #     reset_episode()
+            #     main_game_loop()
+            # else:
+            #     if (get_player_inupt("Do you want to play another episode") == "yes"):
+            #         select_episode(number_of_episodes)
+            #         reset_episode()
+            #         main_game_loop()
+
+        elif (ending_type == "win"):
+            self.speak("you win", wait=True)
+            # if (episode_number == number_of_episodes):
+            #     print("You have completed the season. Well done!")
+            #     print("Quiting game")
+
+            # else:
+            #     if (get_player_inupt("Do you want to play next epsiode?") == "yes"):
+            #         print("play next episode")
+            #         episode_number += 1
+            #         open_json_file(episode_number)
+            #         reset_episode()
+            #         main_game_loop()
 
 #</editor-fold>
 
