@@ -102,7 +102,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def end_of_path(self, current_room):
         self.show_room(current_room)
-        ending_type = current_room['ending_type']
+        ending_type = current_room['end']
 
         if (ending_type == "fail"):
             self.speak("game over", wait=True)
@@ -116,7 +116,7 @@ class MyGameSkill(ConversationalGameSkill):
             #         main_game_loop()
 
         elif (ending_type == "win"):
-            self.speak("you win", wait=True)
+            self.speak("Je hebt gewonnen", wait=True)
             # if (episode_number == number_of_episodes):
             #     print("You have completed the season. Well done!")
             #     print("Quiting game")
