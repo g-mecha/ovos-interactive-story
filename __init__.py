@@ -81,17 +81,21 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def show_room(self, room):
-        self.speak(f"{room['description']}")
-
+        self.speak(f"{room['description']}", wait=True)
+        
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
 
+    def ask_question(self, room):
+        self.speak(f"{room['question']}", wait=True)
 
     def main_game_loop(self):
-        # while 'end' not in current_room:
-        self.show_room(self.current_room)
+        if 'end' not in self.current_room:
+            self.show_room(self.current_room)
+            self.ask_question(self.current_room)
             # next_room = get_action(current_room)
             # current_room = episode_data['rooms'][next_room]
+
         # if 'end' in current_room:
         #     end_of_game(current_room)
 
@@ -109,9 +113,9 @@ class MyGameSkill(ConversationalGameSkill):
         do any intent matching or normalization here
         don't forget to self.speak the game output too!
         """
-        # print(f"user game input: {utterance}")
-        # answer = "the game has spoken"
-        # self.speak(answer, wait=True, expect_response=True)
+        print(f"user game input: {utterance}")
+        answer = "the game has spoken"
+        self.speak(utterance, wait=True, expect_response=True)
 
     def on_abandon_game(self):
         """user abandoned game mid interaction

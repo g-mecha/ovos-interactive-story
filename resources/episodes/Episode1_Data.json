@@ -27,8 +27,8 @@
 
         "start": 
         {
-            "description": "You are in your living room feeling bored. You feel hungry but you can't be bothered to cook. Time to get something.",
-            "question": "What do you want? A pizza? A hamburger? Or a salad?",
+            "description": "Je staat bij de ingang van een tempel. Je ziet een deur links en rechts",
+            "question": "Welke kant ga je op? links of rechts?",
             "choises":
             {
                 "pizza":
