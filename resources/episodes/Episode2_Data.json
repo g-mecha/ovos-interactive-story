@@ -1,25 +1,134 @@
 {
     "rooms":
     {
+
+        "template": 
+        {
+            "description": "description",
+            "question": "question",
+            "choises":
+            {
+                "room_0":
+                {
+                    "keywords" : ["keyword_0", "keyword_1"]
+                },
+                "room_1":
+                {
+                    "keywords" : ["keyword_0", "keyword_1"]
+                }
+            }
+        },
+        "template_end": 
+        {
+            "description": "Ending",
+            "end": true,
+            "ending_type": "win|fail"
+        },
+
         "start": 
         {
-            "description": "Episode 2",
-            "question": "What do you want? A pizza? A hamburger? Or a salad?",
+            "description": "2",
+            "question": "Welke kant ga je op? links of rechts?",
             "choises":
             {
                 "pizza":
                 {
-                    "keywords" : ["pizza"]
+                    "keywords" : ["links", "de linker"]
                 },
                 "burger":
                 {
-                    "keywords" : ["hamburger", "burger"]
+                    "keywords" : ["rechts", "de rechter"]
                 },
-                "salad":
+                "win":
                 {
-                    "keywords" : ["salad"]
+                    "keywords" : ["qq"]
                 }
             }
+        },
+
+        "pizza": 
+        {
+            "description": "Pizza",
+            "question": "Cheese?, Mushroom?, or Pineapple?",
+            "choises":
+            {
+                "pizza_cheese":
+                {
+                    "keywords" : ["cheese"]
+                },
+                "pizza_mushroom":
+                {
+                    "keywords" : ["mushroom", "mushrooms"]
+                },
+                "pizza_pineapple":
+                {
+                    "keywords" : ["pineapple", "trash", "cringe"]
+                }
+            }
+        },
+        "pizza_cheese": 
+        {
+            "description": "You get yourself a cheese pizza. Lovely cheeeese.",
+            "end": "win"
+        },
+
+        "pizza_mushroom": 
+        {
+            "description": "You get yourself a mushroom pizza. You tasted better, but you also tasted worse.",
+            "end": "win"
+        },
+
+        "pizza_pineapple": 
+        {
+            "description": "You take one bite and die of cringe. What were you thinking?",
+            "end": "fail"
+        },
+
+        "burger": 
+        {
+            "description": "Burger?",
+            "question": "Cheese?, Chicken?, or a Beast Burger?",
+            "choises":
+            {
+                "burger_cheese":
+                {
+                    "keywords" : ["cheese", "cheese burger"]
+                },
+                "burger_chicken":
+                {
+                    "keywords" : ["Chicken", "Chicken burger"]
+                },
+                "burger_beast":
+                {
+                    "keywords" : ["beast", "beast burger", "mrbeast burger", "mr beast burger"]
+                }
+            }
+        },
+
+        "burger_cheese": 
+        {
+            "description": "You get yourself a cheese burger. Lovely cheeeese.",
+            "end": "win"
+        },
+
+        "burger_chicken": 
+        {
+            "description": "A good old chicken burger. This is great",
+            "end": "win"
+        },
+
+        "burger_beast": 
+        {
+            "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
+            "end": "fail"
+        },
+
+        "win": 
+        {
+            "description": "win",
+            "end": "win"
         }
+
     }
 }
+

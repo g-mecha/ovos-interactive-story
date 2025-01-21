@@ -59,11 +59,12 @@ class MyGameSkill(ConversationalGameSkill):
                 self.speak(f"Ik kan deze aflevering niet vinden. Selecteer een aflevering tussen de 1 en {self.number_of_episodes}")
                 self.select_episode_from_multiple()
             else:
-                self.speak(f"speel aflevering {chosen_episode_int}")
                 self.open_json_file(chosen_episode_int)
 
     def open_json_file(self, chosen_episode_int):
         self.episode_number = chosen_episode_int
+
+        self.speak(f"speel aflevering {self.episode_number}")
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
@@ -124,19 +125,25 @@ class MyGameSkill(ConversationalGameSkill):
 
         elif (ending_type == "win"):
             self.speak("Je hebt gewonnen", wait=True)
-            # if (self.episode_number == self.number_of_episodes):
-            #     #We beat the game, quiting
-            #     self.speak("Je hebt het seizoen voltooid. Goed gedaan!", wait=True)
-            #     self.on_stop_game()
+            if (self.episode_number == self.number_of_episodes):
+                #We beat the game, quiting
+                self.speak("Je hebt het seizoen voltooid. Goed gedaan!", wait=True)
+                self.on_stop_game()
 
-            # else:
-            #     response =  self.ask_yesno("Wil je de volgende aflevering spelen?")
-            #     if (get_player_inupt("Do you want to play next epsiode?") == "yes"):
-            #         print("play next episode")
-            #         episode_number += 1
-            #         open_json_file(episode_number)
-            #         reset_episode()
-            #         main_game_loop()
+            else:
+                if (self.ask_yesno("Wil je de volgende aflevering spelen?") == "yes"):
+                    #play the next epsiode
+                    self.open_json_file(self.episode_number + 1)
+
+                else:
+                    if (self.ask_yesno("Wil je een andere aflevering spelen?") == "yes"):
+                        #THe player wants to go to the level selection
+                        self.get_episodes()
+                    
+                    else:
+                        #The player quits
+                        self.on_stop_game()
+                        
 
 #</editor-fold>
 
@@ -153,7 +160,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         if (self.listen_to_player_utterance == True and utterance):
 
-            self.speak(f"{utterance}", wait=True) 
+            # self.speak(f"{utterance}", wait=True) 
 
             choices = self.current_room.get("choises", {})
 
