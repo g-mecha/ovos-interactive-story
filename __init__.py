@@ -8,7 +8,7 @@ from ovos_workshop.skills.game_skill import ConversationalGameSkill
 class MyGameSkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
         game_image = os.path.join(os.path.dirname(__file__), "resources", "images", "game.png")
-        super().__init__(skill_voc_filename="GameName", # <- the game name so it can be started
+        super().__init__(skill_voc_filename="Interactive_Story_keyword", # <- the game name so it can be started
                          skill_icon=game_image,
                          game_image=game_image,
                          *args, **kwargs)
@@ -17,8 +17,10 @@ class MyGameSkill(ConversationalGameSkill):
         self.episode_number = 0
         self.number_of_episodes = 0
 
+        self.current_room = None
+
         # We don't need this at all. I keep this around for fast debuging
-        # self.gui.show_text(f"{self.data}")
+        # self.gui.show_text(f"{selfdata}")
 
 # <editor-fold desc="setups">
     def on_play_game(self):
@@ -39,7 +41,6 @@ class MyGameSkill(ConversationalGameSkill):
             # chosen_episode = self.ask_selection(chosen_episode)
             self.speak(f"Ik heb {self.number_of_episodes} afleveringen gevonden")
             self.select_episode_from_multiple()
-
 
     def select_episode_from_multiple(self):
         chosen_episode_input = self.get_response('Welke aflevering wil je spelen?')
@@ -71,11 +72,30 @@ class MyGameSkill(ConversationalGameSkill):
         # Closing file
         f.close()
 
+        self.reset_episode()
+        self.main_game_loop()
+
 
 #</editor-fold>
 
 # <editor-fold desc="main game logic">
 
+    def show_room(self, room):
+        self.speak(f"{room['description']}")
+
+    def reset_episode(self):
+        self.current_room = self.episode_data['rooms']['start']
+
+
+    def main_game_loop(self):
+        # while 'end' not in current_room:
+        self.show_room(self.current_room)
+            # next_room = get_action(current_room)
+            # current_room = episode_data['rooms'][next_room]
+        # if 'end' in current_room:
+        #     end_of_game(current_room)
+
+    # main_game_loop()
 
 #</editor-fold>
 
@@ -89,9 +109,9 @@ class MyGameSkill(ConversationalGameSkill):
         do any intent matching or normalization here
         don't forget to self.speak the game output too!
         """
-        print(f"user game input: {utterance}")
-        answer = "the game has spoken"
-        self.speak(answer, wait=True, expect_response=True)
+        # print(f"user game input: {utterance}")
+        # answer = "the game has spoken"
+        # self.speak(answer, wait=True, expect_response=True)
 
     def on_abandon_game(self):
         """user abandoned game mid interaction
