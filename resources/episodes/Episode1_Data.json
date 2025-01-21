@@ -44,7 +44,7 @@
 
         "pizza": 
         {
-            "description": "You are at the pizzeria. But what kind of pizza do you take?",
+            "description": "Pizza",
             "question": "Cheese?, Mushroom?, or Pineapple?",
             "choises":
             {
@@ -82,7 +82,7 @@
 
         "burger": 
         {
-            "description": "You are at the local burger joint. There are several burgers on the menu. What burger do you get?",
+            "description": "Burger?",
             "question": "Cheese?, Chicken?, or a Beast Burger?",
             "choises":
             {
@@ -104,22 +104,19 @@
         "burger_cheese": 
         {
             "description": "You get yourself a cheese burger. Lovely cheeeese.",
-            "end": true,
-            "ending_type": "win"
+            "end": "win"
         },
 
         "burger_chicken": 
         {
             "description": "A good old chicken burger. This is great",
-            "end": true,
-            "ending_type": "win"
+            "end": "win"
         },
 
         "burger_beast": 
         {
             "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
-            "end": true,
-            "ending_type": "fail"
+            "end": "fail"
         }
 
     }

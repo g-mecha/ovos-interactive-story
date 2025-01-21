@@ -36,7 +36,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            # self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
+            self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
@@ -63,6 +63,7 @@ class MyGameSkill(ConversationalGameSkill):
                 self.open_json_file(chosen_episode_int)
 
     def open_json_file(self, chosen_episode_int):
+        self.episode_number = chosen_episode_int
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
@@ -104,24 +105,32 @@ class MyGameSkill(ConversationalGameSkill):
         self.show_room(current_room)
         ending_type = current_room['end']
 
+        #The player failed
         if (ending_type == "fail"):
             self.speak("game over", wait=True)
-            # if (get_player_inupt("Do you want to play again?") == "yes"):
-            #     reset_episode()
-            #     main_game_loop()
-            # else:
-            #     if (get_player_inupt("Do you want to play another episode") == "yes"):
-            #         select_episode(number_of_episodes)
-            #         reset_episode()
-            #         main_game_loop()
+            #Try again
+            if (self.ask_yesno("Wil je het opnieuw proberen?") == 'yes'):
+                self.reset_episode()
+                self.main_game_loop()
+            else:
+                #The player didn't want to replay the episode and there are no other epsidoes to play. Quit
+                if (self.episode_number == self.number_of_episodes):
+                    self.on_stop_game()
+
+                else:
+                    #The player want's to play another epsidoe
+                    if (self.ask_yesno("Wil je een andere aflevering spelen?") == 'yes'):
+                        self.get_episodes()
 
         elif (ending_type == "win"):
             self.speak("Je hebt gewonnen", wait=True)
-            # if (episode_number == number_of_episodes):
-            #     print("You have completed the season. Well done!")
-            #     print("Quiting game")
+            # if (self.episode_number == self.number_of_episodes):
+            #     #We beat the game, quiting
+            #     self.speak("Je hebt het seizoen voltooid. Goed gedaan!", wait=True)
+            #     self.on_stop_game()
 
             # else:
+            #     response =  self.ask_yesno("Wil je de volgende aflevering spelen?")
             #     if (get_player_inupt("Do you want to play next epsiode?") == "yes"):
             #         print("play next episode")
             #         episode_number += 1
@@ -158,10 +167,6 @@ class MyGameSkill(ConversationalGameSkill):
                     self.listen_to_player_utterance = False
                     self.main_game_loop()
 
-
-        # print(f"user game input: {utterance}")
-        # answer = "the game has spoken"
-        # self.speak(utterance, wait=True, expect_response=True)
 
     def on_abandon_game(self):
         """user abandoned game mid interaction
