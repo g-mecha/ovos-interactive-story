@@ -1,7 +1,7 @@
 import os.path
 import json
 
-from ovos_number_parser import pronounce_number, extract_number
+from ovos_number_parser import extract_number
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
 
 
@@ -20,38 +20,45 @@ class MyGameSkill(ConversationalGameSkill):
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{self.data}")
 
-
+# <editor-fold desc="setups">
     def on_play_game(self):
         """called by ocp_pipeline when 'play XXX' matches the game"""
-        # os.path.join(os.path.dirname(__file__), "res", "images", "game.png")
+        self.get_episodes()
+
+
+    def get_episodes(self):
         self.number_of_episodes = sum(1 for _, _, files in os.walk(f'{self.root_dir}/resources/episodes') for f in files)
 
         self.select_episode()
 
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            self.speak("Only 1 episode detected, playing episode 1")
+            self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
-            self.speak(f"I found {self.number_of_episodes} episodes")
-            chosen_episode_input = self.get_response('What episode do you want to play?')
-            # chosen_episode self.extract_number
-            chosen_episode = extract_number(chosen_episode_input, ordinals=True, lang=self.lang)
+            self.speak(f"Ik heb {self.number_of_episodes} afleveringen gevonden")
+            self.select_episode_from_multiple()
 
-            self.gui.show_text(f"{chosen_episode_input}, {chosen_episode}")
 
-            if chosen_episode == False:
-                self.speak("Invalid. Please say a number")
-                self.select_episode()
+    def select_episode_from_multiple(self):
+        chosen_episode_input = self.get_response('Welke aflevering wil je spelen?')
+        #In some languages lower numbers will return the written text instead of a numeral
+        #The extract_number will take the string and extract a number from it if possible
+        chosen_episode = extract_number(chosen_episode_input, ordinals=True, lang=self.lang)
+
+        #There was no number in the player response, repeat the question
+        if chosen_episode == False:
+            self.speak("Zeg een getal")
+            self.select_episode_from_multiple()
+        else:
+            chosen_episode_int = int(chosen_episode)
+            if chosen_episode_int <= 0 or chosen_episode_int > self.number_of_episodes:
+                self.speak(f"Ik kan deze aflevering niet vinden. Selecteer een aflevering tussen de 1 en {self.number_of_episodes}")
+                self.select_episode_from_multiple()
             else:
-                chosen_episode_int = int(chosen_episode)
-                if chosen_episode_int <= 0 or chosen_episode_int > self.number_of_episodes:
-                    self.speak(f"Invalid input. Please select an episode between 1 and {self.number_of_episodes}")
-                    self.select_episode()
-                else:
-                    self.speak(f"speel aflevering {chosen_episode_int}")
-                    self.open_json_file(chosen_episode_int)
+                self.speak(f"speel aflevering {chosen_episode_int}")
+                self.open_json_file(chosen_episode_int)
 
     def open_json_file(self, chosen_episode_int):
         
@@ -61,11 +68,16 @@ class MyGameSkill(ConversationalGameSkill):
         # returns JSON object as a dictionary
         self.episode_data = json.load(f)
 
-        self.gui.show_text(f"{self.episode_data['rooms']['start']}")
-
         # Closing file
         f.close()
-        
+
+
+#</editor-fold>
+
+# <editor-fold desc="main game logic">
+
+
+#</editor-fold>
 
     def on_stop_game(self):
         """called when game is stopped for any reason
