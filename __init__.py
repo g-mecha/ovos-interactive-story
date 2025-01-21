@@ -18,6 +18,7 @@ class MyGameSkill(ConversationalGameSkill):
         self.number_of_episodes = 0
 
         self.current_room = None
+        self.listen_to_player_utterance = False
 
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
@@ -35,7 +36,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
+            # self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
@@ -87,9 +88,11 @@ class MyGameSkill(ConversationalGameSkill):
         self.current_room = self.episode_data['rooms']['start']
 
     def ask_question(self, room):
-        self.speak(f"{room['question']}", wait=True)
+        self.speak(f"{room['question']}", wait=True, expect_response=True)
+        self.listen_to_player_utterance = True
 
     def main_game_loop(self):
+        self.gui.show_text(f"{self.current_room}")
         if 'end' not in self.current_room:
             self.show_room(self.current_room)
             self.ask_question(self.current_room)
@@ -113,9 +116,27 @@ class MyGameSkill(ConversationalGameSkill):
         do any intent matching or normalization here
         don't forget to self.speak the game output too!
         """
-        print(f"user game input: {utterance}")
-        answer = "the game has spoken"
-        self.speak(utterance, wait=True, expect_response=True)
+
+        if (self.listen_to_player_utterance == True and utterance):
+
+            self.speak(f"{utterance}", wait=True) 
+
+            choices = self.current_room.get("choises", {})
+
+            # Iterate through each choice and its keywords
+            for room_name, details in choices.items():
+                
+                # self.log.debug(details)
+                if utterance in (keyword.lower() for keyword in details["keywords"]):
+                    # Return the name of the room if a match is found
+                    self.current_room = self.episode_data['rooms'][room_name]
+                    self.listen_to_player_utterance = False
+                    self.main_game_loop()
+
+
+        # print(f"user game input: {utterance}")
+        # answer = "the game has spoken"
+        # self.speak(utterance, wait=True, expect_response=True)
 
     def on_abandon_game(self):
         """user abandoned game mid interaction

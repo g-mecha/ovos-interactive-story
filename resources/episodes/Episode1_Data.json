@@ -33,15 +33,11 @@
             {
                 "pizza":
                 {
-                    "keywords" : ["pizza"]
+                    "keywords" : ["links", "de linker"]
                 },
                 "burger":
                 {
-                    "keywords" : ["hamburger", "burger"]
-                },
-                "salad":
-                {
-                    "keywords" : ["salad"]
+                    "keywords" : ["rechts", "de rechter"]
                 }
             }
         },
