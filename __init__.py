@@ -18,7 +18,8 @@ class MyGameSkill(ConversationalGameSkill):
         self.number_of_episodes = 0
 
         self.current_room = None
-        self.listen_to_player_utterance = False
+        self.listen_for_player_input = False
+        self.listen_for_episode_number = False
 
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
@@ -41,11 +42,10 @@ class MyGameSkill(ConversationalGameSkill):
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
             self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
-            self.select_episode_from_multiple()
+            self.speak_dialog("ask_for_episode_to_play", expect_response=True)
+            self.listen_for_episode_number = True
 
-    def select_episode_from_multiple(self):
-        self.speak_dialog('ask_for_episode_to_play', expect_response=True)
-        chosen_episode_input = self.get_response('Welke aflevering wil je spelen?')
+    def select_episode_from_multiple(self, chosen_episode_input):
         #In some languages lower numbers will return the written text instead of a numeral
         #The extract_number will take the string and extract a number from it if possible
         chosen_episode = extract_number(chosen_episode_input, ordinals=True, lang=self.lang)
@@ -53,17 +53,18 @@ class MyGameSkill(ConversationalGameSkill):
         #There was no number in the player response, repeat the question
         if chosen_episode == False:
             self.speak_dialog("no_number")
-            self.select_episode_from_multiple()
+            self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes}, expect_response=True)
         else:
             chosen_episode_int = int(chosen_episode)
             if chosen_episode_int <= 0 or chosen_episode_int > self.number_of_episodes:
-                self.speak_dialog("episode_not_found", wait=True)
-                self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes})
-                self.select_episode_from_multiple()
+                self.speak_dialog("episode_not_found")
+                self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes}, expect_response=True)
             else:
                 self.open_json_file(chosen_episode_int)
 
     def open_json_file(self, chosen_episode_int):
+        self.listen_for_episode_number = False
+
         self.episode_number = chosen_episode_int
 
         self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
@@ -80,7 +81,6 @@ class MyGameSkill(ConversationalGameSkill):
         self.reset_episode()
         self.main_game_loop()
 
-
 #</editor-fold>
 
 # <editor-fold desc="main game logic">
@@ -93,7 +93,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def ask_question(self, room):
         self.speak(f"{room['question']}", wait=True, expect_response=True)
-        self.listen_to_player_utterance = True
+        self.listen_for_player_input = True
 
     def main_game_loop(self):
         current_room = self.current_room
@@ -149,6 +149,8 @@ class MyGameSkill(ConversationalGameSkill):
 
 #</editor-fold>
 
+# <editor-fold desc="GameSkill logic">
+
     def on_stop_game(self):
         """called when game is stopped for any reason
         auto-save may be implemented here"""
@@ -160,7 +162,11 @@ class MyGameSkill(ConversationalGameSkill):
         don't forget to self.speak the game output too!
         """
 
-        if (self.listen_to_player_utterance == True and utterance):
+        if (self.listen_for_episode_number == True and utterance):
+            self.select_episode_from_multiple(utterance)
+
+
+        if (self.listen_for_player_input == True and utterance):
 
             # self.speak(f"{utterance}", wait=True) 
 
@@ -173,7 +179,7 @@ class MyGameSkill(ConversationalGameSkill):
                 if utterance in (keyword.lower() for keyword in details["keywords"]):
                     # Return the name of the room if a match is found
                     self.current_room = self.episode_data['rooms'][room_name]
-                    self.listen_to_player_utterance = False
+                    self.listen_for_player_input = False
                     self.main_game_loop()
 
 
@@ -186,3 +192,4 @@ class MyGameSkill(ConversationalGameSkill):
         on_game_stop will be called after this handler"""
         self.speak("abandoned game")
 
+#</editor-fold>
