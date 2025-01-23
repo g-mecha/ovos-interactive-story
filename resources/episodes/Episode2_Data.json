@@ -27,7 +27,7 @@
 
         "start": 
         {
-            "description": "2",
+            "description": "Je staat bij de ingang van een tempel. Je ziet een deur links en rechts",
             "question": "Welke kant ga je op? links of rechts?",
             "choises":
             {
@@ -38,10 +38,6 @@
                 "burger":
                 {
                     "keywords" : ["rechts", "de rechter"]
-                },
-                "win":
-                {
-                    "keywords" : ["qq"]
                 }
             }
         },

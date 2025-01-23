@@ -7,7 +7,7 @@ from ovos_workshop.skills.game_skill import ConversationalGameSkill
 
 class MyGameSkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
-        game_image = os.path.join(os.path.dirname(__file__), "resources", "images", "game.png")
+        game_image = os.path.join(os.path.dirname(__file__), "resources", "images", "spell-book.png")
         super().__init__(skill_voc_filename="Interactive_story_keyword", # <- the game name so it can be started
                          skill_icon=game_image,
                          game_image=game_image,

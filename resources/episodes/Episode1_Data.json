@@ -4,6 +4,7 @@
 
         "template": 
         {
+            "Audiofile": "file_0",
             "description": "description",
             "question": "question",
             "choises":
