@@ -36,7 +36,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            self.speak("Ik heb maar een aflevering gevonden. Speel aflevering 1.")
+            self.speak_dialog("single_episode_found")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
@@ -64,7 +64,7 @@ class MyGameSkill(ConversationalGameSkill):
     def open_json_file(self, chosen_episode_int):
         self.episode_number = chosen_episode_int
 
-        self.speak(f"speel aflevering {self.episode_number}")
+        self.speak_dialog("start_episode", {"episode_number": chosen_episode_int}) 
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
