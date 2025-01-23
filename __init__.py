@@ -84,7 +84,7 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def show_room(self, room):
-        self.speak(f"{room['description']}", wait=True)
+        self.speak(f"{room['description']}")
         
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
