@@ -8,7 +8,7 @@ from ovos_workshop.skills.game_skill import ConversationalGameSkill
 class MyGameSkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
         game_image = os.path.join(os.path.dirname(__file__), "resources", "images", "game.png")
-        super().__init__(skill_voc_filename="Interactive_Story_keyword", # <- the game name so it can be started
+        super().__init__(skill_voc_filename="Interactive_story_keyword", # <- the game name so it can be started
                          skill_icon=game_image,
                          game_image=game_image,
                          *args, **kwargs)
@@ -40,10 +40,11 @@ class MyGameSkill(ConversationalGameSkill):
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
-            self.speak(f"Ik heb {self.number_of_episodes} afleveringen gevonden")
+            self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
             self.select_episode_from_multiple()
 
     def select_episode_from_multiple(self):
+        self.speak_dialog('ask_for_episode_to_play', expect_response=True)
         chosen_episode_input = self.get_response('Welke aflevering wil je spelen?')
         #In some languages lower numbers will return the written text instead of a numeral
         #The extract_number will take the string and extract a number from it if possible
@@ -51,12 +52,13 @@ class MyGameSkill(ConversationalGameSkill):
 
         #There was no number in the player response, repeat the question
         if chosen_episode == False:
-            self.speak("Zeg een getal")
+            self.speak_dialog("no_number")
             self.select_episode_from_multiple()
         else:
             chosen_episode_int = int(chosen_episode)
             if chosen_episode_int <= 0 or chosen_episode_int > self.number_of_episodes:
-                self.speak(f"Ik kan deze aflevering niet vinden. Selecteer een aflevering tussen de 1 en {self.number_of_episodes}")
+                self.speak_dialog("episode_not_found", wait=True)
+                self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes})
                 self.select_episode_from_multiple()
             else:
                 self.open_json_file(chosen_episode_int)
@@ -64,7 +66,7 @@ class MyGameSkill(ConversationalGameSkill):
     def open_json_file(self, chosen_episode_int):
         self.episode_number = chosen_episode_int
 
-        self.speak_dialog("start_episode", {"episode_number": chosen_episode_int}) 
+        self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
