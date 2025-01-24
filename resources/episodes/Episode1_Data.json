@@ -30,17 +30,18 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar Wat?",
-            "question": "Waar heb je zin in? Een pizza? Een hamburger? Of een salade?",
+            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
+            "question": "Waar heb je zin in? Een pizza? Een hamburger? of een salade?",
             "choises":
             {
                 "pizza":
                 {
-                    "transition_text": "gettign a pizza",
+                    "transition_text": "Je gaat naar de pizzeria",
                     "keywords" : ["pizza", "een pizza"]
                 },
                 "burger":
                 {
+                    "transition_text": "Je gaat naar de burgertent",
                     "keywords" : ["hamburger", "een hamburger", "burger"]
                 },
                 "salad":
@@ -52,8 +53,8 @@
 
         "pizza": 
         {
-            "description": "Je bent bij de pizzeria. Maar voor pizza neem je?",
-            "question": "Kaas?, paddenstoel?, or ananas?",
+            "description": "Je bent bij de pizzeria. Wat voor pizza neem je?",
+            "question": "Kaas?, paddenstoel?, of ananas?",
             "choises":
             {
                 "pizza_cheese":
@@ -84,7 +85,7 @@
 
         "pizza_pineapple": 
         {
-            "description": "Wat? Ben je gek of zo? Ik stop jouw voordat jij je nog zelf enog rger voor schut zet.",
+            "description": "Wat? Ben je gek of zo? Ik stop jouw voordat jij je zelf nog erger voor schut zet.",
             "end": "fail"
         },
 
@@ -111,7 +112,7 @@
 
         "burger_cheese": 
         {
-            "description": "Je hebt een lekere kaasburger. Lovely cheeeese.",
+            "description": "Je hebt een lekkere kaasburger. Lovely cheeeese.",
             "end": "win"
         },
 
