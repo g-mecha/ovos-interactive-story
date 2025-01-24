@@ -30,24 +30,28 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "Je staat bij de ingang van een tempel. Je ziet een deur links en rechts",
-            "question": "Welke kant ga je op? links of rechts?",
+            "description": "You are in your living room feeling bored. You feel hungry but you can't be bothered to cook. Time to get something.",
+            "question": "What do you want? A pizza? A hamburger? Or a salad?",
             "choises":
             {
                 "pizza":
                 {
-                    "keywords" : ["links", "de linker"]
+                    "keywords" : ["pizza", "a pizza"]
                 },
                 "burger":
                 {
-                    "keywords" : ["rechts", "de rechter"]
+                    "keywords" : ["hamburger", "burger"]
+                },
+                "salad":
+                {
+                    "keywords" : ["salad", "a salad"]
                 }
             }
         },
 
         "pizza": 
         {
-            "description": "Pizza",
+            "description": "You are at the pizzeria. But what kind of pizza do you take?",
             "question": "Cheese?, Mushroom?, or Pineapple?",
             "choises":
             {
@@ -85,7 +89,7 @@
 
         "burger": 
         {
-            "description": "Burger?",
+            "description": "You are at the local burger joint. There are several burgers on the menu. What burger do you get?",
             "question": "Cheese?, Chicken?, or a Beast Burger?",
             "choises":
             {
@@ -119,6 +123,12 @@
         "burger_beast": 
         {
             "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
+            "end": "fail"
+        },
+
+        "salad": 
+        {
+            "description": "Bro who eat's a salad. To bad!",
             "end": "fail"
         }
 
