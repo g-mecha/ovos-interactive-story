@@ -155,7 +155,7 @@ class MyGameSkill(ConversationalGameSkill):
     def on_stop_game(self):
         """called when game is stopped for any reason
         auto-save may be implemented here"""
-        self.speak("game ended")
+        self.speak_dialog("game_ended")
 
     def on_game_command(self, utterance: str, lang: str):
         """pipe user input that wasnt caught by intents to the game

@@ -30,77 +30,77 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "You are in your living room feeling bored. You feel hungry but you can't be bothered to cook. Time to get something.",
-            "question": "What do you want? A pizza? A hamburger? Or a salad?",
+            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar Wat?",
+            "question": "Waar heb je zin in? Een pizza? Een hamburger? Of een salade?",
             "choises":
             {
                 "pizza":
                 {
                     "transition_text": "gettign a pizza",
-                    "keywords" : ["pizza", "a pizza"]
+                    "keywords" : ["pizza", "een pizza"]
                 },
                 "burger":
                 {
-                    "keywords" : ["hamburger", "burger"]
+                    "keywords" : ["hamburger", "een hamburger", "burger"]
                 },
                 "salad":
                 {
-                    "keywords" : ["salad", "a salad"]
+                    "keywords" : ["salade", "een salade"]
                 }
             }
         },
 
         "pizza": 
         {
-            "description": "You are at the pizzeria. But what kind of pizza do you take?",
-            "question": "Cheese?, Mushroom?, or Pineapple?",
+            "description": "Je bent bij de pizzeria. Maar voor pizza neem je?",
+            "question": "Kaas?, paddenstoel?, or ananas?",
             "choises":
             {
                 "pizza_cheese":
                 {
-                    "keywords" : ["cheese"]
+                    "keywords" : ["kaas", "kaaspizza", "kaas pizza"]
                 },
                 "pizza_mushroom":
                 {
-                    "keywords" : ["mushroom", "mushrooms"]
+                    "keywords" : ["paddenstoel", "paddenstoelen", "paddenstoelpizza", "paddenstoelenpizza"]
                 },
                 "pizza_pineapple":
                 {
-                    "keywords" : ["pineapple", "trash", "cringe"]
+                    "keywords" : ["ananas", "troep", "ananaspizza", "ananaspizza pizza"]
                 }
             }
         },
         "pizza_cheese": 
         {
-            "description": "You get yourself a cheese pizza. Lovely cheeeese.",
+            "description": "Je heb een kaaspizza gekocht. Lovely cheeeese.",
             "end": "win"
         },
 
         "pizza_mushroom": 
         {
-            "description": "You get yourself a mushroom pizza. You tasted better, but you also tasted worse.",
+            "description": "Je hebt een paddenstoel gekocht Kabouter Plop. Er waren betere keuzes maar dit is te doen",
             "end": "win"
         },
 
         "pizza_pineapple": 
         {
-            "description": "You take one bite and die of cringe. What were you thinking?",
+            "description": "Wat? Ben je gek of zo? Ik stop jouw voordat jij je nog zelf enog rger voor schut zet.",
             "end": "fail"
         },
 
         "burger": 
         {
-            "description": "You are at the local burger joint. There are several burgers on the menu. What burger do you get?",
-            "question": "Cheese?, Chicken?, or a Beast Burger?",
+            "description": "Je bent bij de lokale burgertent. Er staan ​​meerdere burgers op het menu. Welke burger neem je??",
+            "question": "Kaas?, kip?, of een Beast Burger?",
             "choises":
             {
                 "burger_cheese":
                 {
-                    "keywords" : ["cheese", "cheese burger"]
+                    "keywords" : ["kaas", "cheese burger"]
                 },
                 "burger_chicken":
                 {
-                    "keywords" : ["Chicken", "Chicken burger"]
+                    "keywords" : ["kip", "kipburger", "kip burger"]
                 },
                 "burger_beast":
                 {
@@ -111,25 +111,25 @@
 
         "burger_cheese": 
         {
-            "description": "You get yourself a cheese burger. Lovely cheeeese.",
+            "description": "Je hebt een lekere kaasburger. Lovely cheeeese.",
             "end": "win"
         },
 
         "burger_chicken": 
         {
-            "description": "A good old chicken burger. This is great",
+            "description": "Je hebt nu een kipburger. Dit is goed",
             "end": "win"
         },
 
         "burger_beast": 
         {
-            "description": "You look at the disgusting mess in front of you. It suddenly starts to move and run outside, wrecking havoc on the neighborhood. That was a horrible decision on your end.",
+            "description": "Je kijkt naar de walgelijke troep voor je. Het begint plotseling te bewegen en naar buiten te rennen, en zaait chaos in de buurt. Dat was een vreselijke beslissing van jou.",
             "end": "fail"
         },
 
         "salad": 
         {
-            "description": "Bro who eat's a salad. To bad!",
+            "description": "Gezond maar niet lekker. Je kan veel beter man",
             "end": "fail"
         }
 
