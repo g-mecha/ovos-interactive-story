@@ -110,7 +110,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         #The player failed
         if (ending_type == "fail"):
-            self.speak("game over", wait=True)
+            self.speak_dialog("game_over", wait=True)
             #Try again
             if (self.ask_yesno("Wil je het opnieuw proberen?") == 'yes'):
                 self.reset_episode()
@@ -126,10 +126,11 @@ class MyGameSkill(ConversationalGameSkill):
                         self.get_episodes()
 
         elif (ending_type == "win"):
-            self.speak("Je hebt gewonnen", wait=True)
+            self.speak_dialog("win_game", wait=True)
             if (self.episode_number == self.number_of_episodes):
                 #We beat the game, quiting
-                self.speak("Je hebt het seizoen voltooid. Goed gedaan!", wait=True)
+                self.speak_dialog("season_complete", wait=True)
+                self.speak_dialog("congratulations")
                 self.on_stop_game()
 
             else:
@@ -175,19 +176,17 @@ class MyGameSkill(ConversationalGameSkill):
             # Iterate through each choice and its keywords
             for room_name, details in choices.items():
 
-                # self.gui.show_text(details["transition_text"])  # Print the transition_text
-
-
-                # if 'transition_text' in details:
-                #     self.gui.show_text(f"{details["transition_text"]}")
-                # else: self.gui.show_text("can't find that shit bruh")
-
                 # self.log.debug(details)
                 if utterance in (keyword.lower() for keyword in details["keywords"]):
-                    
+
+                    if 'transition_text' in details:
+                        self.speak(details["transition_text"])
+
                     # Return the name of the room if a match is found
                     self.current_room = self.episode_data['rooms'][room_name]
+
                     self.listen_for_player_input = False
+
                     self.main_game_loop()
 
 

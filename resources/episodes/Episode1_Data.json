@@ -36,6 +36,7 @@
             {
                 "pizza":
                 {
+                    "transition_text": "gettign a pizza",
                     "keywords" : ["pizza", "a pizza"]
                 },
                 "burger":
