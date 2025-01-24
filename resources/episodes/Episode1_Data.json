@@ -4,14 +4,16 @@
 
         "template": 
         {
-            "Audiofile": "file_0",
+            "audio_description": "file_0",
             "description": "description",
             "question": "question",
             "choises":
             {
                 "room_0":
                 {
-                    "keywords" : ["keyword_0", "keyword_1"]
+                    "keywords" : ["keyword_0", "keyword_1"],
+                    "transition_audio" : "file_0",
+                    "transition_text": "transition_text"
                 },
                 "room_1":
                 {
@@ -22,12 +24,12 @@
         "template_end": 
         {
             "description": "Ending",
-            "end": true,
-            "ending_type": "win|fail"
+            "end": "win|fail"
         },
 
         "start": 
         {
+            "audio_file": "Geluid_1",
             "description": "Je staat bij de ingang van een tempel. Je ziet een deur links en rechts",
             "question": "Welke kant ga je op? links of rechts?",
             "choises":

@@ -10,7 +10,9 @@
             {
                 "room_0":
                 {
-                    "keywords" : ["keyword_0", "keyword_1"]
+                    "keywords" : ["keyword_0", "keyword_1"],
+                    "transition_audio" : "file_0",
+                    "transition_text": "transition_text"
                 },
                 "room_1":
                 {
@@ -31,18 +33,20 @@
             "question": "Welke kant ga je op? links of rechts?",
             "choises":
             {
-                "pizza":
+                "start_left":
                 {
-                    "keywords" : ["links", "de linker"]
+                    "keywords" : ["links", "de linker"],
+                    "transition_text": "Je besluit om naar links te gaan"
                 },
-                "burger":
+                "start_right":
                 {
-                    "keywords" : ["rechts", "de rechter"]
+                    "keywords" : ["rechts", "de rechter"],
+                    "transition_text": "Je besluit om naar rechts te gaan"
                 }
             }
         },
 
-        "pizza": 
+        "start_left": 
         {
             "description": "Pizza",
             "question": "Cheese?, Mushroom?, or Pineapple?",
@@ -80,7 +84,7 @@
             "end": "fail"
         },
 
-        "burger": 
+        "start_right": 
         {
             "description": "Burger?",
             "question": "Cheese?, Chicken?, or a Beast Burger?",

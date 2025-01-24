@@ -174,9 +174,17 @@ class MyGameSkill(ConversationalGameSkill):
 
             # Iterate through each choice and its keywords
             for room_name, details in choices.items():
-                
+
+                # self.gui.show_text(details["transition_text"])  # Print the transition_text
+
+
+                # if 'transition_text' in details:
+                #     self.gui.show_text(f"{details["transition_text"]}")
+                # else: self.gui.show_text("can't find that shit bruh")
+
                 # self.log.debug(details)
                 if utterance in (keyword.lower() for keyword in details["keywords"]):
+                    
                     # Return the name of the room if a match is found
                     self.current_room = self.episode_data['rooms'][room_name]
                     self.listen_for_player_input = False
