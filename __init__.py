@@ -2,7 +2,9 @@ import os.path
 import json
 
 from ovos_number_parser import extract_number
+from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
+from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 
 
 class MyGameSkill(ConversationalGameSkill):
@@ -21,18 +23,27 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.listen_for_episode_number = False
 
+
+
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
+
+        def initialize(self):
+            # start with all game states disabled
+            self.intent_layers.disable()
+            self.gui.show_text("initialize")
+            
+
 
 # <editor-fold desc="setups">
     def on_play_game(self):
         """called by ocp_pipeline when 'play XXX' matches the game"""
+        self.intent_layers.disable()
         self.get_episodes()
 
-
+    @enables_layer(layer_name="stop_game")
     def get_episodes(self):
         self.number_of_episodes = sum(1 for _, _, files in os.walk(f'{self.root_dir}/resources/episodes') for f in files)
-
         self.select_episode()
 
     def select_episode(self):
@@ -146,6 +157,14 @@ class MyGameSkill(ConversationalGameSkill):
                     else:
                         #The player quits
                         self.on_stop_game()
+
+
+    @resets_layers()
+    def handle_game_over(self):
+        self.speak_dialog("game_ended")
+        # self.speak_dialog("stop.game")
+        self._playing.clear()
+        self._paused.clear()
                         
 
 #</editor-fold>
@@ -155,7 +174,8 @@ class MyGameSkill(ConversationalGameSkill):
     def on_stop_game(self):
         """called when game is stopped for any reason
         auto-save may be implemented here"""
-        self.speak_dialog("game_ended")
+        self.handle_game_over()
+        
 
     def on_game_command(self, utterance: str, lang: str):
         """pipe user input that wasnt caught by intents to the game
@@ -163,21 +183,31 @@ class MyGameSkill(ConversationalGameSkill):
         don't forget to self.speak the game output too!
         """
 
+        # self.gui.show_text(f"{utterance}")
+        # utterance.lower().strip()
+        # self.gui.show_text(f"{utterance}")
+
         if (self.listen_for_episode_number == True and utterance):
             self.select_episode_from_multiple(utterance)
 
 
         if (self.listen_for_player_input == True and utterance):
 
-            # self.speak(f"{utterance}", wait=True) 
+            # self.speak(f"{utterance}", wait=True)
 
-            choices = self.current_room.get("choises", {})
+            # self.gui.show_text(f"{utterance} / {utterance.lower().strip()}")
+
+            matched = False
+
+            choices = self.current_room.get("choices", {})
 
             # Iterate through each choice and its keywords
             for room_name, details in choices.items():
 
                 # self.log.debug(details)
-                if utterance in (keyword.lower() for keyword in details["keywords"]):
+                if utterance.lower().strip() in (keyword.lower() for keyword in details["keywords"]):
+
+                    matched = True
 
                     if 'transition_text' in details:
                         self.speak(details["transition_text"])
@@ -188,6 +218,9 @@ class MyGameSkill(ConversationalGameSkill):
                     self.listen_for_player_input = False
 
                     self.main_game_loop()
+            
+            if matched == False:
+                self.speak_dialog("invalid_keyword", expect_response=True)
 
 
     def on_abandon_game(self):
@@ -198,5 +231,6 @@ class MyGameSkill(ConversationalGameSkill):
 
         on_game_stop will be called after this handler"""
         self.speak("abandoned game")
+        self.handle_game_over()
 
 #</editor-fold>

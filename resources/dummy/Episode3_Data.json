@@ -6,7 +6,7 @@
         {
             "description": "description",
             "question": "question",
-            "choises":
+            "choices":
             {
                 "room_0":
                 {
@@ -29,7 +29,7 @@
         {
             "description": "3",
             "question": "Welke kant ga je op? links of rechts?",
-            "choises":
+            "choices":
             {
                 "pizza":
                 {
@@ -50,7 +50,7 @@
         {
             "description": "Pizza",
             "question": "Cheese?, Mushroom?, or Pineapple?",
-            "choises":
+            "choices":
             {
                 "pizza_cheese":
                 {
@@ -88,7 +88,7 @@
         {
             "description": "Burger?",
             "question": "Cheese?, Chicken?, or a Beast Burger?",
-            "choises":
+            "choices":
             {
                 "burger_cheese":
                 {
