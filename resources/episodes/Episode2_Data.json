@@ -30,107 +30,107 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
-            "question": "Waar heb je zin in? Een pizza? Een hamburger? of een salade?",
+            "description": "Je hebt gisteren lekker gegeten. Wat ga je vandaag halen?",
+            "question": "Waar heb je zin in? Tacos? Een sandwich? of een groenteschaal?",
             "choices":
             {
-                "pizza":
+                "taco":
                 {
-                    "transition_text": "Je gaat naar de pizzeria",
-                    "keywords" : ["pizza", "een pizza"]
+                    "transition_text": "Je gaat naar de mexicaan",
+                    "keywords" : ["taco", "tacos", "een taco"]
                 },
-                "burger":
+                "sandwich":
                 {
-                    "transition_text": "Je gaat naar de burgertent",
-                    "keywords" : ["hamburger", "een hamburger", "burger"]
+                    "transition_text": "Je gaat naar de broodjeszaak",
+                    "keywords" : ["sandwich", "een sandwich", "broodje", "een broodje"]
                 },
-                "salad":
+                "Veggie_bowl":
                 {
-                    "keywords" : ["salade", "een salade"]
+                    "keywords" : ["groenteschaal", "een groenteschaal"]
                 }
             }
         },
 
-        "pizza": 
+        "taco": 
         {
-            "description": "Je bent bij de pizzeria. Wat voor pizza neem je?",
-            "question": "Kaas?, paddenstoel?, of ananas?",
+            "description": "Je bent bij de mexicaan. Wat voor taco neem je?",
+            "question": "Kip?, gehackt?, of groente?",
             "choices":
             {
-                "pizza_cheese":
+                "taco_chicken":
                 {
-                    "keywords" : ["kaas", "kaaspizza", "kaas pizza"]
+                    "keywords" : ["kip", "kip taco"]
                 },
-                "pizza_mushroom":
+                "taco_meat":
                 {
-                    "keywords" : ["paddenstoel", "paddenstoelen", "paddenstoelpizza", "paddenstoelenpizza"]
+                    "keywords" : ["vlees", "vlees taco", "gehackt", "gehackt taco"]
                 },
-                "pizza_pineapple":
+                "taco_veggie":
                 {
-                    "keywords" : ["ananas", "troep", "ananaspizza", "ananaspizza pizza"]
+                    "keywords" : ["groenten", "groente", "groente taco"]
                 }
             }
         },
-        "pizza_cheese": 
+        "taco_chicken": 
         {
-            "description": "Je heb een kaaspizza gekocht. Lovely cheeeese.",
+            "description": "Je heb een kip taco gekocht. De kip smaakt goed.",
             "end": "win"
         },
 
-        "pizza_mushroom": 
+        "taco_meat": 
         {
-            "description": "Je hebt een paddenstoel gekocht Kabouter Plop. Er waren betere keuzes maar dit is te doen",
+            "description": "Je hebt een gehakt taco gekocht. Het is ok maar het mist iets.",
             "end": "win"
         },
 
-        "pizza_pineapple": 
+        "taco_veggie": 
         {
-            "description": "Wat? Ben je gek of zo? Ik stop jouw voordat jij je zelf nog erger voor schut zet.",
+            "description": "Gezonder dan de andere keuzes, maar het mist smaak.",
             "end": "fail"
         },
 
-        "burger": 
+        "sandwich": 
         {
-            "description": "Je bent bij de lokale burgertent. Er staan ​​meerdere burgers op het menu. Welke burger neem je??",
-            "question": "Kaas?, kip?, of een Beast Burger?",
+            "description": "Je bent bij de broodjes winkel. Er is veel keuze. Welke sandwich neem je?",
+            "question": "Spaans?, Gezond?, of knokkel?",
             "choices":
             {
-                "burger_cheese":
+                "spanish_sandwich":
                 {
-                    "keywords" : ["kaas", "cheese burger"]
+                    "keywords" : ["spaans", "broodje spaans", "spaanse sandwich", "sandwich spaans"]
                 },
-                "burger_chicken":
+                "healthy_sandwich":
                 {
-                    "keywords" : ["kip", "kipburger", "kip burger"]
+                    "keywords" : ["gezond", "broodje gezond", "sandwich gezond", "gezonde andwich"]
                 },
-                "burger_beast":
+                "knuckle_sandwich":
                 {
-                    "keywords" : ["beast", "beast burger", "mrbeast burger", "mr beast burger"]
+                    "keywords" : ["knokkel", "knokkel sandwich"]
                 }
             }
         },
 
-        "burger_cheese": 
+        "spanish_sandwich": 
         {
-            "description": "Je hebt een lekkere kaasburger. Lovely cheeeese.",
+            "description": "Je hebt een broodje spaans gekocht. lekker warm.",
             "end": "win"
         },
 
-        "burger_chicken": 
+        "healthy_sandwich": 
         {
-            "description": "Je hebt nu een kipburger. Dit is goed",
+            "description": "OK fijn een boodje gezond smaakt goed. Ik geef je deze.",
             "end": "win"
         },
 
-        "burger_beast": 
+        "knuckle_sandwich": 
         {
-            "description": "Je kijkt naar de walgelijke troep voor je. Het begint plotseling te bewegen en naar buiten te rennen, en zaait chaos in de buurt. Dat was een vreselijke beslissing van jou.",
+            "description": "Je krijgt een klap in je gezicht. Die had je moeten zien aankomen",
             "end": "fail"
         },
 
-        "salad": 
+        "Veggie_bowl": 
         {
-            "description": "Gezond maar niet lekker. Je kan veel beter man",
+            "description": "Je hebt nu een groenteschaal. Gezond maar niet lekker.",
             "end": "fail"
         }
 

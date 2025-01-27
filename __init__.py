@@ -197,7 +197,7 @@ class MyGameSkill(ConversationalGameSkill):
 
             # self.gui.show_text(f"{utterance} / {utterance.lower().strip()}")
 
-            matched = False
+            keyword_matched = True
 
             choices = self.current_room.get("choices", {})
 
@@ -207,7 +207,7 @@ class MyGameSkill(ConversationalGameSkill):
                 # self.log.debug(details)
                 if utterance.lower().strip() in (keyword.lower() for keyword in details["keywords"]):
 
-                    matched = True
+                    keyword_matched = True
 
                     if 'transition_text' in details:
                         self.speak(details["transition_text"])
@@ -219,7 +219,7 @@ class MyGameSkill(ConversationalGameSkill):
 
                     self.main_game_loop()
             
-            if matched == False:
+            if keyword_matched == False:
                 self.speak_dialog("invalid_keyword", expect_response=True)
 
 
