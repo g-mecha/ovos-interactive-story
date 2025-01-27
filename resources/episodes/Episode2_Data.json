@@ -54,7 +54,7 @@
         "taco": 
         {
             "description": "Je bent bij de mexicaan. Wat voor taco neem je?",
-            "question": "Kip?, gehackt?, of groente?",
+            "question": "Kip?, gehakt?, of groente?",
             "choices":
             {
                 "taco_chicken":
@@ -63,7 +63,7 @@
                 },
                 "taco_meat":
                 {
-                    "keywords" : ["vlees", "vlees taco", "gehackt", "gehackt taco"]
+                    "keywords" : ["vlees", "vlees taco", "gehakt", "gehakt taco"]
                 },
                 "taco_veggie":
                 {
