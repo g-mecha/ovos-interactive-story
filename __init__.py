@@ -193,11 +193,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         if (self.listen_for_player_input == True and utterance):
 
-            # self.speak(f"{utterance}", wait=True)
-
-            # self.gui.show_text(f"{utterance} / {utterance.lower().strip()}")
-
-            keyword_matched = True
+            keyword_matched = False
 
             choices = self.current_room.get("choices", {})
 
@@ -220,7 +216,8 @@ class MyGameSkill(ConversationalGameSkill):
                     self.main_game_loop()
             
             if keyword_matched == False:
-                self.speak_dialog("invalid_keyword", expect_response=True)
+                self.speak_dialog("invalid_keyword")
+                self.speak_dialog("ask_for_repeat", expect_response=True)
 
 
     def on_abandon_game(self):
