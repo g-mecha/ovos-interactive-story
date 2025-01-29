@@ -7,7 +7,7 @@ from ovos_workshop.skills.game_skill import ConversationalGameSkill
 from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 
 
-class MyGameSkill(ConversationalGameSkill):
+class InteractiveStorySkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
         game_image = os.path.join(os.path.dirname(__file__), "resources", "images", "spell-book.png")
         super().__init__(skill_voc_filename="Interactive_story_keyword", # <- the game name so it can be started
@@ -22,8 +22,6 @@ class MyGameSkill(ConversationalGameSkill):
         self.current_room = None
         self.listen_for_player_input = False
         self.listen_for_episode_number = False
-
-
 
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
@@ -56,6 +54,8 @@ class MyGameSkill(ConversationalGameSkill):
             self.speak_dialog("ask_for_episode_to_play", expect_response=True)
             self.listen_for_episode_number = True
 
+    @enables_layer(layer_name="testing")
+    @enables_layer(layer_name="select_episode")
     def select_episode_from_multiple(self, chosen_episode_input):
         #In some languages lower numbers will return the written text instead of a numeral
         #The extract_number will take the string and extract a number from it if possible
@@ -73,6 +73,7 @@ class MyGameSkill(ConversationalGameSkill):
             else:
                 self.open_json_file(chosen_episode_int)
 
+    @disables_layer("select_episode")
     def open_json_file(self, chosen_episode_int):
         self.listen_for_episode_number = False
 
@@ -187,8 +188,12 @@ class MyGameSkill(ConversationalGameSkill):
         # utterance.lower().strip()
         # self.gui.show_text(f"{utterance}")
 
+        # if self.intent_layers.is_active("select_episode"):
+            
+            # self.speak("Not valid")
+
         if (self.listen_for_episode_number == True and utterance):
-            self.select_episode_from_multiple(utterance)
+            self.select_episode_from_multiple(utterance)            
 
 
         if (self.listen_for_player_input == True and utterance):
@@ -231,3 +236,11 @@ class MyGameSkill(ConversationalGameSkill):
         self.handle_game_over()
 
 #</editor-fold>
+
+    @layer_intent(
+        IntentBuilder("TestInteractiveStorySkillIntent").
+        require("testKeyword"),
+        layer_name="testing")
+    def test_intent(self):
+        self.gui.show_text("It works")
+        self.speak("It works")
