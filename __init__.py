@@ -23,10 +23,10 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.listen_for_episode_number = False
 
-
-
+        #debugging
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
+        self.debug_mode = False
 
         def initialize(self):
             # start with all game states disabled
@@ -104,6 +104,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def ask_question(self, room):
         self.speak(f"{room['question']}", wait=True, expect_response=True)
+        # num_retries=0
         self.listen_for_player_input = True
 
     def main_game_loop(self):
@@ -183,7 +184,8 @@ class MyGameSkill(ConversationalGameSkill):
         don't forget to self.speak the game output too!
         """
 
-        # self.gui.show_text(f"{utterance}")
+        if (self.debug_mode == True):
+            self.gui.show_text(f"{utterance}")
         # utterance.lower().strip()
         # self.gui.show_text(f"{utterance}")
 
