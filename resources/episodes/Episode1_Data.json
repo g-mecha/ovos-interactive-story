@@ -31,22 +31,22 @@
         {
             "audio_file": "Geluid_1",
             "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
-            "question": "Waar heb je zin in? Een pizza? Een hamburger? of een salade?",
+            "question": "Een pizza? Een hamburger? of een salade?",
             "choices":
             {
                 "pizza":
                 {
                     "transition_text": "Je gaat naar de pizzeria",
-                    "keywords" : ["pizza", "een pizza"]
+                    "keywords" : ["pizza"]
                 },
                 "burger":
                 {
                     "transition_text": "Je gaat naar de burgertent",
-                    "keywords" : ["hamburger", "een hamburger", "burger"]
+                    "keywords" : ["hamburger", "burger"]
                 },
                 "salad":
                 {
-                    "keywords" : ["salade", "een salade"]
+                    "keywords" : ["salade"]
                 }
             }
         },
@@ -59,7 +59,7 @@
             {
                 "pizza_cheese":
                 {
-                    "keywords" : ["kaas", "kaaspizza", "kaas pizza"]
+                    "keywords" : ["kaas", "kaaspizza"]
                 },
                 "pizza_mushroom":
                 {
@@ -67,7 +67,7 @@
                 },
                 "pizza_pineapple":
                 {
-                    "keywords" : ["ananas", "troep", "ananaspizza", "ananaspizza pizza"]
+                    "keywords" : ["ananas", "ananaspizza"]
                 }
             }
         },
@@ -97,15 +97,15 @@
             {
                 "burger_cheese":
                 {
-                    "keywords" : ["kaas", "cheese burger"]
+                    "keywords" : ["kaas"]
                 },
                 "burger_chicken":
                 {
-                    "keywords" : ["kip", "kipburger", "kip burger"]
+                    "keywords" : ["kip", "kipburger"]
                 },
                 "burger_beast":
                 {
-                    "keywords" : ["beast", "beast burger", "mrbeast burger", "mr beast burger"]
+                    "keywords" : ["beast", "beast burger"]
                 }
             }
         },

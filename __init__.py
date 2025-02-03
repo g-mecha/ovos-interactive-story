@@ -203,7 +203,7 @@ class MyGameSkill(ConversationalGameSkill):
             for room_name, details in choices.items():
 
                 # self.log.debug(details)
-                if utterance.lower().strip() in (keyword.lower() for keyword in details["keywords"]):
+                if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
 
                     keyword_matched = True
 
@@ -217,9 +217,9 @@ class MyGameSkill(ConversationalGameSkill):
 
                     self.main_game_loop()
             
-            if keyword_matched == False:
-                self.speak_dialog("invalid_keyword")
-                self.speak_dialog("ask_for_repeat", expect_response=True)
+            # if keyword_matched == False:
+            #     self.speak_dialog("invalid_keyword")
+            #     self.speak_dialog("ask_for_repeat", expect_response=True)
 
 
     def on_abandon_game(self):
