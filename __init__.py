@@ -97,13 +97,23 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def show_room(self, room):
-        self.speak(f"{room['description']}")
-        
+        self.speak(f"{room['description']}", wait=True)
+
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
 
     def ask_question(self, room):
-        self.speak(f"{room['question']}", wait=True, expect_response=True)
+        current_question_option = 0
+
+        choices = room.get("choices", {})
+
+        for room_name, details in choices.items():
+            current_question_option+=1
+            if current_question_option == len(choices): 
+                self.speak_dialog("final_option")
+                self.speak(details["question_item"], wait=1, expect_response=True)
+            else: self.speak(details["question_item"], wait=2)
+
         # num_retries=0
         self.listen_for_player_input = True
 

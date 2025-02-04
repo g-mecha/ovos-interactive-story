@@ -30,22 +30,25 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
-            "question": "Een pizza? Een hamburger? of een salade?",
+            "description": "1",
+            "description_keep": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
             "choices":
             {
                 "pizza":
                 {
+                    "question_item" : "Een pizza?",
                     "transition_text": "Je gaat naar de pizzeria",
                     "keywords" : ["pizza"]
                 },
                 "burger":
                 {
+                    "question_item" : "Een hamburger?",
                     "transition_text": "Je gaat naar de burgertent",
                     "keywords" : ["hamburger", "burger"]
                 },
                 "salad":
                 {
+                    "question_item" : "Een salade?",
                     "keywords" : ["salade"]
                 }
             }
