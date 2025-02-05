@@ -31,22 +31,25 @@
         {
             "audio_file": "Geluid_1",
             "description": "Je hebt gisteren lekker gegeten. Wat ga je vandaag halen?",
-            "question": "Tacos? Een broodje? of een groenteschaal?",
             "choices":
             {
                 "taco":
                 {
-                    "transition_text": "Je gaat naar de mexicaan",
-                    "keywords" : ["taco", "tacos", "taco's"]
+                    "question_item" : "Tacos?",
+                    "keywords" : ["taco", "tacos", "taco's"],
+                    "transition_text": "Je gaat naar de mexicaan"
+
                 },
                 "sandwich":
                 {
-                    "transition_text": "Je gaat naar de broodjeszaak",
-                    "keywords" : ["broodje"]
+                    "question_item" : "Een broodje?",
+                    "keywords" : ["broodje", "sandwich"],
+                    "transition_text": "Je gaat naar de broodjeszaak"
                 },
                 "Veggie_bowl":
                 {
-                    "keywords" : ["groenteschaal"]
+                    "question_item" : "Een groenteschaal?",
+                    "keywords" : ["groenteschaal", "groentenschaal"]
                 }
             }
         },
@@ -54,19 +57,21 @@
         "taco": 
         {
             "description": "Je bent bij de mexicaan. Wat voor taco neem je?",
-            "question": "Kip?, gehakt?, of groente?",
             "choices":
             {
                 "taco_chicken":
                 {
+                    "question_item" : "Kip?",
                     "keywords" : ["kip"]
                 },
                 "taco_meat":
                 {
+                    "question_item" : "gehakt?",
                     "keywords" : ["vlees", "gehakt"]
                 },
                 "taco_veggie":
                 {
+                    "question_item" : "Groente?",
                     "keywords" : ["groenten", "groente"]
                 }
             }
@@ -92,19 +97,21 @@
         "sandwich": 
         {
             "description": "Je bent bij de broodjes winkel. Er is veel keuze. Wat voor broodje neem je?",
-            "question": "Spaans?, Gezond?, of knokkel?",
             "choices":
             {
                 "spanish_sandwich":
                 {
+                    "question_item" : "Spaans?",
                     "keywords" : ["spaans"]
                 },
                 "healthy_sandwich":
                 {
+                    "question_item" : "Gezond?",
                     "keywords" : ["gezond"]
                 },
                 "knuckle_sandwich":
                 {
+                    "question_item" : "knokkel?",
                     "keywords" : ["knokkel"]
                 }
             }

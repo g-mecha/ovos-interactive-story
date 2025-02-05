@@ -30,8 +30,7 @@
         "start": 
         {
             "audio_file": "Geluid_1",
-            "description": "1",
-            "description_keep": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
+            "description": "Je hebt honger. Je hebt geen zin om te kooken dus je besluit om iets te halen. Maar wat?",
             "choices":
             {
                 "pizza":
@@ -57,19 +56,21 @@
         "pizza": 
         {
             "description": "Je bent bij de pizzeria. Wat voor pizza neem je?",
-            "question": "Kaas?, paddenstoel?, of ananas?",
             "choices":
             {
                 "pizza_cheese":
                 {
+                    "question_item" : "Kaas?",
                     "keywords" : ["kaas", "kaaspizza"]
                 },
                 "pizza_mushroom":
                 {
+                    "question_item" : "Paddenstoel??",
                     "keywords" : ["paddenstoel", "paddenstoelen", "paddenstoelpizza", "paddenstoelenpizza"]
                 },
                 "pizza_pineapple":
                 {
+                    "question_item" : "Ananas?",
                     "keywords" : ["ananas", "ananaspizza"]
                 }
             }
@@ -95,19 +96,21 @@
         "burger": 
         {
             "description": "Je bent bij de lokale burgertent. Er staan ​​meerdere burgers op het menu. Welke burger neem je??",
-            "question": "Kaas?, kip?, of een Beast Burger?",
             "choices":
             {
                 "burger_cheese":
                 {
+                    "question_item" : "Kaas?",
                     "keywords" : ["kaas"]
                 },
                 "burger_chicken":
                 {
+                    "question_item" : "Kip?",
                     "keywords" : ["kip", "kipburger"]
                 },
                 "burger_beast":
                 {
+                    "question_item" : "Beast Burger?",
                     "keywords" : ["beast", "beast burger"]
                 }
             }
