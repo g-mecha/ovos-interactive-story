@@ -4,7 +4,7 @@
         "note_to_self" : "iris_test_data",
         "template": 
         {
-            "audio_description": "file_0",
+            "audio_file": "file_0",
             "description": "description",
             "question": "question",
             "choices":
@@ -29,6 +29,7 @@
 
         "start": 
         {
+            "audio_file": "Geluid_1.mp3",
             "description": "Iris test start",
             "choices":
             {
@@ -79,6 +80,13 @@
                "false": "room_end_remember_false"
             }
         },
+
+        "room_audio": 
+        {
+            "audio_file": "start_listening_louder.wav",
+            "skip_to_room" : "room_end"
+        },
+
 
         "room_end_remember_true": 
         {

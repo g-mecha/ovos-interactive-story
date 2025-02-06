@@ -100,7 +100,10 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def show_room(self, room):
-        self.speak(f"{room['description']}", wait=True)
+        if 'audio_file' in room:
+            self.play_audio(f"{self.root_dir}/resources/audio/{room['audio_file']}", wait=True)
+        else:
+            self.speak(f"{room['description']}", wait=True)
 
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
@@ -131,15 +134,15 @@ class MyGameSkill(ConversationalGameSkill):
             if 'remember_room' in current_room:
                 # Get the current room name (self.current_room should be a dictionary inside self.episode_data['rooms'])
                 current_room_name = next((name for name, data in self.episode_data['rooms'].items() if data == self.current_room), None)
-
                 self.rooms_to_remember.add(current_room_name)
 
             if 'skip_to_room' in current_room:
                 self.change_rooms(current_room['skip_to_room'])
+
             elif 'room_remember_check' in current_room:
                 condition_data = current_room.get("room_remember_check", {})
                 room_condition_met = False
-
+                #Check if the player has visited a certain room before
                 for room in self.rooms_to_remember:
                     if (room == condition_data['room_to_remember']):
                         room_condition_met = True
