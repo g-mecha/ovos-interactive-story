@@ -212,6 +212,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     @resets_layers()
     def handle_game_over(self):
+        #TODO: Audio files keeps playing after stop
         self.speak_dialog("game_ended")
         # self.speak_dialog("stop.game")
         self._playing.clear()

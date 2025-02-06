@@ -138,7 +138,7 @@
                 "KK1":
                 {
                     "question_item" : "Iris?",
-                    "keywords" : ["tante, iris"]
+                    "keywords" : ["tante", "iris"]
                 },
                 "KK2":
                 {
@@ -162,7 +162,7 @@
                 "LL1":
                 {
                     "question_item" : "Iris?",
-                    "keywords" : ["tante, iris"]
+                    "keywords" : ["tante", "iris"]
                 },
                 "LL2":
                 {
@@ -180,6 +180,7 @@
         "KK2":
         {
             "audio_file": "v4_K2__inc__Freddie_",
+            "remember_room" : true,
             "skip_to_room" : "MM"
         },
 
@@ -191,7 +192,147 @@
         "LL2":
         {
             "audio_file": "v4_L2__inc__Freddie_",
+            "remember_room" : true,
             "skip_to_room" : "MM"
+        },
+
+        "MM":
+        {
+            "audio_file": "MM",
+            "skip_to_room" : "NN"
+        },
+
+        "NN":
+        {
+            "audio_file": "NN",
+            "skip_to_room" : "OO"
+        },
+
+        "OO":
+        {
+            "audio_file": "OO",
+            "skip_to_room" : "PP_question"
+        },
+
+        "PP_question":
+        {
+            "audio_file": "v4_PP",
+            
+            "choices":
+            {
+                "PP1":
+                {
+                    "question_item" : "Blijven?",
+                    "keywords" : ["zitten", "blijf", "blijven"]
+                },
+                "PP2":
+                {
+                    "question_item" : "Weggaan?",
+                    "keywords" : ["weg", "ga", "weggaan"]
+                }
+            }
+        },
+        "PP1":
+        {
+            "audio_file": "v4_PP1",
+            "skip_to_room" : "QQ"
+        },
+        "PP2":
+        {
+            "audio_file": "v4_PP2",
+            "skip_to_room" : "QQ"
+        },
+
+        "QQ":
+        {
+            "audio_file": "v4_QQ_TEKST",
+            "skip_to_room" : "QQ_question"
+        },
+        "QQ_question":
+        {
+            "audio_file": "v4_QQ_VRAAG",
+            
+            "choices":
+            {
+                "check_KK2_played_C":
+                {
+                    "question_item" : "Het cafe?",
+                    "keywords" : ["cafe", "kaffee", "café"]
+                },
+                "check_KK2_played_M":
+                {
+                    "question_item" : "Het meisje?",
+                    "keywords" : ["meisje", "roos"]
+                }
+            }
+        },
+
+        "check_KK2_played_C": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "KK2",
+               "true": "QQ2",
+               "false": "check_LL2_played_C"
+            }   
+        },
+        "check_LL2_played_C": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "LL2",
+               "true": "QQ2",
+               "false": "QQ4"
+            }   
+        },
+
+        "check_KK2_played_M": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "KK2",
+               "true": "QQ1",
+               "false": "check_LL2_played_M"
+            }   
+        },
+        "check_LL2_played_M": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "LL2",
+               "true": "QQ1",
+               "false": "QQ3"
+            }   
+        },
+
+        "QQ1":
+        {
+            "audio_file": "v4_QQ1",
+            "skip_to_room" : "RR_Q1_Q3"
+        },
+        "QQ3":
+        {
+            "audio_file": "v4_QQ3",
+            "skip_to_room" : "RR_Q1_Q3"
+        },
+
+        "QQ2":
+        {
+            "audio_file": "v4_QQ2",
+            "skip_to_room" : "RR_Q2_Q4"
+        },
+        "QQ4":
+        {
+            "audio_file": "v4_QQ4",
+            "skip_to_room" : "RR_Q2_Q4"
+        },
+
+        "RR_Q2_Q4":
+        {
+            "audio_file": "v4_QQ1",
+            "skip_to_room" : "RR_Q1_Q3"
         }
+
+
     }
 }
