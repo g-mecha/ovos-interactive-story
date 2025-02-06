@@ -36,21 +36,21 @@
                 {
                     "question_item" : "skip?",
                     "keywords" : ["1"],
-                    "transition_text": "ga naar room_skip"
+                    "transition_text": "ga naar room skip"
                 },
 
                 "room_remember":
                 {
                     "question_item" : "remember?",
                     "keywords" : ["2"],
-                    "transition_text": "ga naar room_remember"
+                    "transition_text": "ga naar room remember"
                 },
 
                 "room_audio":
                 {
                     "question_item" : "audio?",
                     "keywords" : ["3"],
-                    "transition_text": "ga naar room_audio"
+                    "transition_text": "ga naar room audio"
                 }
 
             }
@@ -58,22 +58,37 @@
 
         "room_skip": 
         {
-            "description": "room_skip test",
+            "description": "room skip",
             "skip_to_room" : "room_end"
         },
 
         "room_remember":
         {
-            "description": "room_remember",
+            "description": "room remember",
             "remember_room" : true,
             "skip_to_room" : "room_end"
         },
 
         "room_end": 
         {
-            "description": "room_end"
+            "description": "room end",
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "room_remember",
+               "true": "room_end_remember_true",
+               "false": "room_end_remember_false"
+            }
+        },
+
+        "room_end_remember_true": 
+        {
+            "description": "room end remember true"
+        },
+
+        "room_end_remember_false": 
+        {
+            "description": "room end remember false"
         }
 
-        
     }
 }

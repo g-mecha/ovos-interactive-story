@@ -106,7 +106,7 @@ class MyGameSkill(ConversationalGameSkill):
         self.current_room = self.episode_data['rooms']['start']
         self.rooms_to_remember.clear()
 
-    def ask_question(self, room):
+    def ask_questions(self, room):
         current_question_option = 0
 
         choices = room.get("choices", {})
@@ -136,8 +136,21 @@ class MyGameSkill(ConversationalGameSkill):
 
             if 'skip_to_room' in current_room:
                 self.change_rooms(current_room['skip_to_room'])
+            elif 'room_remember_check' in current_room:
+                condition_data = current_room.get("room_remember_check", {})
+                room_condition_met = False
+
+                for room in self.rooms_to_remember:
+                    if (room == condition_data['room_to_remember']):
+                        room_condition_met = True
+                        self.change_rooms(condition_data['true'])
+                        break
+                #Stop the skill from going to the false room if the room condition has been met
+                if (room_condition_met == False): self.change_rooms(condition_data['false'])
+                
+
             else:
-                self.ask_question(current_room)
+                self.ask_questions(current_room)
 
         if 'end' in current_room:
             self.end_of_path(current_room)
@@ -244,11 +257,10 @@ class MyGameSkill(ConversationalGameSkill):
 
                     self.listen_for_player_input = False
 
+                    # Return the name of the room if a match is found
                     self.change_rooms(room_name)
 
-                    # Return the name of the room if a match is found
-
-            
+                    break
             # if keyword_matched == False:
             #     self.speak_dialog("invalid_keyword")
             #     self.speak_dialog("ask_for_repeat", expect_response=True)
