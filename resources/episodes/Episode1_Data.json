@@ -1,37 +1,36 @@
 {
     "rooms":
     {
-        "start": 
+        "start":
         {
             "room_text_description": "",
             "skip_to_room" : "AA"
         },
 
-        "AA": 
+        "AA":
         {
             "audio_file": "v4_AA__met_muziek_",
             "skip_to_room" : "BB"
         },
 
-        "BB": 
+        "BB":
         {
             "audio_file": "BB_edit",
             "skip_to_room" : "CC"
         },
 
-        "CC": 
+        "CC":
         {
             "audio_file": "v4_CC",
             "skip_to_room" : "DD"
         },
 
-        "DD": 
+        "DD":
         {
             "audio_file": "v4_DD_A_TEKST",
             "skip_to_room" : "DD_question"
         },
-
-        "DD_question": 
+        "DD_question":
         {
             "audio_file": "v4_DD_B_VRAAG",
             
@@ -49,18 +48,150 @@
                 }
             }
         },
-
-        "DD1": 
+        "DD1":
         {
             "audio_file": "v4_DD1",
             "skip_to_room" : "EE"
         },
-
-        "DD2": 
+        "DD2":
         {
             "audio_file": "v4_DD2",
             "skip_to_room" : "EE"
-        }
+        },
         
+        "EE":
+        {
+            "audio_file": "v4_EE",
+            "skip_to_room" : "FF"
+        },
+
+        "FF":
+        {
+            "audio_file": "v4_FF",
+            "skip_to_room" : "GG_question"
+        },
+
+        "GG_question":
+        {
+            "audio_file": "v4_GG",
+
+            "choices":
+            {
+                "GG1":
+                {
+                    "question_item" : "Ja?",
+                    "keywords" : ["ja"]
+                },
+                "GG2":
+                {
+                    "question_item" : "Nee?",
+                    "keywords" : ["nee"]
+                }
+            }
+        },
+        "GG1":
+        {
+            "audio_file": "v4_GG1__met_muziek_",
+            "skip_to_room" : "HH"
+        },
+        "GG2":
+        {
+            "audio_file": "v4_GG2",
+            "skip_to_room" : "HH"
+        },
+
+        "HH":
+        {
+            "audio_file": "v4_HH__met_muziek__TEKST",
+            "skip_to_room" : "HH"
+        },
+        "HH_question":
+        {
+            "audio_file": "v4_HH__met_muziek__VRAAG",
+            
+            "choices":
+            {
+                "JJ1":
+                {
+                    "question_item" : "De taxi?",
+                    "keywords" : ["taxi"]
+                },
+                "JJ2":
+                {
+                    "question_item" : "Lopen?",
+                    "keywords" : ["lopen"]
+                }
+            }
+        },
+
+        "JJ1":
+        {
+            "audio_file": "v4_JJ1__Inc__Freddie__TEKST",
+            "skip_to_room" : "JJ1_question"
+        },
+        "JJ1_question":
+        {
+            "audio_file": "v4_JJ1__Inc__Freddie__VRAAG",
+            
+            "choices":
+            {
+                "KK1":
+                {
+                    "question_item" : "Iris?",
+                    "keywords" : ["tante, iris"]
+                },
+                "KK2":
+                {
+                    "question_item" : "Overval?",
+                    "keywords" : ["overval"]
+                }
+            }
+        },
+
+        "JJ2":
+        {
+            "audio_file": "v4_JJ2__Inc__Freddie__TEKST",
+            "skip_to_room" : "JJ1_question"
+        },
+        "JJ2_question":
+        {
+            "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
+            
+            "choices":
+            {
+                "LL1":
+                {
+                    "question_item" : "Iris?",
+                    "keywords" : ["tante, iris"]
+                },
+                "LL2":
+                {
+                    "question_item" : "Overval?",
+                    "keywords" : ["overval"]
+                }
+            }
+        },
+
+        "KK1":
+        {
+            "audio_file": "v4_K1__inc__Freddie_",
+            "skip_to_room" : "MM"
+        },
+        "KK2":
+        {
+            "audio_file": "v4_K2__inc__Freddie_",
+            "skip_to_room" : "MM"
+        },
+
+        "LL1":
+        {
+            "audio_file": "v4_L1__inc__Freddie_",
+            "skip_to_room" : "MM"
+        },
+        "LL2":
+        {
+            "audio_file": "v4_L2__inc__Freddie_",
+            "skip_to_room" : "MM"
+        }
     }
 }
