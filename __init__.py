@@ -23,7 +23,7 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.listen_for_episode_number = False
 
-        self.rooms_to_remember = {}
+        self.rooms_to_remember = set()
 
         #debugging
         # We don't need this at all. I keep this around for fast debuging
@@ -48,6 +48,7 @@ class MyGameSkill(ConversationalGameSkill):
         self.number_of_episodes = sum(1 for _, _, files in os.walk(f'{self.root_dir}/resources/episodes') for f in files)
         self.select_episode()
 
+    @enables_layer(layer_name="testing")
     def select_episode(self):
         if  (self.number_of_episodes == 1):
             self.speak_dialog("single_episode_found")
@@ -262,5 +263,18 @@ class MyGameSkill(ConversationalGameSkill):
         on_game_stop will be called after this handler"""
         self.speak("abandoned game")
         self.handle_game_over()
+
+#</editor-fold>
+
+
+# <editor-fold desc="Debugging">
+
+    @layer_intent(
+        IntentBuilder("TestInteractiveStorySkillIntent").
+        require("testKeyword"),
+        layer_name="testing")
+    def test_intent(self):
+        self.gui.show_text(f"{self.rooms_to_remember}")
+
 
 #</editor-fold>
