@@ -1,0 +1,68 @@
+{
+    "rooms":
+    {
+
+        "basic_room_logic_template":
+        {
+            "audio_description": "audio_0",
+            "description": "room description"
+        },
+
+        "choices_room_template": 
+        {
+            "choices":
+            {
+                "room_0":
+                {
+                    "question_item" : "room_0?",
+                    "keywords" : ["keyword_0", "keyword_1"],
+                    "transition_audio" : "audio_0",
+                    "transition_text": "transition_text"
+                },
+                "room_1":
+                {
+                    "question_item" : "room_1?",
+                    "keywords" : ["keyword_0", "keyword_1"],
+                    "transition_audio" : "audio_0",
+                    "transition_text": "transition_text"
+                }
+            }
+        },
+
+        "skip_room_template": 
+        {
+            "skip_to_room" : "room_name"
+        },
+
+        "room_with_remember_template":
+        {
+            "Dev_notes": 
+            [
+                "This room has a 'remember_room' check to remember that the user has vissited this room",
+                "Useful if there is a choice based on a previous action the player has taken"
+            ],
+
+            "remember_room" : true
+        },
+
+        "room_with_remember_check_template": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "room_to_remember",
+               "true": "room_true",
+               "false": "room_false"
+            }
+        },
+
+        "end_room_template": 
+        {
+            "end": "win|fail"
+        },
+
+        "start": 
+        {
+
+        }
+    }
+}
