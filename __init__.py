@@ -101,9 +101,10 @@ class MyGameSkill(ConversationalGameSkill):
 
     def show_room(self, room):
         if 'audio_file' in room:
-            self.play_audio(f"{self.root_dir}/resources/audio/{room['audio_file']}", wait=True)
+            #TODO: this is teribble, think how files are shared to users
+            self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=True)
         else:
-            self.speak(f"{room['description']}", wait=True)
+            self.speak(f"{room['room_text_description']}", wait=True)
 
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
@@ -120,6 +121,7 @@ class MyGameSkill(ConversationalGameSkill):
                 self.speak_dialog("final_option")
                 self.speak(details["question_item"], wait=1, expect_response=True)
             else: self.speak(details["question_item"], wait=2)
+            
 
         # num_retries=0
         self.listen_for_player_input = True

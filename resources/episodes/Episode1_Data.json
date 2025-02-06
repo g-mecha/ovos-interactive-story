@@ -1,0 +1,66 @@
+{
+    "rooms":
+    {
+        "start": 
+        {
+            "room_text_description": "",
+            "skip_to_room" : "AA"
+        },
+
+        "AA": 
+        {
+            "audio_file": "v4_AA__met_muziek_",
+            "skip_to_room" : "BB"
+        },
+
+        "BB": 
+        {
+            "audio_file": "BB_edit",
+            "skip_to_room" : "CC"
+        },
+
+        "CC": 
+        {
+            "audio_file": "v4_CC",
+            "skip_to_room" : "DD"
+        },
+
+        "DD": 
+        {
+            "audio_file": "v4_DD_A_TEKST",
+            "skip_to_room" : "DD_question"
+        },
+
+        "DD_question": 
+        {
+            "audio_file": "v4_DD_B_VRAAG",
+            
+            "choices":
+            {
+                "DD1":
+                {
+                    "question_item" : "Jazz muziek?",
+                    "keywords" : ["jazz", "yes", "djez"]
+                },
+                "DD2":
+                {
+                    "question_item" : "Pop muziek?",
+                    "keywords" : ["pop"]
+                }
+            }
+        },
+
+        "DD1": 
+        {
+            "audio_file": "v4_DD1",
+            "skip_to_room" : "EE"
+        },
+
+        "DD2": 
+        {
+            "audio_file": "v4_DD2",
+            "skip_to_room" : "EE"
+        }
+        
+    }
+}

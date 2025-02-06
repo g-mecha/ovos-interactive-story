@@ -4,12 +4,14 @@
 
         "basic_room_logic_template":
         {
-            "audio_description": "audio_0",
-            "description": "room description"
+            "audio_file": "audio_0",
+            "room_text_description": "room description"
         },
 
         "choices_room_template": 
         {
+            "use_question_items" : true,
+
             "choices":
             {
                 "room_0":
