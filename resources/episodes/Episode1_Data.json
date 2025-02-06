@@ -34,21 +34,21 @@
             {
                 "room_skip":
                 {
-                    "question_item" : "room_skip?",
+                    "question_item" : "skip?",
                     "keywords" : ["1"],
                     "transition_text": "ga naar room_skip"
                 },
 
                 "room_remember":
                 {
-                    "question_item" : "room_remember?",
+                    "question_item" : "remember?",
                     "keywords" : ["2"],
                     "transition_text": "ga naar room_remember"
                 },
 
                 "room_audio":
                 {
-                    "question_item" : "room_audio?",
+                    "question_item" : "audio?",
                     "keywords" : ["3"],
                     "transition_text": "ga naar room_audio"
                 }
@@ -59,6 +59,13 @@
         "room_skip": 
         {
             "description": "room_skip test",
+            "skip_to_room" : "room_end"
+        },
+
+        "room_remember":
+        {
+            "description": "room_remember",
+            "remember_room" : true,
             "skip_to_room" : "room_end"
         },
 

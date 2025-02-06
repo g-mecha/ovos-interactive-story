@@ -23,6 +23,8 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.listen_for_episode_number = False
 
+        self.rooms_to_remember = {}
+
         #debugging
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
@@ -101,6 +103,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
+        self.rooms_to_remember.clear()
 
     def ask_question(self, room):
         current_question_option = 0
@@ -123,6 +126,12 @@ class MyGameSkill(ConversationalGameSkill):
         current_room = self.current_room
         if 'end' not in current_room:
             self.show_room(current_room)
+
+            if 'remember_room' in current_room:
+                # Get the current room name (self.current_room should be a dictionary inside self.episode_data['rooms'])
+                current_room_name = next((name for name, data in self.episode_data['rooms'].items() if data == self.current_room), None)
+
+                self.rooms_to_remember.add(current_room_name)
 
             if 'skip_to_room' in current_room:
                 self.change_rooms(current_room['skip_to_room'])
