@@ -29,7 +29,6 @@
 
         "start": 
         {
-            "audio_file": "Geluid_1",
             "description": "Iris test start",
             "choices":
             {
@@ -37,25 +36,37 @@
                 {
                     "question_item" : "room_skip?",
                     "keywords" : ["1"],
-                    "transition_text": "room_skip"
+                    "transition_text": "ga naar room_skip"
                 },
 
                 "room_remember":
                 {
                     "question_item" : "room_remember?",
                     "keywords" : ["2"],
-                    "transition_text": "room_remember"
+                    "transition_text": "ga naar room_remember"
                 },
 
                 "room_audio":
                 {
                     "question_item" : "room_audio?",
                     "keywords" : ["3"],
-                    "transition_text": "room_audio"
+                    "transition_text": "ga naar room_audio"
                 }
 
             }
+        },
+
+        "room_skip": 
+        {
+            "description": "room_skip test",
+            "skip_to_room" : "room_end"
+        },
+
+        "room_end": 
+        {
+            "description": "room_end"
         }
+
         
     }
 }

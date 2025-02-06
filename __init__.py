@@ -117,14 +117,26 @@ class MyGameSkill(ConversationalGameSkill):
         # num_retries=0
         self.listen_for_player_input = True
 
+
+
     def main_game_loop(self):
         current_room = self.current_room
         if 'end' not in current_room:
             self.show_room(current_room)
-            self.ask_question(current_room)
+
+            if 'skip_to_room' in current_room:
+                self.change_rooms(current_room['skip_to_room'])
+            else:
+                self.ask_question(current_room)
 
         if 'end' in current_room:
             self.end_of_path(current_room)
+
+
+    def change_rooms(self, new_room):
+        self.current_room = self.episode_data['rooms'][new_room]
+        self.main_game_loop()
+
 
     def end_of_path(self, current_room):
         self.show_room(current_room)
@@ -220,12 +232,12 @@ class MyGameSkill(ConversationalGameSkill):
                     if 'transition_text' in details:
                         self.speak(details["transition_text"])
 
-                    # Return the name of the room if a match is found
-                    self.current_room = self.episode_data['rooms'][room_name]
-
                     self.listen_for_player_input = False
 
-                    self.main_game_loop()
+                    self.change_rooms(room_name)
+
+                    # Return the name of the room if a match is found
+
             
             # if keyword_matched == False:
             #     self.speak_dialog("invalid_keyword")
