@@ -331,8 +331,54 @@
         {
             "audio_file": "v4_QQ1",
             "skip_to_room" : "RR_Q1_Q3"
+        },
+
+        "SS":
+        {
+            "audio_file": "v4_SS",
+            "skip_to_room" : "TT"
+        },
+
+        "TT":
+        {
+            "audio_file": "v4_TT",
+            "skip_to_room" : "UU"
+        },
+
+        "UU":
+        {
+            "audio_file": "UU_edit_TEKST",
+            "skip_to_room" : "UU_question"
+        },
+        
+        "UU_question":
+        {
+            "Note" : "Need to make this a true/false",
+            "audio_file": "UU_edit_VRAAG",
+            "skip_to_room" : "UU_question"
+        },
+
+        "check_WW_played": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "WW",
+               "true": "UU_question",
+               "false": "VV"
+            }   
+        },
+
+        "VV":
+        {
+            "audio_file": "v4_VV2",
+            "skip_to_room" : "WW"
+        },
+
+        "WW":
+        {
+            "audio_file": "v4_WW",
+            "remember_room" : true,
+            "skip_to_room" : "UU_question"
         }
-
-
     }
 }
