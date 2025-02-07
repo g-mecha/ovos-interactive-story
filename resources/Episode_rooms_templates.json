@@ -8,9 +8,12 @@
             "room_text_description": "room description"
         },
 
-        "choices_room_template": 
+       
+
+        "choice_room_open_type_template": 
         {
             "use_question_items" : true,
+            "choice_type" : "open",
 
             "choices":
             {
@@ -29,6 +32,21 @@
                     "transition_text": "transition_text"
                 }
             }
+        },
+
+        "choice_room_open_true_false_template": 
+        {
+            "choice_type" : "true_false",
+            "true_keywords" : ["keyword_0", "keyword_1"],
+            "room_true" : "room_name_true",
+            "room_false" : "room_name_false"
+        },
+
+        "choice_room_open_yes_no_template": 
+        {
+            "choice_type" : "yes_no",
+            "room_yes" : "room_name_yes",
+            "room_no" : "room_name_no"
         },
 
         "skip_room_template": 
