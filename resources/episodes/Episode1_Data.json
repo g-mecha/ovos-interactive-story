@@ -73,6 +73,7 @@
 
         "GG_question":
         {
+            "Note" : "Need to make this a yes/no",
             "audio_file": "v4_GG",
 
             "choices":
