@@ -20,10 +20,12 @@ class MyGameSkill(ConversationalGameSkill):
         self.number_of_episodes = 0
 
         self.current_room = None
-        self.listen_for_player_input = False
         self.listen_for_episode_number = False
 
         self.rooms_to_remember = set()
+
+        self.listen_for_player_input = False
+        self.choice_type = None
 
         #debugging
         # We don't need this at all. I keep this around for fast debuging
@@ -111,18 +113,22 @@ class MyGameSkill(ConversationalGameSkill):
         self.rooms_to_remember.clear()
 
     def ask_questions(self, room):
-        current_question_option = 0
 
-        choices = room.get("choices", {})
+        if 'use_question_items' in room:
+            current_question_option = 0
 
-        for room_name, details in choices.items():
-            current_question_option+=1
-            if current_question_option == len(choices): 
-                self.speak_dialog("final_option")
-                self.speak(details["question_item"], wait=1, expect_response=True)
-            else: self.speak(details["question_item"], wait=2)
+            choices = room.get("choices", {})
+
+            for room_name, details in choices.items():
+                current_question_option+=1
+                if current_question_option == len(choices): 
+                    self.speak_dialog("final_option")
+                    self.speak(details["question_item"], wait=1, expect_response=True)
+                else: self.speak(details["question_item"], wait=2)
             
-
+        else:
+            #TODO: Make this work
+            self.speak("-", expect_response=True)
         # num_retries=0
         self.listen_for_player_input = True
 
@@ -246,30 +252,34 @@ class MyGameSkill(ConversationalGameSkill):
 
         if (self.listen_for_player_input == True and utterance):
 
-            keyword_matched = False
+            if self.choice_type == "open":
 
-            choices = self.current_room.get("choices", {})
+                choices = self.current_room.get("choices", {})
 
-            # Iterate through each choice and its keywords
-            for room_name, details in choices.items():
+                # Iterate through each choice and its keywords
+                for room_name, details in choices.items():
 
-                # self.log.debug(details)
-                if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
+                    # self.log.debug(details)
+                    if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
 
-                    keyword_matched = True
+                        if 'transition_text' in details:
+                            self.speak(details["transition_text"])
 
-                    if 'transition_text' in details:
-                        self.speak(details["transition_text"])
+                        self.listen_for_player_input = False
 
-                    self.listen_for_player_input = False
+                        # Return the name of the room if a match is found
+                        self.change_rooms(room_name)
 
-                    # Return the name of the room if a match is found
-                    self.change_rooms(room_name)
+                        break
 
-                    break
-            # if keyword_matched == False:
-            #     self.speak_dialog("invalid_keyword")
-            #     self.speak_dialog("ask_for_repeat", expect_response=True)
+            elif self.choice_type == "true_false":
+                if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
+                    self.change_rooms(self.current_room['room_true']) 
+                else:
+                    self.change_rooms(self.current_room['room_false'])
+
+            # elif self.choice_type == "yes_no":
+
 
 
     def on_abandon_game(self):
