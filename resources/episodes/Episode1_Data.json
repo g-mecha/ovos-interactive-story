@@ -127,6 +127,7 @@
         "JJ1":
         {
             "audio_file": "v4_JJ1__Inc__Freddie__TEKST",
+            "remember_room" : true,
             "skip_to_room" : "JJ1_question"
         },
         "JJ1_question":
@@ -379,6 +380,89 @@
             "audio_file": "v4_WW",
             "remember_room" : true,
             "skip_to_room" : "UU_question"
+        },
+
+        "VV1":
+        {
+            "audio_file": "v4_XX__inc__Freddie___muziek_",
+            "skip_to_room" : "XX"
+        },
+
+        "check_JJ1_played": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "JJ1",
+               "true": "YY_JJ1",
+               "false": "YY_JJ2"
+            }   
+        },
+
+        "YY_JJ1":
+        {
+            "audio_file": "v4_YY_J1_TEKST",
+            "skip_to_room" : "YY_JJ1_question"
+        },
+
+        "YY_JJ1_question":
+        {
+            "Note" : "Need to make this a yes/no",
+            "audio_file": "v4_YY_J1_VRAAG",
+            "choices":
+            {
+                "YY1":
+                {
+                    "question_item" : "Ja?",
+                    "keywords" : ["ja"]
+                },
+                "YY2":
+                {
+                    "question_item" : "Nee?",
+                    "keywords" : ["nee"]
+                }
+            }
+        },
+
+        "YY_JJ2":
+        {
+            "audio_file": "v4_YY_J2_TEKST",
+            "skip_to_room" : "XX"
+        },
+
+        "YY_JJ2_question":
+        {
+            "Note" : "Need to make this a yes/no",
+            "audio_file": "v4_YY_J2_VRAAG",
+            "choices":
+            {
+                "YY1":
+                {
+                    "question_item" : "Ja?",
+                    "keywords" : ["ja"]
+                },
+                "YY2":
+                {
+                    "question_item" : "Nee?",
+                    "keywords" : ["nee"]
+                }
+            }
+        },
+
+        "YY1":
+        {
+            "audio_file": "v4_YY1",
+            "skip_to_room" : "ZZ"
+        },
+        "YY2":
+        {
+            "audio_file": "v4_YY2",
+            "skip_to_room" : "ZZ"
+        },
+
+        "ZZ":
+        {
+            "audio_file": "v4_ZZ__met_muziek_",
+            "skip_to_room" : "ZZ"
         }
     }
 }
