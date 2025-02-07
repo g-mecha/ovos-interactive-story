@@ -1,7 +1,7 @@
 {
     "rooms":
     {
-        "starta":
+        "start":
         {
             "room_text_description": "",
             "skip_to_room" : "AA"
@@ -30,7 +30,7 @@
             "audio_file": "v4_DD_A_TEKST",
             "skip_to_room" : "DD_question"
         },
-        "start":
+        "DD_question":
         {
             "audio_file": "v4_DD_B_VRAAG",
             

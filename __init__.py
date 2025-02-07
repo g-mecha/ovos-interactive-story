@@ -5,6 +5,7 @@ from ovos_number_parser import extract_number
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
 from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
+from ovos_yes_no_solver import YesNoSolver
 
 
 class MyGameSkill(ConversationalGameSkill):
@@ -278,8 +279,12 @@ class MyGameSkill(ConversationalGameSkill):
                 else:
                     self.change_rooms(self.current_room['room_false'])
 
-            # elif self.choice_type == "yes_no":
-
+            elif self.choice_type == "yes_no":
+                answer = YesNoSolver().match_yes_or_no(utterance, lang=self.lang) 
+                if answer is True:
+                    self.change_rooms(self.current_room['room_yes']) 
+                elif answer is False:
+                    self.change_rooms(self.current_room['room_no']) 
 
 
     def on_abandon_game(self):
