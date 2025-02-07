@@ -115,6 +115,8 @@ class MyGameSkill(ConversationalGameSkill):
 
     def ask_questions(self, room):
 
+        self.choice_type = room['choice_type']
+
         if 'use_question_items' in room:
             current_question_option = 0
 

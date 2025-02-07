@@ -1,0 +1,57 @@
+{
+    "rooms":
+    {
+        "start":
+        {
+            "room_text_description": "start",
+            "use_question_items" : true,
+            "choice_type" : "open",
+
+            "choices":
+            {
+                "true_false":
+                {
+                    "question_item" : "true false?",
+                    "keywords" : ["waar", "niet"],
+                    "transition_text": "ga naar true false"
+                },
+                "yes_no":
+                {
+                    "question_item" : "yes no?",
+                    "keywords" : ["ja", "nee"],
+                    "transition_text": "ga naar ja nee"
+                }
+            }
+        },
+
+        "true_false" :
+        {
+            "room_text_description": "true false room",
+            "choice_type" : "true_false",
+            "true_keywords" : ["waar", "goed"],
+            "room_true" : "end",
+            "room_false" : "kill"
+        },
+
+        "yes_no": 
+        {
+            "room_text_description": "yes no room",
+            "choice_type" : "yes_no",
+            "room_yes" : "end",
+            "room_no" : "kill"
+        },
+
+        "kill" : 
+        {
+            "room_text_description": "Dit is fout. Je bent dood!",
+            "end": "fail"
+        },
+
+        "end" : 
+        {
+            "room_text_description": "Dit is het einde",
+            "end": "win"
+        }
+
+    }
+}

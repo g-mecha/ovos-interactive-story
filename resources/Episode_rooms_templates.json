@@ -77,7 +77,7 @@
 
         "end_room_template": 
         {
-            "end": "win|fail"
+            "end": "fail"
         },
 
         "start": 
