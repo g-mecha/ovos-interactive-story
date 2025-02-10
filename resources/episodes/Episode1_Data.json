@@ -73,22 +73,11 @@
 
         "GG_question":
         {
-            "Note" : "Need to make this a yes/no",
             "audio_file": "v4_GG",
 
-            "choices":
-            {
-                "GG1":
-                {
-                    "question_item" : "Ja?",
-                    "keywords" : ["ja"]
-                },
-                "GG2":
-                {
-                    "question_item" : "Nee?",
-                    "keywords" : ["nee"]
-                }
-            }
+            "choice_type" : "yes_no",
+            "room_yes" : "GG1",
+            "room_no" : "GG2"
         },
         "GG1":
         {
@@ -355,9 +344,11 @@
         
         "UU_question":
         {
-            "Note" : "Need to make this a true/false",
             "audio_file": "UU_edit_VRAAG",
-            "skip_to_room" : "UU_question"
+            "choice_type" : "true_false",
+            "true_keywords" : ["oogappel", "oogappeltje", "oog", "appel"],
+            "room_true" : "VV1",
+            "room_false" : "check_WW_played"
         },
 
         "check_WW_played": 
@@ -407,21 +398,10 @@
 
         "YY_JJ1_question":
         {
-            "Note" : "Need to make this a yes/no",
             "audio_file": "v4_YY_J1_VRAAG",
-            "choices":
-            {
-                "YY1":
-                {
-                    "question_item" : "Ja?",
-                    "keywords" : ["ja"]
-                },
-                "YY2":
-                {
-                    "question_item" : "Nee?",
-                    "keywords" : ["nee"]
-                }
-            }
+            "choice_type" : "yes_no",
+            "room_yes" : "YY1",
+            "room_no" : "YY2"
         },
 
         "YY_JJ2":
@@ -432,21 +412,11 @@
 
         "YY_JJ2_question":
         {
-            "Note" : "Need to make this a yes/no",
             "audio_file": "v4_YY_J2_VRAAG",
-            "choices":
-            {
-                "YY1":
-                {
-                    "question_item" : "Ja?",
-                    "keywords" : ["ja"]
-                },
-                "YY2":
-                {
-                    "question_item" : "Nee?",
-                    "keywords" : ["nee"]
-                }
-            }
+
+            "choice_type" : "yes_no",
+            "room_yes" : "YY1",
+            "room_no" : "YY2"
         },
 
         "YY1":
