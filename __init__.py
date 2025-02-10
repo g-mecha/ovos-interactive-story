@@ -102,10 +102,21 @@ class MyGameSkill(ConversationalGameSkill):
 
 # <editor-fold desc="main game logic">
 
+    #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
         if 'audio_file' in room:
             #TODO: this is teribble, think how files are shared to users
             self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=True)
+
+        elif 'audio_files' in room:
+
+            audio_files = room['audio_files']
+            # self.gui.show_text(f"{audio_files[0]}")
+
+            for audio_file in audio_files:
+                self.gui.show_text(f"{audio_file}")
+                self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{audio_file}.mp3", wait=True)
+
         else:
             self.speak(f"{room['room_text_description']}", wait=True)
 

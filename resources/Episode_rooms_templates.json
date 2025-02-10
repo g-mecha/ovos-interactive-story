@@ -5,6 +5,11 @@
         "basic_room_logic_template":
         {
             "audio_file": "audio_0",
+            "audio_files": 
+            [
+                "audio_0",
+                "audio_1"
+            ],
             "room_text_description": "room description"
         },
 
