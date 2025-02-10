@@ -28,7 +28,7 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.choice_type = None
 
-        self.reply = None
+        self.response_reply = None
 
         #debugging
         # We don't need this at all. I keep this around for fast debuging
@@ -143,8 +143,7 @@ class MyGameSkill(ConversationalGameSkill):
                 else: self.speak(details["question_item"], wait=2)
             
         else:
-            #TODO: Make this work
-            self.reply = self.get_response()
+            self.response_reply = self.get_response()
         # num_retries=0
         self.listen_for_player_input = True
 
@@ -185,7 +184,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def change_rooms(self, new_room):
         self.listen_for_player_input = False
-        self.reply = None
+        self.response_reply = None
         self.current_room = self.episode_data['rooms'][new_room]
         self.main_game_loop()
 
@@ -268,11 +267,12 @@ class MyGameSkill(ConversationalGameSkill):
             self.select_episode_from_multiple(utterance)
 
         if (self.listen_for_player_input == True):
-
+            player_input = None
             #Weird workaround to get the get.responce working with the utterance
-            if self.reply != None : utterance = self.reply
+            if self.response_reply :  player_input = self.response_reply
+            if utterance : player_input = utterance
 
-            if utterance:
+            if player_input:
 
                 if self.choice_type == "open":
 
@@ -282,7 +282,7 @@ class MyGameSkill(ConversationalGameSkill):
                     for room_name, details in choices.items():
 
                         # self.log.debug(details)
-                        if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
+                        if any(keyword in player_input.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
 
                             if 'transition_text' in details:
                                 self.speak(details["transition_text"])
@@ -293,13 +293,13 @@ class MyGameSkill(ConversationalGameSkill):
                             break
 
                 elif self.choice_type == "true_false":
-                    if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
+                    if any(keyword in player_input.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
                         self.change_rooms(self.current_room['room_true']) 
                     else:
                         self.change_rooms(self.current_room['room_false'])
 
                 elif self.choice_type == "yes_no":
-                    answer = YesNoSolver().match_yes_or_no(utterance, lang=self.lang) 
+                    answer = YesNoSolver().match_yes_or_no(player_input, lang=self.lang) 
                     if answer is True:
                         self.change_rooms(self.current_room['room_yes']) 
                     elif answer is False:
