@@ -28,6 +28,8 @@ class MyGameSkill(ConversationalGameSkill):
         self.listen_for_player_input = False
         self.choice_type = None
 
+        self.reply = None
+
         #debugging
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
@@ -142,7 +144,7 @@ class MyGameSkill(ConversationalGameSkill):
             
         else:
             #TODO: Make this work
-            self.speak("-", expect_response=True)
+            self.reply = self.get_response()
         # num_retries=0
         self.listen_for_player_input = True
 
@@ -182,6 +184,8 @@ class MyGameSkill(ConversationalGameSkill):
 
 
     def change_rooms(self, new_room):
+        self.listen_for_player_input = False
+        self.reply = None
         self.current_room = self.episode_data['rooms'][new_room]
         self.main_game_loop()
 
@@ -263,41 +267,43 @@ class MyGameSkill(ConversationalGameSkill):
         if (self.listen_for_episode_number == True and utterance):
             self.select_episode_from_multiple(utterance)
 
+        if (self.listen_for_player_input == True):
 
-        if (self.listen_for_player_input == True and utterance):
+            #Weird workaround to get the get.responce working with the utterance
+            if self.reply != None : utterance = self.reply
 
-            if self.choice_type == "open":
+            if utterance:
 
-                choices = self.current_room.get("choices", {})
+                if self.choice_type == "open":
 
-                # Iterate through each choice and its keywords
-                for room_name, details in choices.items():
+                    choices = self.current_room.get("choices", {})
 
-                    # self.log.debug(details)
-                    if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
+                    # Iterate through each choice and its keywords
+                    for room_name, details in choices.items():
 
-                        if 'transition_text' in details:
-                            self.speak(details["transition_text"])
+                        # self.log.debug(details)
+                        if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in details["keywords"])):
 
-                        self.listen_for_player_input = False
+                            if 'transition_text' in details:
+                                self.speak(details["transition_text"])
 
-                        # Return the name of the room if a match is found
-                        self.change_rooms(room_name)
+                            # Return the name of the room if a match is found
+                            self.change_rooms(room_name)
 
-                        break
+                            break
 
-            elif self.choice_type == "true_false":
-                if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
-                    self.change_rooms(self.current_room['room_true']) 
-                else:
-                    self.change_rooms(self.current_room['room_false'])
+                elif self.choice_type == "true_false":
+                    if any(keyword in utterance.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
+                        self.change_rooms(self.current_room['room_true']) 
+                    else:
+                        self.change_rooms(self.current_room['room_false'])
 
-            elif self.choice_type == "yes_no":
-                answer = YesNoSolver().match_yes_or_no(utterance, lang=self.lang) 
-                if answer is True:
-                    self.change_rooms(self.current_room['room_yes']) 
-                elif answer is False:
-                    self.change_rooms(self.current_room['room_no']) 
+                elif self.choice_type == "yes_no":
+                    answer = YesNoSolver().match_yes_or_no(utterance, lang=self.lang) 
+                    if answer is True:
+                        self.change_rooms(self.current_room['room_yes']) 
+                    elif answer is False:
+                        self.change_rooms(self.current_room['room_no']) 
 
 
     def on_abandon_game(self):

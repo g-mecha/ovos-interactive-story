@@ -1,7 +1,7 @@
 {
     "rooms":
     {
-        "start":
+        "start0":
         {
             "audio_files": 
             [
@@ -13,9 +13,10 @@
             "skip_to_room" : "DD_question"
         },
 
-        "DD_question":
+        "start":
         {
             "audio_file": "v4_DD_B_VRAAG",
+            "choice_type" : "open",
             
             "choices":
             {
@@ -106,6 +107,7 @@
         "JJ1_question":
         {
             "audio_file": "v4_JJ1__Inc__Freddie__VRAAG",
+            "choice_type" : "open",
             
             "choices":
             {
@@ -130,6 +132,7 @@
         "JJ2_question":
         {
             "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
+            "choice_type" : "open",
             
             "choices":
             {
@@ -191,6 +194,7 @@
         "PP_question":
         {
             "audio_file": "v4_PP",
+            "choice_type" : "open",
             
             "choices":
             {
@@ -225,6 +229,7 @@
         "QQ_question":
         {
             "audio_file": "v4_QQ_VRAAG",
+            "choice_type" : "open",
             
             "choices":
             {
