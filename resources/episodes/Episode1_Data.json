@@ -1,7 +1,8 @@
 {
+    "audio_url" : "https://firebasestorage.googleapis.com/v0/b/eyepodcast-prod.appspot.com/o/series%2Fokv95D1hVwvMNrziqYtS%2Fd2w5bqKzlRjZwdDsMk5J%",
     "rooms":
     {
-        "start0":
+        "start":
         {
             "audio_files": 
             [
@@ -13,7 +14,7 @@
             "skip_to_room" : "DD_question"
         },
 
-        "start":
+        "DD_question":
         {
             "audio_file": "v4_DD_B_VRAAG",
             "choice_type" : "open",
@@ -40,18 +41,16 @@
         "DD2":
         {
             "audio_file": "v4_DD2",
-            "skip_to_room" : "EE"
+            "skip_to_room" : "EE_to_FF"
         },
         
-        "EE":
+        "EE_to_FF":
         {
-            "audio_file": "v4_EE",
-            "skip_to_room" : "FF"
-        },
-
-        "FF":
-        {
-            "audio_file": "v4_FF",
+            "audio_files": 
+            [
+                "v4_EE",
+                "v4_FF"
+            ],
             "skip_to_room" : "GG_question"
         },
 
@@ -82,17 +81,16 @@
         "HH_question":
         {
             "audio_file": "v4_HH__met_muziek__VRAAG",
+            "choice_type" : "open",
             
             "choices":
             {
                 "JJ1":
                 {
-                    "question_item" : "De taxi?",
                     "keywords" : ["taxi"]
                 },
                 "JJ2":
                 {
-                    "question_item" : "Lopen?",
                     "keywords" : ["lopen"]
                 }
             }
@@ -113,12 +111,10 @@
             {
                 "KK1":
                 {
-                    "question_item" : "Iris?",
                     "keywords" : ["tante", "iris"]
                 },
                 "KK2":
                 {
-                    "question_item" : "Overval?",
                     "keywords" : ["overval"]
                 }
             }
@@ -127,7 +123,7 @@
         "JJ2":
         {
             "audio_file": "v4_JJ2__Inc__Freddie__TEKST",
-            "skip_to_room" : "JJ1_question"
+            "skip_to_room" : "JJ2_question"
         },
         "JJ2_question":
         {
@@ -138,12 +134,10 @@
             {
                 "LL1":
                 {
-                    "question_item" : "Iris?",
                     "keywords" : ["tante", "iris"]
                 },
                 "LL2":
                 {
-                    "question_item" : "Overval?",
                     "keywords" : ["overval"]
                 }
             }
@@ -152,42 +146,35 @@
         "KK1":
         {
             "audio_file": "v4_K1__inc__Freddie_",
-            "skip_to_room" : "MM"
+            "skip_to_room" : "MM_to_OO"
         },
         "KK2":
         {
             "audio_file": "v4_K2__inc__Freddie_",
             "remember_room" : true,
-            "skip_to_room" : "MM"
+            "skip_to_room" : "MM_to_OO"
         },
 
         "LL1":
         {
             "audio_file": "v4_L1__inc__Freddie_",
-            "skip_to_room" : "MM"
+            "skip_to_room" : "MM_to_OO"
         },
         "LL2":
         {
             "audio_file": "v4_L2__inc__Freddie_",
             "remember_room" : true,
-            "skip_to_room" : "MM"
+            "skip_to_room" : "MM_to_OO"
         },
 
-        "MM":
+        "MM_to_OO":
         {
-            "audio_file": "MM",
-            "skip_to_room" : "NN"
-        },
-
-        "NN":
-        {
-            "audio_file": "NN",
-            "skip_to_room" : "OO"
-        },
-
-        "OO":
-        {
-            "audio_file": "OO",
+            "audio_files" :
+            [
+                "MM",
+                "NN",
+                "OO"
+            ],
             "skip_to_room" : "PP_question"
         },
 
@@ -200,12 +187,10 @@
             {
                 "PP1":
                 {
-                    "question_item" : "Blijven?",
                     "keywords" : ["zitten", "blijf", "blijven"]
                 },
                 "PP2":
                 {
-                    "question_item" : "Weggaan?",
                     "keywords" : ["weg", "ga", "weggaan"]
                 }
             }
@@ -235,12 +220,10 @@
             {
                 "check_KK2_played_C":
                 {
-                    "question_item" : "Het cafe?",
                     "keywords" : ["cafe", "kaffee", "café"]
                 },
                 "check_KK2_played_M":
                 {
-                    "question_item" : "Het meisje?",
                     "keywords" : ["meisje", "roos"]
                 }
             }
@@ -295,6 +278,12 @@
             "skip_to_room" : "RR_Q1_Q3"
         },
 
+        "RR_Q1_Q3":
+        {
+            "audio_file": "v4_RR_Q1_en_Q3_",
+            "skip_to_room" : "SS_to_UU"
+        },
+
         "QQ2":
         {
             "audio_file": "v4_QQ2",
@@ -308,25 +297,18 @@
 
         "RR_Q2_Q4":
         {
-            "audio_file": "v4_QQ1",
-            "skip_to_room" : "RR_Q1_Q3"
+            "audio_file": "v4_RR_Q2_en_Q4_",
+            "skip_to_room" : "SS_to_UU"
         },
 
-        "SS":
+        "SS_to_UU":
         {
-            "audio_file": "v4_SS",
-            "skip_to_room" : "TT"
-        },
-
-        "TT":
-        {
-            "audio_file": "v4_TT",
-            "skip_to_room" : "UU"
-        },
-
-        "UU":
-        {
-            "audio_file": "UU_edit_TEKST",
+            "audio_files": 
+            [
+                "v4_SS",
+                "v4_TT",
+                "UU_edit_TEKST"
+            ],
             "skip_to_room" : "UU_question"
         },
         
@@ -335,7 +317,7 @@
             "audio_file": "UU_edit_VRAAG",
             "choice_type" : "true_false",
             "true_keywords" : ["oogappel", "oogappeltje", "oog", "appel"],
-            "room_true" : "VV1",
+            "room_true" : "VV1_to_XX",
             "room_false" : "check_WW_played"
         },
 
@@ -343,29 +325,31 @@
         {
             "room_remember_check" : 
             {
-               "room_to_remember" : "WW",
+               "room_to_remember" : "VV_to_WW",
                "true": "UU_question",
                "false": "VV"
             }   
         },
 
-        "VV":
+        "VV_to_WW":
         {
-            "audio_file": "v4_VV2",
-            "skip_to_room" : "WW"
-        },
-
-        "WW":
-        {
-            "audio_file": "v4_WW",
+            "audio_files": 
+            [
+                "v4_VV2",
+                "v4_WW"
+            ],
             "remember_room" : true,
-            "skip_to_room" : "UU_question"
+            "skip_to_room" : "WUU_questionW"
         },
 
-        "VV1":
+        "VV1_to_XX":
         {
-            "audio_file": "v4_XX__inc__Freddie___muziek_",
-            "skip_to_room" : "XX"
+            "audio_files":
+            [
+                "v4_VV1",
+                "v4_XX__inc__Freddie___muziek_"
+            ],
+            "skip_to_room" : "check_JJ1_played"
         },
 
         "check_JJ1_played": 
