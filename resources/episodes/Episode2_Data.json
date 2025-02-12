@@ -19,14 +19,8 @@
             
             "choices":
             {
-                "C1_to_G1":
-                {
-                    "keywords" : ["links"]
-                },
-                "C2_to_d2":
-                {
-                    "keywords" : ["rechts"]
-                }
+                "C1_to_G1":{"keywords" : ["links"]},
+                "C2_to_d2":{"keywords" : ["rechts"]}
             }
         },
         
@@ -50,14 +44,8 @@
             
             "choices":
             {
-                "G1a_to_K1a":
-                {
-                    "keywords" : ["Brandaris"]
-                },
-                "G1b":
-                {
-                    "keywords" : ["Vlieland"]
-                }
+                "G1a_to_K1a":{"keywords" : ["Brandaris"]},
+                "G1b":{"keywords" : ["Vlieland"]}
         },
         "G1a_to_K1a":
         {
@@ -92,14 +80,9 @@
             
             "choices":
             {
-                "D2a":
-                {
-                    "keywords" : ["Hozen"]
-                },
-                "D2b":
-                {
-                    "keywords" : ["Sturen"]
-                }
+                "D2a":{"keywords" : ["Hozen"]},
+                "D2b":{"keywords" : ["Sturen"]}
+            }
         },
         "D2a":
         {
@@ -128,43 +111,104 @@
             "skip_to_room" : "LL_question"
         },
 
-
-
-            
-            
-        "GG_question":
+        "LL_question":
         {
-            "audio_file": "v4_GG",
-
-            "choice_type" : "yes_no",
-            "room_yes" : "GG1",
-            "room_no" : "GG2"
+            "audio_file": "D2_Keuze",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "M1_to_N1":{"keywords" : ["Vuurtoren"]},
+                "M2b_to_P2":{"keywords" : ["Brouwerij"]}
+            }
         },
 
-
-        "HH":
+        "M1_to_N1":
         {
-            "audio_file": "v4_HH__met_muziek__TEKST",
-            "skip_to_room" : "HH"
+            "audio_files": 
+            [
+                "M1__met_muziek__v2",
+                "N1_NNBBG_TEKST",
+            ],
+            "skip_to_room" : "N1_question"    
         },
-        "HH_question":
+        "N1_question":
+        {
+            "audio_file": "N1_NNBBG_VRAAG",
+            "choice_type" : "open",
+
+            "choices":
+            {
+                "M2a_to_P2":{"keywords" : ["Brouwerij"]},
+                "QQ2":{"keywords" : ["Juttershuisje", "jutter", "huisje"]}
+            }
+        },
+        "M2a_to_P2":
+        {
+            "audio_files": 
+            [
+                "M2__met_muziek_",
+                "N2",
+                "Q2",
+                "P2"
+            ],
+            "skip_to_room" : "QQ"
+        },
+
+        "M2b_to_P2":
+        {
+            "audio_files": 
+            [
+                "M2__met_muziek_",
+                "N2",
+                "Q2",
+                "P2_NNBVG_TEKST"
+            ],
+            "skip_to_room" : "P2_question"
+        },
+
+        "P2_question":
         {
             "audio_file": "v4_HH__met_muziek__VRAAG",
             "choice_type" : "open",
             
             "choices":
             {
-                "JJ1":
-                {
-                    "keywords" : ["taxi"]
-                },
-                "JJ2":
-                {
-                    "keywords" : ["lopen"]
-                }
+                "M1b_to_N1":{"keywords" : ["Vuurtoren"]},
+                "QQ":{"keywords" : ["Juttershuisje", "jutter", "huisje"]}
             }
         },
+        "M1b_to_N1":
+        {
+            "audio_files": 
+            [
+                "M1__met_muziek__v2",
+                "N1__bij_brouwerij_geweest__v2"
+            ],
+            "skip_to_room" : "QQ2"
+        },
 
+        "QQ":
+        {
+            "audio_file": "QQ__met_muziek_",
+            "skip_to_room" : "RR_to_SS"
+        },
+
+        "QQ2":
+        {
+            "audio_file": "QQ2__met_muziek_",
+            "skip_to_room" : "RR_to_SS"
+        },
+            
+
+        "HERE":
+        {
+            "audio_file": "QQ2__met_muziek_",
+            "skip_to_room" : "RR_to_SS"
+        },
+
+
+            
         "JJ1":
         {
             "audio_file": "v4_JJ1__Inc__Freddie__TEKST",
