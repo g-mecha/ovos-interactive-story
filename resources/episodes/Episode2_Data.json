@@ -199,85 +199,75 @@
             "audio_file": "QQ2__met_muziek_",
             "skip_to_room" : "RR_to_SS"
         },
-            
 
-        "HERE":
+        "RR_to_SS":
         {
-            "audio_file": "QQ2__met_muziek_",
+            "audio_files": 
+            [
+                "RR",
+                "SS_TEKST"
+            ]
             "skip_to_room" : "RR_to_SS"
         },
 
-
-            
-        "JJ1":
-        {
-            "audio_file": "v4_JJ1__Inc__Freddie__TEKST",
-            "remember_room" : true,
-            "skip_to_room" : "JJ1_question"
-        },
-        "JJ1_question":
+        "SS_question":
         {
             "audio_file": "v4_JJ1__Inc__Freddie__VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "KK1":
-                {
-                    "keywords" : ["tante", "iris"]
-                },
-                "KK2":
-                {
-                    "keywords" : ["overval"]
-                }
-            }
+            "choice_type" : "yes_no",
+            "room_yes" : "S1_to_S2",
+            "room_no" : "TT_question"
+        },
+        "S1_to_S2":
+        {
+            "audio_files": 
+            [
+                "S1",
+                "S1a",
+                "S2"
+            ]
+            "remember_room" : true,
+            "skip_to_room" : "TT_question"
         },
 
-        "JJ2":
-        {
-            "audio_file": "v4_JJ2__Inc__Freddie__TEKST",
-            "skip_to_room" : "JJ2_question"
-        },
-        "JJ2_question":
+        "TT_question":
         {
             "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
+            "choice_type" : "yes_no",
+            "room_yes" : "T1",
+            "room_no" : "UU_question"
+        },
+
+        "T1":
+        {
+            "audio_file": "T1",
+            "skip_to_room" : "check_S1_to_S2_played"
+        },
+        "check_S1_to_S2_played":
+        {
+            "room_remember_check" : 
             {
-                "LL1":
-                {
-                    "keywords" : ["tante", "iris"]
-                },
-                "LL2":
-                {
-                    "keywords" : ["overval"]
-                }
-            }
+               "room_to_remember" : "S1_to_S2",
+               "true": "T2",
+               "false": "S1a"
+            }   
+        },
+        "T2":
+        {
+            "audio_file": "T2",
+            "skip_to_room" : "UU_question"
+        },
+        "S1a":
+        {
+            "audio_file": "S1a",
+            "skip_to_room" : "UU_question"
         },
 
-        "KK1":
+        "HERE":
         {
-            "audio_file": "v4_K1__inc__Freddie_",
-            "skip_to_room" : "MM_to_OO"
-        },
-        "KK2":
-        {
-            "audio_file": "v4_K2__inc__Freddie_",
-            "remember_room" : true,
-            "skip_to_room" : "MM_to_OO"
-        },
-
-        "LL1":
-        {
-            "audio_file": "v4_L1__inc__Freddie_",
-            "skip_to_room" : "MM_to_OO"
-        },
-        "LL2":
-        {
-            "audio_file": "v4_L2__inc__Freddie_",
-            "remember_room" : true,
-            "skip_to_room" : "MM_to_OO"
+            "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
+            "choice_type" : "yes_no",
+            "room_yes" : "T1",
+            "room_no" : "UU_question"
         },
 
         "MM_to_OO":
