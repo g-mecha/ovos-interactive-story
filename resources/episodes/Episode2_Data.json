@@ -46,6 +46,7 @@
             {
                 "G1a_to_K1a":{"keywords" : ["Brandaris"]},
                 "G1b":{"keywords" : ["Vlieland"]}
+            }
         },
         "G1a_to_K1a":
         {
@@ -69,7 +70,7 @@
             "audio_files": 
             [
                 "C2_v2",
-                "D2_v2",
+                "D2_v2"
             ],
             "skip_to_room" : "LL"
         },
@@ -100,7 +101,7 @@
             "audio_files": 
             [
                 "E2b",
-                "F2b",
+                "F2b"
             ],
             "skip_to_room" : "LL"
         },
@@ -110,7 +111,6 @@
             "audio_file": "LL_TEKST",
             "skip_to_room" : "LL_question"
         },
-
         "LL_question":
         {
             "audio_file": "D2_Keuze",
@@ -128,7 +128,7 @@
             "audio_files": 
             [
                 "M1__met_muziek__v2",
-                "N1_NNBBG_TEKST",
+                "N1_NNBBG_TEKST"
             ],
             "skip_to_room" : "N1_question"    
         },
@@ -206,7 +206,7 @@
             [
                 "RR",
                 "SS_TEKST"
-            ]
+            ],
             "skip_to_room" : "RR_to_SS"
         },
 
@@ -224,7 +224,7 @@
                 "S1",
                 "S1a",
                 "S2"
-            ]
+            ],
             "remember_room" : true,
             "skip_to_room" : "TT_question"
         },
@@ -387,7 +387,7 @@
             "skip_to_room" : "SS_to_UU"
         },
 
-        "QQ2":
+        "QQ24":
         {
             "audio_file": "v4_QQ2",
             "skip_to_room" : "RR_Q2_Q4"
@@ -510,5 +510,6 @@
             "audio_file": "v4_ZZ__met_muziek_",
             "skip_to_room" : "ZZ"
         }
+        
     }
 }
