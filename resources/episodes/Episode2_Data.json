@@ -212,7 +212,7 @@
 
         "SS_question":
         {
-            "audio_file": "v4_JJ1__Inc__Freddie__VRAAG",
+            "audio_file": "SS_VRAAG",
             "choice_type" : "yes_no",
             "room_yes" : "S1_to_S2",
             "room_no" : "TT_question"
@@ -231,24 +231,22 @@
 
         "TT_question":
         {
-            "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
+            "audio_file": "TT",
             "choice_type" : "yes_no",
             "room_yes" : "T1",
             "room_no" : "UU_question"
         },
-
         "T1":
         {
             "audio_file": "T1",
-            "skip_to_room" : "check_S1_to_S2_played"
+            "skip_to_room" : "check_S1_to_S2_played_T"
         },
-        "check_S1_to_S2_played":
+        "check_S1_to_S2_played_T":
         {
             "room_remember_check" : 
             {
                "room_to_remember" : "S1_to_S2",
-               "true": "T2",
-               "false": "S1a"
+               "false": "S1a_T"
             }   
         },
         "T2":
@@ -256,260 +254,137 @@
             "audio_file": "T2",
             "skip_to_room" : "UU_question"
         },
-        "S1a":
+        "S1a_T":
         {
             "audio_file": "S1a",
             "skip_to_room" : "UU_question"
         },
 
-        "HERE":
+        "UU_question":
         {
-            "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
+            "audio_file": "TT",
             "choice_type" : "yes_no",
             "room_yes" : "T1",
             "room_no" : "UU_question"
         },
-
-        "MM_to_OO":
+        "U1":
         {
-            "audio_files" :
-            [
-                "MM",
-                "NN",
-                "OO"
+            "audio_file": "U1",
+            "skip_to_room" : "check_S1_to_S2_played_U"
+        },
+        "check_S1_to_S2_played_U":
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "S1_to_S2",
+               "true": "U2",
+               "false": "S1a_U"
+            }   
+        },
+        "U2":
+        {
+            "audio_file": "U2",
+            "skip_to_room" : "VV_question"
+        },
+        "S1a_U":
+        {
+            "audio_file": "S1a",
+            "skip_to_room" : "VV_question"
+        },
+
+        "VV_question":
+        {
+            "audio_file": "TT",
+            "choice_type" : "yes_no",
+            "room_yes" : "check_S1_to_S2_played_V",
+            "room_no" : "WW_question"
+        },
+        "check_S1_to_S2_played_V":
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "S1_to_S2",
+               "true": "V1_Key",
+               "false": "V1"
+            }   
+        },
+        "V1_no_key":
+        {
+            "audio_file": "V1_zonderSleutel",
+            "skip_to_room" : "XX_TO_yy"
+        },
+        "V1":
+        {
+            "audio_file": "V1",
+            "skip_to_room" : "XX_TO_yy"
+        },
+
+        "WW_question":
+        {
+            "audio_file": "WW",
+            "choice_type" : "yes_no",
+            "room_yes" : "W1",
+            "room_no" : "W2"
+        },
+        "W1":
+        {
+            "audio_file": "W1",
+            "skip_to_room" : "check_S1_to_S2_played_W"
+        },
+        "check_S1_to_S2_played_W":
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "S1_to_S2",
+               "true": "W4",
+               "false": "S1a_W"
+            }   
+        },
+        "W4":
+        {
+            "audio_file": "W4",
+            "skip_to_room" : "W2"
+        },
+        "S1a_W":
+        {
+            "audio_file": "S1a",
+            "skip_to_room" : "W2"
+        },
+        "W2":
+        {
+            "audio_file": "W2_v2",
+            "skip_to_room" : "SS_question"
+        },
+
+        "XX_to_yy":
+        {
+            "audio_fileS": [
+                "XX_v2",
+                "YY_TEKST"
             ],
-            "skip_to_room" : "PP_question"
+            "skip_to_room" : "YY_question"
         },
 
-        "PP_question":
+        "YY_question":
         {
-            "audio_file": "v4_PP",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "PP1":
-                {
-                    "keywords" : ["zitten", "blijf", "blijven"]
-                },
-                "PP2":
-                {
-                    "keywords" : ["weg", "ga", "weggaan"]
-                }
-            }
-        },
-        "PP1":
-        {
-            "audio_file": "v4_PP1",
-            "skip_to_room" : "QQ"
-        },
-        "PP2":
-        {
-            "audio_file": "v4_PP2",
-            "skip_to_room" : "QQ"
-        },
-
-        "QQ":
-        {
-            "audio_file": "v4_QQ_TEKST",
-            "skip_to_room" : "QQ_question"
-        },
-        "QQ_question":
-        {
-            "audio_file": "v4_QQ_VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "check_KK2_played_C":
-                {
-                    "keywords" : ["cafe", "kaffee", "café"]
-                },
-                "check_KK2_played_M":
-                {
-                    "keywords" : ["meisje", "roos"]
-                }
-            }
-        },
-
-        "check_KK2_played_C": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "KK2",
-               "true": "QQ2",
-               "false": "check_LL2_played_C"
-            }   
-        },
-        "check_LL2_played_C": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "LL2",
-               "true": "QQ2",
-               "false": "QQ4"
-            }   
-        },
-
-        "check_KK2_played_M": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "KK2",
-               "true": "QQ1",
-               "false": "check_LL2_played_M"
-            }   
-        },
-        "check_LL2_played_M": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "LL2",
-               "true": "QQ1",
-               "false": "QQ3"
-            }   
-        },
-
-        "QQ1":
-        {
-            "audio_file": "v4_QQ1",
-            "skip_to_room" : "RR_Q1_Q3"
-        },
-        "QQ3":
-        {
-            "audio_file": "v4_QQ3",
-            "skip_to_room" : "RR_Q1_Q3"
-        },
-
-        "RR_Q1_Q3":
-        {
-            "audio_file": "v4_RR_Q1_en_Q3_",
-            "skip_to_room" : "SS_to_UU"
-        },
-
-        "QQ24":
-        {
-            "audio_file": "v4_QQ2",
-            "skip_to_room" : "RR_Q2_Q4"
-        },
-        "QQ4":
-        {
-            "audio_file": "v4_QQ4",
-            "skip_to_room" : "RR_Q2_Q4"
-        },
-
-        "RR_Q2_Q4":
-        {
-            "audio_file": "v4_RR_Q2_en_Q4_",
-            "skip_to_room" : "SS_to_UU"
-        },
-
-        "SS_to_UU":
-        {
-            "audio_files": 
-            [
-                "v4_SS",
-                "v4_TT",
-                "UU_edit_TEKST"
-            ],
-            "skip_to_room" : "UU_question"
-        },
-        
-        "UU_question":
-        {
-            "audio_file": "UU_edit_VRAAG",
+            "audio_file": "YY_VRAAG",
             "choice_type" : "true_false",
-            "true_keywords" : ["oogappel", "oogappeltje", "oog", "appel"],
-            "room_true" : "VV1_to_XX",
-            "room_false" : "check_WW_played"
+            "true_keywords" : ["nachtwacht", "nacht", "wacht"],
+            "room_true" : "Y1_to_ZZ",
+            "room_false" : "Y2"
         },
-
-        "check_WW_played": 
+        "Y2":
         {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "VV_to_WW",
-               "true": "UU_question",
-               "false": "VV"
-            }   
+            "audio_file": "Y2",
+            "skip_to_room" : "YY_question"
         },
-
-        "VV_to_WW":
+        "Y1_to_ZZ":
         {
-            "audio_files": 
-            [
-                "v4_VV2",
-                "v4_WW"
+            "audio_fileS": [
+                "Y1",
+                "ZZ__met_muziek__v2"
             ],
-            "remember_room" : true,
-            "skip_to_room" : "WUU_questionW"
-        },
-
-        "VV1_to_XX":
-        {
-            "audio_files":
-            [
-                "v4_VV1",
-                "v4_XX__inc__Freddie___muziek_"
-            ],
-            "skip_to_room" : "check_JJ1_played"
-        },
-
-        "check_JJ1_played": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "JJ1",
-               "true": "YY_JJ1",
-               "false": "YY_JJ2"
-            }   
-        },
-
-        "YY_JJ1":
-        {
-            "audio_file": "v4_YY_J1_TEKST",
-            "skip_to_room" : "YY_JJ1_question"
-        },
-
-        "YY_JJ1_question":
-        {
-            "audio_file": "v4_YY_J1_VRAAG",
-            "choice_type" : "yes_no",
-            "room_yes" : "YY1",
-            "room_no" : "YY2"
-        },
-
-        "YY_JJ2":
-        {
-            "audio_file": "v4_YY_J2_TEKST",
-            "skip_to_room" : "XX"
-        },
-
-        "YY_JJ2_question":
-        {
-            "audio_file": "v4_YY_J2_VRAAG",
-
-            "choice_type" : "yes_no",
-            "room_yes" : "YY1",
-            "room_no" : "YY2"
-        },
-
-        "YY1":
-        {
-            "audio_file": "v4_YY1",
-            "skip_to_room" : "ZZ"
-        },
-        "YY2":
-        {
-            "audio_file": "v4_YY2",
-            "skip_to_room" : "ZZ"
-        },
-
-        "ZZ":
-        {
-            "audio_file": "v4_ZZ__met_muziek_",
-            "skip_to_room" : "ZZ"
+            "end" : "win"
         }
-        
     }
 }

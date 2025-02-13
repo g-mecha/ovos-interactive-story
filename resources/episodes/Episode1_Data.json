@@ -21,16 +21,8 @@
             
             "choices":
             {
-                "DD1":
-                {
-                    "question_item" : "Jazz muziek?",
-                    "keywords" : ["jazz", "yes", "djez"]
-                },
-                "DD2":
-                {
-                    "question_item" : "Pop muziek?",
-                    "keywords" : ["pop"]
-                }
+                "DD1":{"keywords" : ["jazz", "yes", "djez"]},
+                "DD2":{"keywords" : ["pop"]}
             }
         },
         "DD1":
@@ -85,14 +77,8 @@
             
             "choices":
             {
-                "JJ1":
-                {
-                    "keywords" : ["taxi"]
-                },
-                "JJ2":
-                {
-                    "keywords" : ["lopen"]
-                }
+                "JJ1":{"keywords" : ["taxi"]},
+                "JJ2":{"keywords" : ["lopen"]}
             }
         },
 
@@ -109,14 +95,8 @@
             
             "choices":
             {
-                "KK1":
-                {
-                    "keywords" : ["tante", "iris"]
-                },
-                "KK2":
-                {
-                    "keywords" : ["overval"]
-                }
+                "KK1":{"keywords" : ["tante", "iris"]},
+                "KK2":{"keywords" : ["overval"]}
             }
         },
 
@@ -132,14 +112,8 @@
             
             "choices":
             {
-                "LL1":
-                {
-                    "keywords" : ["tante", "iris"]
-                },
-                "LL2":
-                {
-                    "keywords" : ["overval"]
-                }
+                "LL1":{"keywords" : ["tante", "iris"]},
+                "LL2":{"keywords" : ["overval"]}
             }
         },
 
@@ -185,14 +159,8 @@
             
             "choices":
             {
-                "PP1":
-                {
-                    "keywords" : ["zitten", "blijf", "blijven"]
-                },
-                "PP2":
-                {
-                    "keywords" : ["weg", "ga", "weggaan"]
-                }
+                "PP1":{"keywords" : ["zitten", "blijf", "blijven"]},
+                "PP2":{"keywords" : ["weg", "ga", "weggaan"]}
             }
         },
         "PP1":
@@ -218,14 +186,8 @@
             
             "choices":
             {
-                "check_KK2_played_C":
-                {
-                    "keywords" : ["cafe", "kaffee", "café"]
-                },
-                "check_KK2_played_M":
-                {
-                    "keywords" : ["meisje", "roos"]
-                }
+                "check_KK2_played_C":{"keywords" : ["cafe", "kaffee", "café"]},
+                "check_KK2_played_M":{"keywords" : ["meisje", "roos"]}
             }
         },
 
@@ -405,7 +367,8 @@
         "ZZ":
         {
             "audio_file": "v4_ZZ__met_muziek_",
-            "skip_to_room" : "ZZ"
+            "skip_to_room" : "ZZ",
+            "end": "win"
         }
     }
 }
