@@ -3,79 +3,64 @@
     {
         "start":
         {
-            "room_text_description": "",
-            "skip_to_room" : "AA"
+            "skip_to_room" : "AA_to_CC"
         },
 
-        "AA":
+        "AA_to_CC":
 	    {
-            "audio_file": "AA_met_muziek_",
-            "skip_to_room" : "BB"
+            "audio_file": 
+            [
+                "AA_met_muziek",
+                "BB",
+                "CC_TEKST"
+            ],
+
+            "skip_to_room" : "CC_question"
         },
 
-        "BB":
-	    {
-            "audio_file": "BB",
-            "skip_to_room" : "CC"
-        },
-
-        "CC":
-	    {
-            "audio_file": "CC_TEKST",
-            "skip_to_room" : "CC_VRAAG"
-        },
-
-        "CC_VRAAG":
+        "CC_question":
 	    {
             "audio_file": "CC_VRAAG",
             "choices":
             {
-                "C3":
+                "C3_to_DD":
                 {
-                    "question_item" : "Rijks, rijksmuseum, rex, niks",
-                    "keywords" : [""]
+                    "keywords" : ["Rijks", "rijksmuseum", "rex", "niks"]
                 },
-                "CC3":
+
+                "CC3_to_DD":
                 {
-                    "question_item" : "Gogh, gog, van",
-                    "keywords" : [""] 
+                    "keywords" : ["Gogh", "gog", "van"]
                 }
             }
         },
 
-        "C3":
+        "C3_to_DD":
 	    {
-            "audio_file": "C3",
-            "skip_to_room" : "C2"
+            "audio_file": 
+            [
+                "C3",
+                "C2"
+            ],
+
+            "skip_to_room" : "DD_TEKST"
         },
 
-        "CC3":
+        "CC3_to_DD":
 	    {
-            "audio_file": "C3",
-            "skip_to_room" : "C1"
-        },
+            "audio_file": 
+            [
+        	    "C3",
+                "C1",
+                "C2_met_muziek_doorstrom_vanaf_C1"
+            ],
 
-        "C1":
-	    {
-            "audio_file": "C1",
             "remember_room" : true,
-            "skip_to_room" : "CC2"
-        },
-
-        "C2":
-	    {
-            "audio_file": "C2",
-            "skip_to_room" : "DD"
-        },
-        
-        "CC2":
-	    {
-            "audio_file": "C2_met_muziek_",
             "skip_to_room" : "DD"
         },
 
         "DD":
-	    {
+    	{
             "audio_file": "DD_TEKST",
             "skip_to_room" : "DD_VRAAG"
         },
@@ -85,67 +70,75 @@
             "audio_file": "DD_VRAAG",
             "choices":
             {
-                "D1":
+                "D1_to_E1":
                 {
-                    "question_item" : "Vogel, vogeltour, tour",
-                    "keywords" : [""]
+                    "keywords" : ["Vogel", "vogeltour", "tour"]
                 },
-                "D2":
+                "D2_to_C1_Check":
                 {
-                    "question_item" : "Rembrandt, want, brand",
-                    "keywords" : [""] 
+                    "keywords" : ["Rembrandt", "want", "brand"] 
                 }
             }
         },
 
-        "D1":
+        "D1_to_E1":
 	    {
-            "audio_file": "D1",
-            "skip_to_room" : "E1"
+            "audio_file": 
+            [
+		        "D1",
+                "E1_TEKST"
+            ],
+
+            "skip_to_room" : "E1_question"
         },
 
-        "D2":
+        "D2_to_C1_Check":
 	    {
             "audio_file": "D2",
-            "skip_to_room" : "C1_check"
-        },
 
-        "C1_check": 
-        {
             "room_remember_check" : 
             {
-               "room_to_remember" : "C1",
-               "true": "FF2",
+               "room_to_remember" : "CC3_to_DD",
+               "true": "F2_to_question",
                "false": "F1_V2"
-            }   
+            } 
         },
 
-        "FF2":
-	    {
-            "audio_file": "F2",
-            "skip_to_room" : ""
+        "F2_to_question":
+    	{
+            "audio_file": "",
+        	"choice_type" : "open",
+            "choices":
+            {
+                "DD1":
+                {
+                    "keywords" : ["Vogeltour", "vogel", "toer"]
+                },
+                "GG":
+                {
+                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
+                }
+            }
         },
 
         "F1_V2":
 	    {
             "audio_file": "F1_V2",
-            "skip_to_room" : "F1_V2_Vraag"
+            "skip_to_room" : "F1_V2_question"
         },
 
-        "F1_V2_VRAAG":
+        "F1_V2_question":
 	    {
             "audio_file": "F1_V2_VRAAG",
             "choices":
             {
-                "DD1":
+                "D1":
                 {
-                    "question_item" : "Vogeltour, vogel, toer",
-                    "keywords" : [""]
+                    "keywords" : ["Vogeltour", "vogel", "toer"]
                 },
                 "GG":
                 {
-                    "question_item" : "Nachtwacht, nacht, wacht",
-                    "keywords" : [""] 
+                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
                 }
             }
         },
@@ -169,40 +162,33 @@
             {
                 "DD2":
                 {
-                    "question_item" : "Tour, hoer, toe",
-                    "keywords" : [""]
+                    "keywords" : ["Tour", "hoer", "toe"]
                 },
                 "C1":
                 {
-                    "question_item" : "Nachtwacht, nacht, wacht",
-                    "keywords" : [""] 
+                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
                 }
             }
         },
 
-        "DD2":
+        "D2_to_CC1_Check":
 	    {
             "audio_file": "D2",
-            "skip_to_room" : "CC1_Check"
-        },
-
-        "CC1_Check":
-        {
             "room_remember_check" : 
             {
                "room_to_remember" : "C1",
-               "true": "F2",
-               "false": "F1"
-            }   
+               "true": "F2_to_GG",
+               "false": "F1_to_GG"
+            }  
         },
 
-        "F2":
+        "F2_to_GG":
 	    {
             "audio_file": "F2",
             "skip_to_room" : "GG"
         },
 
-        "F1":
+        "F1_to_GG":
 	    {
             "audio_file": "F1_kom_we_gaan_nacht",
             "skip_to_room" : "GG"
@@ -211,36 +197,26 @@
         "GG":
 	    {
             "audio_file": "GG",
-            "skip_to_room" : "GG_VRAAG"
+            "skip_to_room" : "GG_question"
         },
 
-        "GG_VRAAG":
+        "GG_question":
 	    {
             "audio_file": "GG_VRAAG",
-            "choices":
-            {
-                "G2":
-                {
-                    "question_item" : "Ja",
-                    "keywords" : [""]
-                },
-                "G1":
-                {
-                    "question_item" : "Nee",
-                    "keywords" : [""] 
-                }
-            }
+            "choice_type" : "yes_no",
+            "room_yes" : "G2_to_HH",
+            "room_no" : "G1_to_HH"
         },
 
         "G2":
 	    {
-            "audio_file": "G2",
+            "audio_file": "G2_to_HH",
             "skip_to_room" : "HH"
         },
 
         "G1":
 	    {
-            "audio_file": "G1",
+            "audio_file": "G1_to_HH",
             "skip_to_room" : "HH"
         },
 
@@ -251,21 +227,34 @@
         },
 
         "HH_VRAAG":
-	    {
+    	{
             "audio_file": "HH_VRAAG",
             "choices":
             {
-                "J":
+                "JJ_to_end":
                 {
-                    "question_item" : "Dierenwinkel, dieren, winkel",
-                    "keywords" : [""]
-                },
-                "JJ":
-                {
-                    "question_item" : "Hondenasiel, honden, asiel",
-                    "keywords" : [""] 
+                    "keywords" : ["Dierenwinkel", "dieren", "winkel","Hondenasiel", "honden", "asiel"]
                 }
             }
+        },
+
+        "JJ_to_end":
+        {   
+            "audio_file": 
+            [
+		        "JJ",
+                "KK",
+                "LL",
+                "MM",
+                "NN",
+                "OO",
+                "PP_met_muziek",
+                "QQ",
+                "RR"
+            ],
+
+            "end": "win"      
         }
+
     }
 }
