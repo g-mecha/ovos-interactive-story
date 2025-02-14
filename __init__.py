@@ -1,4 +1,6 @@
 import json
+import mutagen 
+from mutagen.wave import WAVE 
 import os.path
 import requests
 
@@ -97,9 +99,10 @@ class MyGameSkill(ConversationalGameSkill):
 
         # Closing file
         f.close()
+        
 
-        self.reset_episode()
-        self.main_game_loop()
+        # self.reset_episode()
+        # self.main_game_loop()
 
 #</editor-fold>
 
@@ -117,13 +120,33 @@ class MyGameSkill(ConversationalGameSkill):
     #         print("Key error:", e)
     #         return []
 
+        def audio_duration(length): 
+            hours = length // 3600  # calculate in hours 
+            length %= 3600
+            mins = length // 60  # calculate in minutes 
+            length %= 60
+            seconds = length  # calculate in seconds 
+        
+            return hours, mins, seconds  # returns the duration 
+        
+        # Create a WAVE object 
+        # Specify the directory address of your wavpack file 
+        # "alarm.wav" is the name of the audiofile 
+        audio = WAVE("alarm.wav") 
+        
+        # contains all the metadata about the wavpack file 
+        audio_info = audio.info 
+        length = int(audio_info.length) 
+        hours, mins, seconds = audio_duration(length) 
+        print('Total Duration: {}:{}:{}'.format(hours, mins, seconds)) 
+
 # <editor-fold desc="main game logic">
 
     #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
         if 'audio_file' in room:
             #TODO: this is teribble, think how files are shared to users
-            self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=True)
+            self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=750)
 
         elif 'audio_files' in room:
 
