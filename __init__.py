@@ -1,10 +1,11 @@
-import os.path
 import json
+import os.path
+import requests
 
 from ovos_number_parser import extract_number
+from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
-from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 from ovos_yes_no_solver import YesNoSolver
 
 
@@ -101,6 +102,20 @@ class MyGameSkill(ConversationalGameSkill):
         self.main_game_loop()
 
 #</editor-fold>
+
+    # def fetch_audio_file_data(self, audio_track):  
+    #     try:
+    #         request_header = f"{self.episode_data['database_audio_url']}"+f"{audio_track}"+".mp3?"
+            
+    #         response = requests.get(request_header)
+    #         response.raise_for_status()
+    #         data = response.json()
+
+    #         return request_header+"alt=media&token="+data['downloadTokens']
+        
+    #     except KeyError as e:
+    #         print("Key error:", e)
+    #         return []
 
 # <editor-fold desc="main game logic">
 

@@ -1,0 +1,271 @@
+{
+    "rooms":
+    {
+        "start":
+        {
+            "room_text_description": "",
+            "skip_to_room" : "AA"
+        },
+
+        "AA":
+	    {
+            "audio_file": "AA_met_muziek_",
+            "skip_to_room" : "BB"
+        },
+
+        "BB":
+	    {
+            "audio_file": "BB",
+            "skip_to_room" : "CC"
+        },
+
+        "CC":
+	    {
+            "audio_file": "CC_TEKST",
+            "skip_to_room" : "CC_VRAAG"
+        },
+
+        "CC_VRAAG":
+	    {
+            "audio_file": "CC_VRAAG",
+            "choices":
+            {
+                "C3":
+                {
+                    "question_item" : "Rijks, rijksmuseum, rex, niks",
+                    "keywords" : [""]
+                },
+                "CC3":
+                {
+                    "question_item" : "Gogh, gog, van",
+                    "keywords" : [""] 
+                }
+            }
+        },
+
+        "C3":
+	    {
+            "audio_file": "C3",
+            "skip_to_room" : "C2"
+        },
+
+        "CC3":
+	    {
+            "audio_file": "C3",
+            "skip_to_room" : "C1"
+        },
+
+        "C1":
+	    {
+            "audio_file": "C1",
+            "remember_room" : true,
+            "skip_to_room" : "CC2"
+        },
+
+        "C2":
+	    {
+            "audio_file": "C2",
+            "skip_to_room" : "DD"
+        },
+        
+        "CC2":
+	    {
+            "audio_file": "C2_met_muziek_",
+            "skip_to_room" : "DD"
+        },
+
+        "DD":
+	    {
+            "audio_file": "DD_TEKST",
+            "skip_to_room" : "DD_VRAAG"
+        },
+
+        "DD_VRAAG":
+	    {
+            "audio_file": "DD_VRAAG",
+            "choices":
+            {
+                "D1":
+                {
+                    "question_item" : "Vogel, vogeltour, tour",
+                    "keywords" : [""]
+                },
+                "D2":
+                {
+                    "question_item" : "Rembrandt, want, brand",
+                    "keywords" : [""] 
+                }
+            }
+        },
+
+        "D1":
+	    {
+            "audio_file": "D1",
+            "skip_to_room" : "E1"
+        },
+
+        "D2":
+	    {
+            "audio_file": "D2",
+            "skip_to_room" : "C1_check"
+        },
+
+        "C1_check": 
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "C1",
+               "true": "FF2",
+               "false": "F1_V2"
+            }   
+        },
+
+        "FF2":
+	    {
+            "audio_file": "F2",
+            "skip_to_room" : ""
+        },
+
+        "F1_V2":
+	    {
+            "audio_file": "F1_V2",
+            "skip_to_room" : "F1_V2_Vraag"
+        },
+
+        "F1_V2_VRAAG":
+	    {
+            "audio_file": "F1_V2_VRAAG",
+            "choices":
+            {
+                "DD1":
+                {
+                    "question_item" : "Vogeltour, vogel, toer",
+                    "keywords" : [""]
+                },
+                "GG":
+                {
+                    "question_item" : "Nachtwacht, nacht, wacht",
+                    "keywords" : [""] 
+                }
+            }
+        },
+
+        "DD1":
+	    {
+            "audio_file": "D1",
+            "skip_to_room" : "GG"
+        },
+
+        "E1":
+	    {
+            "audio_file": "E1_TEKST",
+            "skip_to_room" : "E1_VRAAG"
+        },
+
+        "E1_VRAAG":
+	    {
+            "audio_file": "E1_VRAAG",
+            "choices":
+            {
+                "DD2":
+                {
+                    "question_item" : "Tour, hoer, toe",
+                    "keywords" : [""]
+                },
+                "C1":
+                {
+                    "question_item" : "Nachtwacht, nacht, wacht",
+                    "keywords" : [""] 
+                }
+            }
+        },
+
+        "DD2":
+	    {
+            "audio_file": "D2",
+            "skip_to_room" : "CC1_Check"
+        },
+
+        "CC1_Check":
+        {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "C1",
+               "true": "F2",
+               "false": "F1"
+            }   
+        },
+
+        "F2":
+	    {
+            "audio_file": "F2",
+            "skip_to_room" : "GG"
+        },
+
+        "F1":
+	    {
+            "audio_file": "F1_kom_we_gaan_nacht",
+            "skip_to_room" : "GG"
+        },
+
+        "GG":
+	    {
+            "audio_file": "GG",
+            "skip_to_room" : "GG_VRAAG"
+        },
+
+        "GG_VRAAG":
+	    {
+            "audio_file": "GG_VRAAG",
+            "choices":
+            {
+                "G2":
+                {
+                    "question_item" : "Ja",
+                    "keywords" : [""]
+                },
+                "G1":
+                {
+                    "question_item" : "Nee",
+                    "keywords" : [""] 
+                }
+            }
+        },
+
+        "G2":
+	    {
+            "audio_file": "G2",
+            "skip_to_room" : "HH"
+        },
+
+        "G1":
+	    {
+            "audio_file": "G1",
+            "skip_to_room" : "HH"
+        },
+
+        "HH":
+	    {
+            "audio_file": "HH_TEKST",
+            "skip_to_room" : "HH_VRAAG"
+        },
+
+        "HH_VRAAG":
+	    {
+            "audio_file": "HH_VRAAG",
+            "choices":
+            {
+                "J":
+                {
+                    "question_item" : "Dierenwinkel, dieren, winkel",
+                    "keywords" : [""]
+                },
+                "JJ":
+                {
+                    "question_item" : "Hondenasiel, honden, asiel",
+                    "keywords" : [""] 
+                }
+            }
+        }
+    }
+}
