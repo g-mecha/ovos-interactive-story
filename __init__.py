@@ -35,6 +35,8 @@ class MyGameSkill(ConversationalGameSkill):
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
         self.debug_mode = False
+        #This function allows the devloper to quikly get into a episode
+        self.fast_start = True
 
         def initialize(self):
             # start with all game states disabled
@@ -57,12 +59,12 @@ class MyGameSkill(ConversationalGameSkill):
     @enables_layer(layer_name="testing")
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            self.speak_dialog("single_episode_found")
+            if self.fast_start == False: self.speak_dialog("single_episode_found")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
-            self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
-            self.speak_dialog("ask_for_episode_to_play", expect_response=True)
+            if self.fast_start == False: self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
+            if self.fast_start == False: self.speak_dialog("ask_for_episode_to_play", expect_response=True)
             self.listen_for_episode_number = True
 
     def select_episode_from_multiple(self, chosen_episode_input):
@@ -87,7 +89,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         self.episode_number = chosen_episode_int
 
-        self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
+        if self.fast_start == False: self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
