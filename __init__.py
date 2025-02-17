@@ -1,13 +1,13 @@
 import json
 import os.path
 import requests
+from mutagen.mp3 import MP3 
 
 from ovos_number_parser import extract_number
 from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
 from ovos_yes_no_solver import YesNoSolver
-
 
 class MyGameSkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
@@ -35,6 +35,8 @@ class MyGameSkill(ConversationalGameSkill):
         # We don't need this at all. I keep this around for fast debuging
         # self.gui.show_text(f"{selfdata}")
         self.debug_mode = False
+        #This function allows the devloper to quikly get into a episode
+        self.fast_start = False
 
         def initialize(self):
             # start with all game states disabled
@@ -57,22 +59,22 @@ class MyGameSkill(ConversationalGameSkill):
     @enables_layer(layer_name="testing")
     def select_episode(self):
         if  (self.number_of_episodes == 1):
-            self.speak_dialog("single_episode_found")
+            if self.fast_start == False: self.speak_dialog("single_episode_found")
             self.open_json_file(1)
         else:
             # chosen_episode = self.ask_selection(chosen_episode)
-            self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
-            self.speak_dialog("ask_for_episode_to_play", expect_response=True)
+            if self.fast_start == False: self.speak_dialog("number_of_episodes_found", {"number_of_episodes":self.number_of_episodes})
+            if self.fast_start == False: self.speak_dialog("ask_for_episode_to_play", expect_response=True)
             self.listen_for_episode_number = True
 
     def select_episode_from_multiple(self, chosen_episode_input):
         #In some languages lower numbers will return the written text instead of a numeral
-        #The extract_number will take the string and extract a number from it if possible
+        #The extract_number will take the string and extract a number if possible
         chosen_episode = extract_number(chosen_episode_input, ordinals=True, lang=self.lang)
 
         #There was no number in the player response, repeat the question
         if chosen_episode == False:
-            self.speak_dialog("no_number")
+            self.speak_dialog("no_number", wait=True)
             self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes}, expect_response=True)
         else:
             chosen_episode_int = int(chosen_episode)
@@ -87,7 +89,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         self.episode_number = chosen_episode_int
 
-        self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
+        if self.fast_start == False: self.speak_dialog("start_episode", {"episode_number":chosen_episode_int}) 
         
         # Opening JSON file
         f = open(f'{self.root_dir}/resources/episodes/Episode{chosen_episode_int}_Data.json')
@@ -117,22 +119,31 @@ class MyGameSkill(ConversationalGameSkill):
     #         print("Key error:", e)
     #         return []
 
+
 # <editor-fold desc="main game logic">
+
+    def get_audio_clip_lenght(self, audio_clip):
+        return int(MP3(audio_clip).info.length) *10
 
     #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
         if 'audio_file' in room:
-            #TODO: this is teribble, think how files are shared to users
-            self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=True)
+            #TODO: Think how files are shared to users instead of being hardcoded like this
+            audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{room['audio_file']}.mp3"
+
+            if 'choice_type' in room:
+                #We need to use wait=True, otherwise the mic opens to soon
+                self.play_audio(audio_clip, wait=True)
+            else:
+                self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
         elif 'audio_files' in room:
 
             audio_files = room['audio_files']
-            # self.gui.show_text(f"{audio_files[0]}")
 
             for audio_file in audio_files:
-                self.gui.show_text(f"{audio_file}")
-                self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{audio_file}.mp3", wait=True)
+                audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{audio_file}.mp3"
+                self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
         else:
             self.speak(f"{room['room_text_description']}", wait=True)

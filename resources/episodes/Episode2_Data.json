@@ -7,7 +7,7 @@
         {
             "audio_files": 
             [
-                "AA__met_muziek_v2",
+                "AA__met_muziek__v2",
                 "BB"
             ],
             "skip_to_room" : "CC_question"
