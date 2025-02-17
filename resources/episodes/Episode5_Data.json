@@ -1,0 +1,315 @@
+{
+    "rooms":
+    {
+        "start":
+        {
+            "audio_file": "AA_metMuziek_Tekst",
+            "skip_to_room" : "AA_question"
+        },
+
+        "AA_question":
+	    {
+            "audio_file": "AA_metMuziek_Vraag",
+	  	    "choice_type" : "open",
+            "choices":
+            {
+                "A1_to_BB":
+                {
+                    "keywords" : ["Leiden"]
+                },
+                "A2_to_EE":
+                {
+                    "keywords" : ["Utrecht"] 
+                }
+            }
+        },
+
+        "A1_to_BB":
+	    {
+            "audio_file": 
+            [
+				"A1_metMuziek",
+                "BB_Tekst"
+            ],
+
+            "skip_to_room" : "BB_question"
+        },
+
+        "A2_to_EE":
+	    {
+            "audio_file": 
+            [
+				"A2_metMuziek",
+                "EE_Tekst"
+            ],
+
+            "skip_to_room" : "EE_question"
+        },
+
+        "EE_question":
+	    {
+            "audio_file": "EE_Vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "E1_to_GG":
+                {
+                    "keywords" : ["Automaton"]
+                },
+                "E2_to_HH":
+                {
+                    "keywords" : ["Boek"] 
+                }
+            }
+        },
+
+        "E1_to_GG":
+	    {
+            "audio_file": 
+            [
+				"E1_metMuziek_",
+                "FF_B1_metMuziek"
+            ],
+
+            "skip_to_room" : "GG_to_JJ"
+        },
+
+        "E2_to_HH":
+	    {
+            "audio_file": 
+            [
+				"E2_metMuziek_",
+                "FF_B2_metMuziek",
+                "GG_B2_metMuziek"
+            ],
+
+            "skip_to_room" : "HH_to_JJ"
+        },
+
+
+        "BB_question":
+	    {
+            "audio_file": "BB_Vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "B1_to_DD":
+                {
+                    "keywords" : ["Automaton"]
+                },
+                "B2_to_DD":
+                {
+                    "keywords" : ["Boek"] 
+                }
+            }
+        },
+
+        "B1_to_DD":
+	    {
+            "audio_file": 
+            [
+				"B1_metMuziek_",
+                "CC_B1_metMuziek_",
+                "DD_metMuziek_"
+            ],
+
+            "skip_to_room" : "GG_to_JJ"
+        },
+
+        "B2_to_DD":
+	    {
+            "audio_file": 
+            [
+				"B2_metMuziek_",
+                "CC_B2_metMuziek_",
+                "DD_metMuziek"
+            ],
+
+            "skip_to_room" : "HH_to_JJ"
+        },
+
+        "GG_to_JJ":
+	    {
+            "audio_file": 
+            [
+				"GG_B1_metMuziek_",
+                "HH_B1"
+            ],
+
+            "skip_to_room" : "JJ_to_LL"
+        },
+
+        "HH_to_JJ":
+	    {
+            "audio_file": 
+            [
+				"HH_B2"
+            ],
+
+            "skip_to_room" : "JJ_to_LL"
+        },
+
+        "JJ_to_LL":
+	    {
+            "audio_file": 
+            [
+				"JJ",
+                "KK",
+                "LL"
+            ],
+
+            "skip_to_room" : "LL_question"
+        },
+
+        "LL_question":
+	    {
+            "audio_file": "LL_VRAAG",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "L1_to_MM":
+                {
+                    "keywords" : ["Links"]
+                },
+                "L2_to_MM":
+                {
+                    "keywords" : ["Rechts"] 
+                }
+            }
+        },
+
+        "L1_to_MM":
+	    {
+            "audio_file": 
+            [
+				"L1",
+                "L1a",
+                "L1c",
+                "MM_tekst"
+            ],
+
+            "skip_to_room" : "MM_question"
+        },
+
+        "L2_to_MM":
+	    {
+            "audio_file": 
+            [
+				"L2",
+                "L2a",
+                "L2c",
+                "MM_tekst"
+            ],
+
+            "skip_to_room" : "MM2_question"
+        },
+
+        "MM_question":
+	    {
+            "audio_file": "MM_vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "L2b_to_MM_out":
+                {
+                    "keywords" : ["Kerk"]
+                },
+                "MM_out":
+                {
+                    "keywords" : ["Buiten"] 
+                }
+            }
+        },
+
+        "MM2_question":
+	    {
+            "audio_file": "MM_vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "L1b_to_MM_out":
+                {
+                    "keywords" : ["Kerk"]
+                },
+                "MM_out":
+                {
+                    "keywords" : ["Buiten"] 
+                }
+            }
+        },
+
+        "L2b_to_MM_out":
+	    {
+            "audio_file": 
+            [
+				"L2b",
+                "L2c"
+            ],
+
+            "skip_to_room" : "MM_out"
+        },
+
+        "L1b_to_MM_out":
+	    {
+            "audio_file": 
+            [
+				"l1b",
+                "L1c"
+            ],
+
+            "skip_to_room" : "MM_out"
+        },
+
+        "MM_out":
+	    {
+            "audio_file": 
+            [
+				"MM_uitgang",
+                "NN_tekst"
+            ],
+
+            "skip_to_room" : "NN_question"
+        },
+
+        "NN_question":
+        {
+            "audio_file": "NN_vraag",
+            "choice_type" : "yes_no",
+            "room_yes" : "N2",
+            "room_no" : "N1"
+        },
+
+        "N2":
+	    {
+            "audio_file": 
+            [
+				"N2"
+            ],
+
+            "skip_to_room" : "OO"
+        },
+
+        "N1":
+	    {
+            "audio_file": 
+            [
+				"N1"
+            ],
+
+            "skip_to_room" : "OO_to_end"
+        },
+
+        "OO_to_end":
+	    {
+            "audio_file": 
+            [
+				"OO_metMuziek",
+                "PP_metMuziek"
+            ],
+
+            "skip_to_room" : "end"
+        },
+
+        "end" : "win"
+    }
+}

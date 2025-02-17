@@ -36,7 +36,7 @@ class MyGameSkill(ConversationalGameSkill):
         # self.gui.show_text(f"{selfdata}")
         self.debug_mode = False
         #This function allows the devloper to quikly get into a episode
-        self.fast_start = True
+        self.fast_start = False
 
         def initialize(self):
             # start with all game states disabled
@@ -74,7 +74,7 @@ class MyGameSkill(ConversationalGameSkill):
 
         #There was no number in the player response, repeat the question
         if chosen_episode == False:
-            self.speak_dialog("no_number")
+            self.speak_dialog("no_number", wait=True)
             self.speak_dialog("ask_for_valid_episode", {"episode_number":self.number_of_episodes}, expect_response=True)
         else:
             chosen_episode_int = int(chosen_episode)
@@ -123,13 +123,13 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def get_audio_clip_lenght(self, audio_clip):
-        return int(MP3(audio_clip).info.length)
+        return int(MP3(audio_clip).info.length) *10
 
     #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
         if 'audio_file' in room:
-            #TODO: this is teribble, think how files are shared to users
-            audio_clip = f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3"
+            #TODO: Think how files are shared to users instead of being hardcoded like this
+            audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{room['audio_file']}.mp3"
 
             if 'choice_type' in room:
                 #We need to use wait=True, otherwise the mic opens to soon
@@ -140,10 +140,9 @@ class MyGameSkill(ConversationalGameSkill):
         elif 'audio_files' in room:
 
             audio_files = room['audio_files']
-            # self.gui.show_text(f"{audio_files[0]}")
 
             for audio_file in audio_files:
-                audio_clip = f"{self.root_dir}/.dontpush/iris/ep1/{audio_file}.mp3"
+                audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{audio_file}.mp3"
                 self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
         else:
