@@ -1,15 +1,13 @@
 import json
-import mutagen 
-from mutagen.wave import WAVE 
 import os.path
 import requests
+from mutagen.mp3 import MP3 
 
 from ovos_number_parser import extract_number
 from ovos_workshop.decorators import layer_intent, enables_layer, disables_layer, resets_layers
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills.game_skill import ConversationalGameSkill
 from ovos_yes_no_solver import YesNoSolver
-
 
 class MyGameSkill(ConversationalGameSkill):
     def __init__(self, *args, **kwargs):
@@ -69,7 +67,7 @@ class MyGameSkill(ConversationalGameSkill):
 
     def select_episode_from_multiple(self, chosen_episode_input):
         #In some languages lower numbers will return the written text instead of a numeral
-        #The extract_number will take the string and extract a number from it if possible
+        #The extract_number will take the string and extract a number if possible
         chosen_episode = extract_number(chosen_episode_input, ordinals=True, lang=self.lang)
 
         #There was no number in the player response, repeat the question
@@ -99,10 +97,9 @@ class MyGameSkill(ConversationalGameSkill):
 
         # Closing file
         f.close()
-        
 
-        # self.reset_episode()
-        # self.main_game_loop()
+        self.reset_episode()
+        self.main_game_loop()
 
 #</editor-fold>
 
@@ -120,33 +117,23 @@ class MyGameSkill(ConversationalGameSkill):
     #         print("Key error:", e)
     #         return []
 
-        def audio_duration(length): 
-            hours = length // 3600  # calculate in hours 
-            length %= 3600
-            mins = length // 60  # calculate in minutes 
-            length %= 60
-            seconds = length  # calculate in seconds 
-        
-            return hours, mins, seconds  # returns the duration 
-        
-        # Create a WAVE object 
-        # Specify the directory address of your wavpack file 
-        # "alarm.wav" is the name of the audiofile 
-        audio = WAVE("alarm.wav") 
-        
-        # contains all the metadata about the wavpack file 
-        audio_info = audio.info 
-        length = int(audio_info.length) 
-        hours, mins, seconds = audio_duration(length) 
-        print('Total Duration: {}:{}:{}'.format(hours, mins, seconds)) 
 
 # <editor-fold desc="main game logic">
+
+    def get_audio_clip_lenght(self, audio_clip):
+        return int(MP3(audio_clip).info.length)
 
     #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
         if 'audio_file' in room:
             #TODO: this is teribble, think how files are shared to users
-            self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3", wait=750)
+            audio_clip = f"{self.root_dir}/.dontpush/iris/ep1/{room['audio_file']}.mp3"
+
+            if 'choice_type' in room:
+                #We need to use wait=True, otherwise the mic opens to soon
+                self.play_audio(audio_clip, wait=True)
+            else:
+                self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
         elif 'audio_files' in room:
 
@@ -154,8 +141,8 @@ class MyGameSkill(ConversationalGameSkill):
             # self.gui.show_text(f"{audio_files[0]}")
 
             for audio_file in audio_files:
-                self.gui.show_text(f"{audio_file}")
-                self.play_audio(f"{self.root_dir}/.dontpush/iris/ep1/{audio_file}.mp3", wait=True)
+                audio_clip = f"{self.root_dir}/.dontpush/iris/ep1/{audio_file}.mp3"
+                self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
         else:
             self.speak(f"{room['room_text_description']}", wait=True)
