@@ -3,13 +3,13 @@
     {
         "start":
         {
-            "audio_file": "AA_metMuziek_Tekst",
+            "audio_file": "AA_metMuziek__Tekst",
             "skip_to_room" : "AA_question"
         },
 
         "AA_question":
 	    {
-            "audio_file": "AA_metMuziek_Vraag",
+            "audio_file": "AA_metMuziek__Vraag",
 	  	    "choice_type" : "open",
             "choices":
             {
@@ -26,9 +26,9 @@
 
         "A1_to_BB":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
-				"A1_metMuziek",
+				"A1_metMuziek_",
                 "BB_Tekst"
             ],
 
@@ -37,7 +37,7 @@
 
         "A2_to_EE":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
 				"A2_metMuziek",
                 "EE_Tekst"
@@ -65,7 +65,7 @@
 
         "E1_to_GG":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
 				"E1_metMuziek_",
                 "FF_B1_metMuziek"
@@ -76,14 +76,14 @@
 
         "E2_to_HH":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
 				"E2_metMuziek_",
                 "FF_B2_metMuziek",
                 "GG_B2_metMuziek"
             ],
 
-            "skip_to_room" : "HH_to_JJ"
+            "skip_to_room" : "HH_B2"
         },
 
 
@@ -125,7 +125,7 @@
                 "DD_metMuziek"
             ],
 
-            "skip_to_room" : "HH_to_JJ"
+            "skip_to_room" : "HH_B2"
         },
 
         "GG_to_JJ":
@@ -139,7 +139,7 @@
             "skip_to_room" : "JJ_to_LL"
         },
 
-        "HH_to_JJ":
+        "HH_B2":
 	    {
             "audio_file": 
             [
@@ -210,7 +210,7 @@
 	    	"choice_type" : "open",
             "choices":
             {
-                "L2b_to_MM_out":
+                "L2b_to_L2C":
                 {
                     "keywords" : ["Kerk"]
                 },
@@ -227,7 +227,7 @@
 	    	"choice_type" : "open",
             "choices":
             {
-                "L1b_to_MM_out":
+                "L1b_to_L1c":
                 {
                     "keywords" : ["Kerk"]
                 },
@@ -238,7 +238,7 @@
             }
         },
 
-        "L2b_to_MM_out":
+        "L2b_to_L2C":
 	    {
             "audio_file": 
             [
@@ -249,7 +249,7 @@
             "skip_to_room" : "MM_out"
         },
 
-        "L1b_to_MM_out":
+        "L1b_to_L1c":
 	    {
             "audio_file": 
             [
@@ -281,20 +281,14 @@
 
         "N2":
 	    {
-            "audio_file": 
-            [
-				"N2"
-            ],
+            "audio_file": ["N2"],
 
             "skip_to_room" : "OO"
         },
 
         "N1":
 	    {
-            "audio_file": 
-            [
-				"N1"
-            ],
+            "audio_file": ["N1"],
 
             "skip_to_room" : "OO_to_end"
         },
@@ -303,8 +297,8 @@
 	    {
             "audio_file": 
             [
-				"OO_metMuziek",
-                "PP_metMuziek"
+				"OO_metMuziek_",
+                "PP_metMuziek_"
             ],
 
             "skip_to_room" : "end"
