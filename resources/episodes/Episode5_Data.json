@@ -31,61 +31,8 @@
 				"A1_metMuziek_",
                 "BB_Tekst"
             ],
-
             "skip_to_room" : "BB_question"
         },
-
-        "A2_to_EE":
-	    {
-            "audio_files": 
-            [
-				"A2_metMuziek",
-                "EE_Tekst"
-            ],
-
-            "skip_to_room" : "EE_question"
-        },
-
-        "EE_question":
-	    {
-            "audio_file": "EE_Vraag",
-	    	"choice_type" : "open",
-            "choices":
-            {
-                "E1_to_GG":
-                {
-                    "keywords" : ["Automaton"]
-                },
-                "E2_to_HH":
-                {
-                    "keywords" : ["Boek"] 
-                }
-            }
-        },
-
-        "E1_to_GG":
-	    {
-            "audio_files": 
-            [
-				"E1_metMuziek_",
-                "FF_B1_metMuziek"
-            ],
-
-            "skip_to_room" : "GG_to_JJ"
-        },
-
-        "E2_to_HH":
-	    {
-            "audio_files": 
-            [
-				"E2_metMuziek_",
-                "FF_B2_metMuziek",
-                "GG_B2_metMuziek"
-            ],
-
-            "skip_to_room" : "HH_B2"
-        },
-
 
         "BB_question":
 	    {
@@ -112,10 +59,8 @@
                 "CC_B1_metMuziek_",
                 "DD_metMuziek_"
             ],
-
-            "skip_to_room" : "GG_to_JJ"
+            "skip_to_room" : "GG_to_HH"
         },
-
         "B2_to_DD":
 	    {
             "audio_file": 
@@ -124,28 +69,67 @@
                 "CC_B2_metMuziek_",
                 "DD_metMuziek"
             ],
-
             "skip_to_room" : "HH_B2"
         },
 
-        "GG_to_JJ":
+        "A2_to_EE":
+	    {
+            "audio_files": 
+            [
+				"A2_metMuziek",
+                "EE_Tekst"
+            ],
+            "skip_to_room" : "EE_question"
+        },
+        "EE_question":
+	    {
+            "audio_file": "EE_Vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "E1_to_FF_B1":
+                {
+                    "keywords" : ["Automaton"]
+                },
+                "E2_to_GG":
+                {
+                    "keywords" : ["Boek"] 
+                }
+            }
+        },
+
+        "E1_to_FF_B1":
+	    {
+            "audio_files": 
+            [
+				"E1_metMuziek_",
+                "FF_B1_metMuziek"
+            ],
+            "skip_to_room" : "GG_to_HH"
+        },
+        "E2_to_GG":
+	    {
+            "audio_files": 
+            [
+				"E2_metMuziek_",
+                "FF_B2_metMuziek",
+                "GG_B2_metMuziek"
+            ],
+            "skip_to_room" : "HH_B2"
+        },
+
+        "GG_to_HH":
 	    {
             "audio_file": 
             [
 				"GG_B1_metMuziek_",
                 "HH_B1"
             ],
-
             "skip_to_room" : "JJ_to_LL"
         },
-
         "HH_B2":
 	    {
-            "audio_file": 
-            [
-				"HH_B2"
-            ],
-
+            "audio_file": ["HH_B2"],
             "skip_to_room" : "JJ_to_LL"
         },
 
@@ -157,7 +141,6 @@
                 "KK",
                 "LL"
             ],
-
             "skip_to_room" : "LL_question"
         },
 
@@ -187,8 +170,32 @@
                 "L1c",
                 "MM_tekst"
             ],
-
-            "skip_to_room" : "MM_question"
+            "skip_to_room" : "MM_question_top"
+        },
+        "MM_question_top":
+	    {
+            "audio_file": "MM_vraag",
+	    	"choice_type" : "open",
+            "choices":
+            {
+                "L2b_to_L2C":
+                {
+                    "keywords" : ["Kerk"]
+                },
+                "MM_to_NN":
+                {
+                    "keywords" : ["Buiten"] 
+                }
+            }
+        },
+        "L2b_to_L2C":
+	    {
+            "audio_file": 
+            [
+				"L2b",
+                "L2c"
+            ],
+            "skip_to_room" : "MM_to_NN"
         },
 
         "L2_to_MM":
@@ -200,28 +207,9 @@
                 "L2c",
                 "MM_tekst"
             ],
-
             "skip_to_room" : "MM2_question"
         },
-
-        "MM_question":
-	    {
-            "audio_file": "MM_vraag",
-	    	"choice_type" : "open",
-            "choices":
-            {
-                "L2b_to_L2C":
-                {
-                    "keywords" : ["Kerk"]
-                },
-                "MM_out":
-                {
-                    "keywords" : ["Buiten"] 
-                }
-            }
-        },
-
-        "MM2_question":
+        "MM_question_bottom":
 	    {
             "audio_file": "MM_vraag",
 	    	"choice_type" : "open",
@@ -231,24 +219,12 @@
                 {
                     "keywords" : ["Kerk"]
                 },
-                "MM_out":
+                "MM_to_NN":
                 {
                     "keywords" : ["Buiten"] 
                 }
             }
         },
-
-        "L2b_to_L2C":
-	    {
-            "audio_file": 
-            [
-				"L2b",
-                "L2c"
-            ],
-
-            "skip_to_room" : "MM_out"
-        },
-
         "L1b_to_L1c":
 	    {
             "audio_file": 
@@ -256,18 +232,16 @@
 				"l1b",
                 "L1c"
             ],
-
-            "skip_to_room" : "MM_out"
+            "skip_to_room" : "MM_to_NN"
         },
 
-        "MM_out":
+        "MM_to_NN":
 	    {
             "audio_file": 
             [
 				"MM_uitgang",
                 "NN_tekst"
             ],
-
             "skip_to_room" : "NN_question"
         },
 
@@ -278,18 +252,14 @@
             "room_yes" : "N2",
             "room_no" : "N1"
         },
-
         "N2":
 	    {
             "audio_file": ["N2"],
-
-            "skip_to_room" : "OO"
+            "skip_to_room" : "OO_to_end"
         },
-
         "N1":
 	    {
             "audio_file": ["N1"],
-
             "skip_to_room" : "OO_to_end"
         },
 
@@ -303,7 +273,6 @@
 
             "skip_to_room" : "end"
         },
-
         "end" : "win"
     }
 }

@@ -9,7 +9,6 @@
                 "BB",
                 "CC_TEKST"
             ],
-
             "skip_to_room" : "CC_question"
         },
 
@@ -37,7 +36,6 @@
                 "C3",
                 "C2"
             ],
-
             "skip_to_room" : "DD"
         },
 
@@ -247,7 +245,6 @@
                 "QQ",
                 "RR"
             ],
-
             "end": "win"      
         }
 
