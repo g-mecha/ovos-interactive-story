@@ -2,7 +2,7 @@
     "audio_url" : "https://firebasestorage.googleapis.com/v0/b/eyepodcast-prod.appspot.com/o/series%2Fokv95D1hVwvMNrziqYtS%2Fd2w5bqKzlRjZwdDsMk5J%",
     "rooms":
     {
-        "start00000":
+        "start":
         {
             "audio_files": 
             [
@@ -336,7 +336,7 @@
             "room_no" : "YY2"
         },
 
-        "start":
+        "YY_JJ2":
         {
             "audio_file": "v4_YY_J2_TEKST",
             "skip_to_room" : "YY_JJ2_question"
