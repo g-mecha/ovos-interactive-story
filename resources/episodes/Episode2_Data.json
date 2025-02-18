@@ -35,7 +35,7 @@
                 "f1__met_muziek__v2",
                 "G1_TEKST"
             ],
-            "skip_to_room" : "EE"
+            "skip_to_room" : "G1_question"
         },
         
         "G1_question":
@@ -73,7 +73,7 @@
                 "C2_v2",
                 "D2_v2"
             ],
-            "skip_to_room" : "LL"
+            "skip_to_room" : "D2_question"
         },
         "D2_question":
         {
@@ -120,7 +120,7 @@
             "choices":
             {
                 "M1_to_N1":{"keywords" : ["Vuurtoren"]},
-                "M2b_to_P2":{"keywords" : ["Brouwerij"]}
+                "M2_bottom_to_P2":{"keywords" : ["Brouwerij"]}
             }
         },
 
@@ -140,11 +140,11 @@
 
             "choices":
             {
-                "M2a_to_P2":{"keywords" : ["Brouwerij"]},
+                "M2_top_to_P2":{"keywords" : ["Brouwerij"]},
                 "QQ2":{"keywords" : ["Juttershuisje", "jutter", "huisje"]}
             }
         },
-        "M2a_to_P2":
+        "M2_top_to_P2":
         {
             "audio_files": 
             [
@@ -156,7 +156,7 @@
             "skip_to_room" : "QQ"
         },
 
-        "M2b_to_P2":
+        "M2_bottom_to_P2":
         {
             "audio_files": 
             [
@@ -247,6 +247,7 @@
             "room_remember_check" : 
             {
                "room_to_remember" : "S1_to_S2",
+               "true": "T2",
                "false": "S1a_T"
             }   
         },
@@ -263,10 +264,10 @@
 
         "UU_question":
         {
-            "audio_file": "TT",
+            "audio_file": "UU",
             "choice_type" : "yes_no",
-            "room_yes" : "T1",
-            "room_no" : "UU_question"
+            "room_yes" : "U1",
+            "room_no" : "VV_question"
         },
         "U1":
         {
@@ -295,7 +296,7 @@
 
         "VV_question":
         {
-            "audio_file": "TT",
+            "audio_file": "VV",
             "choice_type" : "yes_no",
             "room_yes" : "check_S1_to_S2_played_V",
             "room_no" : "WW_question"
@@ -305,19 +306,19 @@
             "room_remember_check" : 
             {
                "room_to_remember" : "S1_to_S2",
-               "true": "V1_Key",
+               "true": "V1_no_key",
                "false": "V1"
             }   
         },
         "V1_no_key":
         {
             "audio_file": "V1_zonderSleutel",
-            "skip_to_room" : "XX_TO_yy"
+            "skip_to_room" : "XX_to_yy"
         },
         "V1":
         {
             "audio_file": "V1",
-            "skip_to_room" : "XX_TO_yy"
+            "skip_to_room" : "XX_to_yy"
         },
 
         "WW_question":
