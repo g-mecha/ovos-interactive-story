@@ -69,7 +69,7 @@
                 {
                     "keywords" : ["Vogel", "vogeltour", "tour"]
                 },
-                "D2_to_C1_Check":
+                "D2":
                 {
                     "keywords" : ["Rembrandt", "want", "brand"] 
                 }
@@ -86,26 +86,74 @@
 
             "skip_to_room" : "E1_question"
         },
-
-        "DD2_to_C1_Check":
+        "E1_question":
 	    {
+            "audio_file": "E1_VRAAG",
+            "choices":
+            {
+                "D2_from_E":
+                {
+                    "keywords" : ["Tour", "hoer", "toe"]
+                },
+                "Check_C1_played_top":
+                {
+                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
+                }
+            }
+        },
+        "D2_from_E":
+        {
             "audio_file": "D2",
-
+            "skip_to_room" : "Check_C1_played_top"
+        },
+        "Check_C1_played_top":
+	    {
             "room_remember_check" : 
             {
                "room_to_remember" : "C3_C1_C2",
-               "true": "F2_to_question",
+               "true": "F2_top",
+               "false": "F1_top"
+            } 
+        },
+        "F2_top":
+	    {
+            "audio_file": "F2",
+            "skip_to_room" : "GG"
+        },
+        "F1_top":
+	    {
+            "audio_file": "F1_kom_we_gaan_nachtwacht_",
+            "skip_to_room" : "GG"
+        },
+
+        "D2":
+	    {
+            "audio_file": "D2",
+            "skip_to_room" : "Check_C1_played_bottom"
+        },
+        "Check_C1_played_bottom":
+	    {
+            "room_remember_check" : 
+            {
+               "room_to_remember" : "C3_C1_C2",
+               "true": "F2_bottom",
                "false": "F1_V2"
             } 
         },
 
-        "F2_to_question":
+        "F2_bottom":
+	    {
+            "audio_file": "F2",
+            "skip_to_room" : "F2_question"
+        },
+        "F2_question":
     	{
+            "Note" : "Missing audio file",
             "audio_file": "",
         	"choice_type" : "open",
             "choices":
             {
-                "D1":
+                "D1_bottom":
                 {
                     "keywords" : ["Vogeltour", "vogel", "toer"]
                 },
@@ -118,10 +166,9 @@
 
         "F1_V2":
 	    {
-            "audio_file": "F1_V2",
+            "audio_file": "F1_V2_TEKST",
             "skip_to_room" : "F1_V2_question"
         },
-
         "F1_V2_question":
 	    {
             "audio_file": "F1_V2_VRAAG",
@@ -142,53 +189,13 @@
 	    {
             "audio_file": "D1",
             "skip_to_room" : "GG"
-        },
-
-        "E1_question":
-	    {
-            "audio_file": "E1_VRAAG",
-            "choices":
-            {
-                "DD2_to_C1_Check":
-                {
-                    "keywords" : ["Tour", "hoer", "toe"]
-                },
-                "C1":
-                {
-                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
-                }
-            }
-        },
-
-        "D2_to_CC1_Check":
-	    {
-            "audio_file": "D2",
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "C1",
-               "true": "F2_to_GG",
-               "false": "F1_to_GG"
-            }  
-        },
-
-        "F2_to_GG":
-	    {
-            "audio_file": "F2",
-            "skip_to_room" : "GG"
-        },
-
-        "F1_to_GG":
-	    {
-            "audio_file": "F1_kom_we_gaan_nacht",
-            "skip_to_room" : "GG"
-        },
+        },     
 
         "GG":
 	    {
             "audio_file": "GG",
             "skip_to_room" : "GG_question"
         },
-
         "GG_question":
 	    {
             "audio_file": "GG_VRAAG",
@@ -196,13 +203,11 @@
             "room_yes" : "G2",
             "room_no" : "G1"
         },
-
         "G2":
 	    {
             "audio_file": "G2",
             "skip_to_room" : "HH"
         },
-
         "G1":
 	    {
             "audio_file": "G1",
@@ -212,12 +217,11 @@
         "HH":
 	    {
             "audio_file": "HH_TEKST",
-            "skip_to_room" : "HH_VRAAG"
+            "skip_to_room" : "HH_question"
         },
-
-        "HH_VRAAG":
+        "HH_question":
     	{
-            "audio_file": "HH_VRAAG",
+            "audio_file": "HH_question",
             "choice_type" : "open",
 
             "choices":
