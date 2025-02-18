@@ -1,0 +1,306 @@
+{
+    "rooms":
+    {
+        "start":
+        {
+            "audio_files": 
+            [
+                "AA__metMuziek_",
+                "BB",
+                "CC_tekst"
+            ],
+            "skip_to_room" : "CC_question"
+        },
+
+        "CC_question":
+        {
+            "audio_file": "CC_vraag",
+            "choice_type" : "open",
+              
+            "choices":
+            {
+                "CC1":{"keywords" : ["links"]},
+                "CC2":{"keywords" : ["rechts"]}
+            }
+        },
+
+        "CC1":
+        {
+            "audio_files": 
+            [
+                "C2",
+                "DD"
+            ],
+			"remember_room": true,
+            "skip_to_room" : "EE_to_FF"
+        },
+        
+        "CC2":
+        {
+            "audio_files": 
+            [
+                "C1",
+                "DD",
+                "DD_c1"
+            ],
+            "skip_to_room" : "EE_to_FF"
+        },
+
+        "EE_to_FF":
+        {
+            "audio_files": 
+            [
+                "EE",
+                "FF_tekst"
+            ],
+            "skip_to_room" : "FF1_question"
+        },
+
+        "FF1_question":
+        {
+            "audio_file": "FF_vraag",
+            "choice_type" : "yes_no",
+            
+            "room_yes" : "F1",
+            "room_no" : "F2"
+        },
+
+        "F1":
+        {
+            "audio_file": "F2_tekst",
+            "skip_to_room" : "FF2_question"
+        },
+
+        "F2":
+        {
+            "audio_files": 
+            [
+                "F1",
+                "F2_tekst"
+            ],
+            "skip_to_room" : "FF2_question"
+        },
+
+		"FF2_question":
+        {
+            "audio_file": "F2_openvraag",
+            "choice_type" : "true_false",
+            
+            "true_keywords" : ["licht", "ligt"],
+		    "room_true": "F2_goed",
+		    "room_false": "F1_fout"
+        },
+
+	"F1_fout":
+	{
+		"audio_files": 
+        [
+            "F1_fout",
+            "F2_goed"
+        ],
+		"skip_to_room" : "GG_question"
+	},
+
+		"F2_goed": 
+		{
+			"audio_file": "F2_goed",
+			"skip_to_room" : "GG_question"
+		},
+
+		"GG_question":
+        {
+            "audio_file": "GG_vraag",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "GG1":{"keywords" : ["Bloem"]},
+                "GG2":{"keywords" : ["Vlinder"]}
+            }
+        },
+
+		"GG1":
+		{
+			"audio_files": 
+			[
+				"G2",
+				"HH_tekst"
+			],
+			"skip_to_room" : "HH_question"
+		},
+
+		"GG2":
+		{
+			"audio_files": 
+			[
+				"G1",
+				"HH_tekst"
+			],
+			"remember_room": true,
+			"skip_to_room" : "HH_question"
+		},
+
+		"HH_question":
+        {
+            "audio_file": "HH_vraag",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "HH1":{"keywords" : ["Maan"]},
+                "HH2":{"keywords" : ["Zon"]}
+            }
+        },
+
+		"HH1":
+		{
+			"audio_file": "H1",
+			"skip_to_room": "JJ"
+		},
+
+		"HH2":
+		{
+			"room_remember_check" : 
+            {
+               "room_to_remember" : "GG2",
+               "true": "H2_true",
+               "false": "H2_false"
+            }
+		},
+
+		"H2_true":
+		{
+			"audio_file": "H2_alsG1",
+			"skip_to_room": "JJ"
+		},
+
+		"H2_false":
+		{
+			"audio_file": "H2_alsG2",
+			"skip_to_room": "JJ"
+		},
+
+		"JJ":
+		{
+			"audio_file": "JJ_tekst",
+			"skip_to_room": "JJ_question"
+		},
+
+		"JJ_question":
+		{
+			"audio_file": "JJ_vraag",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "JJ1":{"keywords" : ["terug", "gaan"]},
+                "JJ2":{"keywords" : ["doorlopen", "door", "lopen"]}
+            }
+		},
+
+		"JJ1":
+		{
+			"audio_file": "J1",
+			"skip_to_room": "JJ2"
+		},
+
+		"JJ2":
+		{
+			"room_remember_check" : 
+            {
+               "room_to_remember" : "CC1",
+               "true": "J2_true",
+               "false": "J2_false"
+            }
+		},
+
+		"J2_true":
+		{
+			"audio_file": "J2_c1",
+			"skip_to_room": "KK_to_MM"
+		},
+
+		"J2_false":
+		{
+			"audio_file": "J2_c2",
+			"skip_to_room": "KK_to_MM"
+		},
+
+		"KK_to_MM":
+		{
+			"audio_files": 
+            [
+                "EE",
+                "FF_tekst"
+            ],
+			"skip_to_room": "MM_question"
+		},
+
+		"MM_question": 
+		{
+			"audio_file": "MM_vraag",
+            "choice_type" : "true_false",
+            
+            "true_keywords" : ["oogappel", "oog", "appel"],
+			"room_true": "M2_to_NN",
+			"room_false": "M1_fout"
+		},
+
+		"MM1_fout":
+		{
+			"audio_file": "M1_tekst",
+			"skip_to_room": "M2_question"
+		},
+
+		"M2_question": 
+		{
+			"audio_file": "MM_vraag",
+            "choice_type" : "true_false",
+            
+            "true_keywords" : ["oogappel", "oog", "appel"],
+			"room_true": "MM2_to_NN",
+			"room_false": "MM2_to_NN"
+		},
+
+		"MM2_to_NN":
+		{
+			"audio_files" :
+			[
+				"M2",
+				"NN_tekst"
+			],
+			"skip_to_room": "NN_question"
+		},
+
+		"NN_question": 
+		{
+			"audio_file": "NN_vraag",
+            "choice_type" : "yes_no",
+            
+            "room_yes": "NN1",
+			"room_no": "NN2"
+		},
+
+		"NN1":
+		{
+			"audio_file": "N2",
+			"skip_to_room": "OO_to_end"
+		},
+
+		"NN2":
+		{
+			"audio_file": "N1",
+			"skip_to_room": "OO_to_end"
+		},
+
+		"OO_to_end":
+		{
+			"audio_files": 
+			[
+				"OO_metMuziek_v3",
+				"PP_metMuziek"
+			],
+			"end": "win"
+		}
+    }
+}
