@@ -2,7 +2,7 @@
     "audio_url" : "https://firebasestorage.googleapis.com/v0/b/eyepodcast-prod.appspot.com/o/series%2Fokv95D1hVwvMNrziqYtS%2Fd2w5bqKzlRjZwdDsMk5J%",
     "rooms":
     {
-        "start":
+        "start00000":
         {
             "audio_files": 
             [
@@ -68,7 +68,7 @@
         "HH":
         {
             "audio_file": "v4_HH__met_muziek__TEKST",
-            "skip_to_room" : "HH"
+            "skip_to_room" : "HH_question"
         },
         "HH_question":
         {
@@ -145,9 +145,9 @@
         {
             "audio_files" :
             [
-                "MM",
-                "NN",
-                "OO"
+                "v4_MM",
+                "v4_NN",
+                "v4_OO"
             ],
             "skip_to_room" : "PP_question"
         },
@@ -223,7 +223,7 @@
         {
             "room_remember_check" : 
             {
-               "room_to_remember" : "LL2",
+               "room_to_remember" : "start",
                "true": "QQ1",
                "false": "QQ3"
             }   
@@ -282,17 +282,15 @@
             "room_true" : "VV1_to_XX",
             "room_false" : "check_WW_played"
         },
-
         "check_WW_played": 
         {
             "room_remember_check" : 
             {
                "room_to_remember" : "VV_to_WW",
                "true": "UU_question",
-               "false": "VV"
+               "false": "VV_to_WW"
             }   
         },
-
         "VV_to_WW":
         {
             "audio_files": 
@@ -301,7 +299,7 @@
                 "v4_WW"
             ],
             "remember_room" : true,
-            "skip_to_room" : "WUU_questionW"
+            "skip_to_room" : "UU_question"
         },
 
         "VV1_to_XX":
@@ -338,10 +336,10 @@
             "room_no" : "YY2"
         },
 
-        "YY_JJ2":
+        "start":
         {
             "audio_file": "v4_YY_J2_TEKST",
-            "skip_to_room" : "XX"
+            "skip_to_room" : "YY_JJ2_question"
         },
 
         "YY_JJ2_question":
@@ -367,7 +365,6 @@
         "ZZ":
         {
             "audio_file": "v4_ZZ__met_muziek_",
-            "skip_to_room" : "ZZ",
             "end": "win"
         }
     }

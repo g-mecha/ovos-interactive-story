@@ -145,7 +145,7 @@ class MyGameSkill(ConversationalGameSkill):
                 audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{audio_file}.mp3"
                 self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
 
-        else:
+        elif 'room_text_description' in room:
             self.speak(f"{room['room_text_description']}", wait=True)
 
     def reset_episode(self):
@@ -172,7 +172,6 @@ class MyGameSkill(ConversationalGameSkill):
             self.response_reply = self.get_response()
         # num_retries=0
         self.listen_for_player_input = True
-
 
 
     def main_game_loop(self):
@@ -299,7 +298,6 @@ class MyGameSkill(ConversationalGameSkill):
             if utterance : player_input = utterance
 
             if player_input:
-
                 if self.choice_type == "open":
 
                     choices = self.current_room.get("choices", {})
@@ -319,6 +317,7 @@ class MyGameSkill(ConversationalGameSkill):
                             break
 
                 elif self.choice_type == "true_false":
+                  # self.gui.show_text(f"{self.current_room['true_keywords']}")
                     if any(keyword in player_input.lower().strip() for keyword in (kw.lower() for kw in self.current_room['true_keywords'])):
                         self.change_rooms(self.current_room['room_true']) 
                     else:
@@ -329,8 +328,11 @@ class MyGameSkill(ConversationalGameSkill):
                     if answer is True:
                         self.change_rooms(self.current_room['room_yes']) 
                     elif answer is False:
-                        self.change_rooms(self.current_room['room_no']) 
+                        self.change_rooms(self.current_room['room_no'])
 
+            player_input = None
+
+#</editor-fold>
 
     def on_abandon_game(self):
         """user abandoned game mid interaction
@@ -339,11 +341,9 @@ class MyGameSkill(ConversationalGameSkill):
         (if enabled in self.settings)
 
         on_game_stop will be called after this handler"""
+        # TODO: Check if I can make this work with listen_for_player_input and wait=True
         self.speak("abandoned game")
         self.handle_game_over()
-
-#</editor-fold>
-
 
 # <editor-fold desc="Debugging">
 
