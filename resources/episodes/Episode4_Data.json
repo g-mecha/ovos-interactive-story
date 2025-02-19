@@ -76,7 +76,7 @@
         },
         "K2_2_top":
         {
-            "audio_file": ["K2_deel2"],
+            "audio_file": "K2_deel2",
             "skip_to_room" : "LL_to_QQ_top"
         },
         "LL_to_QQ_top":
@@ -150,7 +150,7 @@
         },
         "K2_2_bottom":
         {
-            "audio_file": ["K2_deel2"],
+            "audio_file": "K2_deel2",
             "skip_to_room" : "LL_to_QQ_bottom"
         },
         "LL_to_QQ_bottom":
@@ -167,5 +167,60 @@
             ],
             "skip_to_room" : "SS"
         },
+
+        "SS":
+        {
+            "audio_file": "SS_tekst",
+            "skip_to_room" : "SS_question"
+        },
+        "SS_question":
+        {
+            "audio_file": "SS_vraag",
+            "choice_type" : "yes_no",
+            "room_yes" : "TT_to_UU",
+            "room_no" : "TT_to_UU"
+        },
+
+        "UU_question":
+        {
+            "audio_file": "v4_DD_B_VRAAG",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "U1":{"keywords" : ["Automaton", "automator", "auto", "tomaten"]},
+                "U2":{"keywords" : ["Boeken", "boeken", "boek", "curie", "curry"]}
+            }
+        },
+
+                "UU_question":
+        {
+            "audio_file": "v4_DD_B_VRAAG",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "U1":{"keywords" : ["Automaton", "automator", "auto", "tomaten"]},
+                "U2":{"keywords" : ["Boeken", "boeken", "boek", "curie", "curry"]}
+            }
+        },
+
+        "U1":
+        {
+            "audio_file": "U1",
+            "skip_to_room" : "VV"
+        },
+
+        "U2":
+        {
+            "audio_file": "U1",
+            "skip_to_room" : "VV"
+        },
+
+        "VV":
+        {
+            "audio_file": "VV__met_muziek_",
+            "end": "win"
+        }
     }
 }
