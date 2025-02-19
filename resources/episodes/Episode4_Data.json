@@ -71,10 +71,10 @@
             "audio_file": "K2_deel1",
             "choice_type" : "true_false",
             "true_keywords" : ["vijf", "5"],
-            "room_true" : "K2_2",
-            "room_false" : "K2_2"
+            "room_true" : "K2_2_top",
+            "room_false" : "K2_2_top"
         },
-        "K2_2":
+        "K2_2_top":
         {
             "audio_file": ["K2_deel2"],
             "skip_to_room" : "LL_to_QQ_top"
@@ -108,27 +108,27 @@
             ],
             "skip_to_room" : "JJ_question_bottom"
         },
-        "JJ_question_top":
+        "JJ_question_bottom":
         {
             "audio_file": "JJ_VRAAG",
             "choice_type" : "open",
             
             "choices":
             {
-                "J1_top":{"keywords" : ["links"]},
-                "j2_top":{"keywords" : ["rechts"]}
+                "J1_bottom":{"keywords" : ["links"]},
+                "j2_bottom":{"keywords" : ["rechts"]}
             }
         },
-        "J1_top":
+        "J1_bottom":
         {
             "audio_files": 
             [
                 "JJ__deel_2_",
                 "J1",
-                "J1a",
+                "J1b",
                 "K1"
             ],
-            "skip_to_room" : "LL_to_QQ_top"
+            "skip_to_room" : "LL_to_QQ_bottom"
         },
         "j2_top":
         {
@@ -136,35 +136,34 @@
             [
                 "JJ__deel_2_",
                 "J2",
-                "J2a"
+                "J2b"
             ],
-            "skip_to_room" : "K2_question_top"
+            "skip_to_room" : "K2_question_bottom"
         },
-        "K2_question_top":
+        "K2_question_bottom":
         {
             "audio_file": "K2_deel1",
             "choice_type" : "true_false",
             "true_keywords" : ["vijf", "5"],
-            "room_true" : "K2_2",
-            "room_false" : "K2_2"
+            "room_true" : "K2_2_bottom",
+            "room_false" : "K2_2_bottom"
         },
-        "K2_2":
+        "K2_2_bottom":
         {
             "audio_file": ["K2_deel2"],
-            "skip_to_room" : "LL_to_QQ_top"
+            "skip_to_room" : "LL_to_QQ_bottom"
         },
-        "LL_to_QQ_top":
+        "LL_to_QQ_bottom":
         {
             "audio_files": 
             [
                 "LL",
-                "L1",
+                "L2",
                 "MM",
-                "M1",
                 "NN__met_muziek_",
                 "OO__met_muziek_",
                 "PP__met_muziek_",
-                "QQ"
+                "RR"
             ],
             "skip_to_room" : "SS"
         },
