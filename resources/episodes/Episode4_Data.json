@@ -6,10 +6,9 @@
         {
             "audio_files": 
             [
-                "v4_AA__met_muziek_",
-                "BB_edit",
-                "v4_CC",
-                "v4_DD_A_TEKST"
+                "AA__met_muziek_",
+                "BB",
+                "CC"
             ],
             "skip_to_room" : "DD_question"
         },
@@ -17,355 +16,157 @@
         "DD_question":
         {
             "audio_file": "v4_DD_B_VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "DD1":{"keywords" : ["jazz", "yes", "djez"]},
-                "DD2":{"keywords" : ["pop"]}
-            }
-        },
-        "DD1":
-        {
-            "audio_file": "v4_DD1",
-            "skip_to_room" : "EE_to_FF"
-        },
-        "DD2":
-        {
-            "audio_file": "v4_DD2",
-            "skip_to_room" : "EE_to_FF"
-        },
-        
-        "EE_to_FF":
-        {
-            "audio_files": 
-            [
-                "v4_EE",
-                "v4_FF"
-            ],
-            "skip_to_room" : "GG_question"
-        },
-
-        "GG_question":
-        {
-            "audio_file": "v4_GG",
-
             "choice_type" : "yes_no",
-            "room_yes" : "GG1",
-            "room_no" : "GG2"
+            "room_yes" : "EE_to_JJ_top",
+            "room_no" : "EE_to_JJ_bottom"
         },
-        "GG1":
-        {
-            "audio_file": "v4_GG1__met_muziek_",
-            "skip_to_room" : "HH"
-        },
-        "GG2":
-        {
-            "audio_file": "v4_GG2",
-            "skip_to_room" : "HH"
-        },
-
-        "HH":
-        {
-            "audio_file": "v4_HH__met_muziek__TEKST",
-            "skip_to_room" : "HH_question"
-        },
-        "HH_question":
-        {
-            "audio_file": "v4_HH__met_muziek__VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "JJ1":{"keywords" : ["taxi"]},
-                "JJ2":{"keywords" : ["lopen"]}
-            }
-        },
-
-        "JJ1":
-        {
-            "audio_file": "v4_JJ1__Inc__Freddie__TEKST",
-            "remember_room" : true,
-            "skip_to_room" : "JJ1_question"
-        },
-        "JJ1_question":
-        {
-            "audio_file": "v4_JJ1__Inc__Freddie__VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "KK1":{"keywords" : ["tante", "iris"]},
-                "KK2":{"keywords" : ["overval"]}
-            }
-        },
-
-        "JJ2":
-        {
-            "audio_file": "v4_JJ2__Inc__Freddie__TEKST",
-            "skip_to_room" : "JJ2_question"
-        },
-        "JJ2_question":
-        {
-            "audio_file": "v4_JJ2__Inc__Freddie__VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "LL1":{"keywords" : ["tante", "iris"]},
-                "LL2":{"keywords" : ["overval"]}
-            }
-        },
-
-        "KK1":
-        {
-            "audio_file": "v4_K1__inc__Freddie_",
-            "skip_to_room" : "MM_to_OO"
-        },
-        "KK2":
-        {
-            "audio_file": "v4_K2__inc__Freddie_",
-            "remember_room" : true,
-            "skip_to_room" : "MM_to_OO"
-        },
-
-        "LL1":
-        {
-            "audio_file": "v4_L1__inc__Freddie_",
-            "skip_to_room" : "MM_to_OO"
-        },
-        "LL2":
-        {
-            "audio_file": "v4_L2__inc__Freddie_",
-            "remember_room" : true,
-            "skip_to_room" : "MM_to_OO"
-        },
-
-        "MM_to_OO":
-        {
-            "audio_files" :
-            [
-                "v4_MM",
-                "v4_NN",
-                "v4_OO"
-            ],
-            "skip_to_room" : "PP_question"
-        },
-
-        "PP_question":
-        {
-            "audio_file": "v4_PP",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "PP1":{"keywords" : ["zitten", "blijf", "blijven"]},
-                "PP2":{"keywords" : ["weg", "ga", "weggaan"]}
-            }
-        },
-        "PP1":
-        {
-            "audio_file": "v4_PP1",
-            "skip_to_room" : "QQ"
-        },
-        "PP2":
-        {
-            "audio_file": "v4_PP2",
-            "skip_to_room" : "QQ"
-        },
-
-        "QQ":
-        {
-            "audio_file": "v4_QQ_TEKST",
-            "skip_to_room" : "QQ_question"
-        },
-        "QQ_question":
-        {
-            "audio_file": "v4_QQ_VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "check_KK2_played_C":{"keywords" : ["cafe", "kaffee", "café"]},
-                "check_KK2_played_M":{"keywords" : ["meisje", "roos"]}
-            }
-        },
-
-        "check_KK2_played_C": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "KK2",
-               "true": "QQ2",
-               "false": "check_LL2_played_C"
-            }   
-        },
-        "check_LL2_played_C": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "LL2",
-               "true": "QQ2",
-               "false": "QQ4"
-            }   
-        },
-
-        "check_KK2_played_M": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "KK2",
-               "true": "QQ1",
-               "false": "check_LL2_played_M"
-            }   
-        },
-        "check_LL2_played_M": 
-        {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "start",
-               "true": "QQ1",
-               "false": "QQ3"
-            }   
-        },
-
-        "QQ1":
-        {
-            "audio_file": "v4_QQ1",
-            "skip_to_room" : "RR_Q1_Q3"
-        },
-        "QQ3":
-        {
-            "audio_file": "v4_QQ3",
-            "skip_to_room" : "RR_Q1_Q3"
-        },
-
-        "RR_Q1_Q3":
-        {
-            "audio_file": "v4_RR_Q1_en_Q3_",
-            "skip_to_room" : "SS_to_UU"
-        },
-
-        "QQ2":
-        {
-            "audio_file": "v4_QQ2",
-            "skip_to_room" : "RR_Q2_Q4"
-        },
-        "QQ4":
-        {
-            "audio_file": "v4_QQ4",
-            "skip_to_room" : "RR_Q2_Q4"
-        },
-
-        "RR_Q2_Q4":
-        {
-            "audio_file": "v4_RR_Q2_en_Q4_",
-            "skip_to_room" : "SS_to_UU"
-        },
-
-        "SS_to_UU":
+      
+        "EE_to_JJ_top":
         {
             "audio_files": 
             [
-                "v4_SS",
-                "v4_TT",
-                "UU_edit_TEKST"
+                "EE",
+                "FF",
+                "F2",
+                "GG",
+                "HH",
+                "JJ"
             ],
-            "skip_to_room" : "UU_question"
+            "skip_to_room" : "JJ_question_top"
         },
-        
-        "UU_question":
+        "JJ_question_top":
         {
-            "audio_file": "UU_edit_VRAAG",
+            "audio_file": "JJ_VRAAG",
+            "choice_type" : "open",
+            
+            "choices":
+            {
+                "J1_top":{"keywords" : ["links"]},
+                "j2_top":{"keywords" : ["rechts"]}
+            }
+        },
+        "J1_top":
+        {
+            "audio_files": 
+            [
+                "JJ__deel_2_",
+                "J1",
+                "J1a",
+                "K1"
+            ],
+            "skip_to_room" : "LL_to_QQ_top"
+        },
+        "j2_top":
+        {
+            "audio_files": 
+            [
+                "JJ__deel_2_",
+                "J2",
+                "J2a"
+            ],
+            "skip_to_room" : "K2_question_top"
+        },
+        "K2_question_top":
+        {
+            "audio_file": "K2_deel1",
             "choice_type" : "true_false",
-            "true_keywords" : ["oogappel", "oogappeltje", "oog", "appel"],
-            "room_true" : "VV1_to_XX",
-            "room_false" : "check_WW_played"
+            "true_keywords" : ["vijf", "5"],
+            "room_true" : "K2_2",
+            "room_false" : "K2_2"
         },
-        "check_WW_played": 
+        "K2_2":
         {
-            "room_remember_check" : 
-            {
-               "room_to_remember" : "VV_to_WW",
-               "true": "UU_question",
-               "false": "VV_to_WW"
-            }   
+            "audio_file": ["K2_deel2"],
+            "skip_to_room" : "LL_to_QQ_top"
         },
-        "VV_to_WW":
+        "LL_to_QQ_top":
         {
             "audio_files": 
             [
-                "v4_VV2",
-                "v4_WW"
+                "LL",
+                "L1",
+                "MM",
+                "M1",
+                "NN__met_muziek_",
+                "OO__met_muziek_",
+                "PP__met_muziek_",
+                "QQ"
             ],
-            "remember_room" : true,
-            "skip_to_room" : "UU_question"
+            "skip_to_room" : "SS"
         },
 
-        "VV1_to_XX":
+        "EE_to_JJ_bottom":
         {
-            "audio_files":
+            "audio_files": 
             [
-                "v4_VV1",
-                "v4_XX__inc__Freddie___muziek_"
+                "EE",
+                "FF",
+                "F1",
+                "GG",
+                "HH",
+                "JJ"
             ],
-            "skip_to_room" : "check_JJ1_played"
+            "skip_to_room" : "JJ_question_bottom"
         },
-
-        "check_JJ1_played": 
+        "JJ_question_top":
         {
-            "room_remember_check" : 
+            "audio_file": "JJ_VRAAG",
+            "choice_type" : "open",
+            
+            "choices":
             {
-               "room_to_remember" : "JJ1",
-               "true": "YY_JJ1",
-               "false": "YY_JJ2"
-            }   
+                "J1_top":{"keywords" : ["links"]},
+                "j2_top":{"keywords" : ["rechts"]}
+            }
         },
-
-        "YY_JJ1":
+        "J1_top":
         {
-            "audio_file": "v4_YY_J1_TEKST",
-            "skip_to_room" : "YY_JJ1_question"
+            "audio_files": 
+            [
+                "JJ__deel_2_",
+                "J1",
+                "J1a",
+                "K1"
+            ],
+            "skip_to_room" : "LL_to_QQ_top"
         },
-
-        "YY_JJ1_question":
+        "j2_top":
         {
-            "audio_file": "v4_YY_J1_VRAAG",
-            "choice_type" : "yes_no",
-            "room_yes" : "YY1",
-            "room_no" : "YY2"
+            "audio_files": 
+            [
+                "JJ__deel_2_",
+                "J2",
+                "J2a"
+            ],
+            "skip_to_room" : "K2_question_top"
         },
-
-        "YY_JJ2":
+        "K2_question_top":
         {
-            "audio_file": "v4_YY_J2_TEKST",
-            "skip_to_room" : "YY_JJ2_question"
+            "audio_file": "K2_deel1",
+            "choice_type" : "true_false",
+            "true_keywords" : ["vijf", "5"],
+            "room_true" : "K2_2",
+            "room_false" : "K2_2"
         },
-
-        "YY_JJ2_question":
+        "K2_2":
         {
-            "audio_file": "v4_YY_J2_VRAAG",
-
-            "choice_type" : "yes_no",
-            "room_yes" : "YY1",
-            "room_no" : "YY2"
+            "audio_file": ["K2_deel2"],
+            "skip_to_room" : "LL_to_QQ_top"
         },
-
-        "YY1":
+        "LL_to_QQ_top":
         {
-            "audio_file": "v4_YY1",
-            "skip_to_room" : "ZZ"
+            "audio_files": 
+            [
+                "LL",
+                "L1",
+                "MM",
+                "M1",
+                "NN__met_muziek_",
+                "OO__met_muziek_",
+                "PP__met_muziek_",
+                "QQ"
+            ],
+            "skip_to_room" : "SS"
         },
-        "YY2":
-        {
-            "audio_file": "v4_YY2",
-            "skip_to_room" : "ZZ"
-        },
-
-        "ZZ":
-        {
-            "audio_file": "v4_ZZ__met_muziek_",
-            "end": "win"
-        }
     }
 }
