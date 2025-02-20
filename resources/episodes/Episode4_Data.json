@@ -130,7 +130,7 @@
             ],
             "skip_to_room" : "LL_to_QQ_bottom"
         },
-        "j2_top":
+        "j2_bottom":
         {
             "audio_files": 
             [
@@ -182,18 +182,6 @@
         },
 
         "UU_question":
-        {
-            "audio_file": "v4_DD_B_VRAAG",
-            "choice_type" : "open",
-            
-            "choices":
-            {
-                "U1":{"keywords" : ["Automaton", "automator", "auto", "tomaten"]},
-                "U2":{"keywords" : ["Boeken", "boeken", "boek", "curie", "curry"]}
-            }
-        },
-
-                "UU_question":
         {
             "audio_file": "v4_DD_B_VRAAG",
             "choice_type" : "open",

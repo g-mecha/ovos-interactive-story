@@ -1,9 +1,11 @@
 {
+    "audio_url" : "https://firebasestorage.googleapis.com/v0/b/eyepodcast-prod.appspot.com/o/series%2Fokv95D1hVwvMNrziqYtS%2Fd2w5bqKzlRjZwdDsMk5J%",
     "rooms":
     {
         "start":
         {
-            "audio_file": 
+            "room_text_description" : "1",
+            "audio_files": 
             [
                 "AA__met_muziek_",
                 "BB",
@@ -15,23 +17,25 @@
         "CC_question":
 	    {
             "audio_file": "CC_VRAAG",
+            "choice_type" : "open",
+
             "choices":
             {
                 "C3_to_C2":
                 {
-                    "keywords" : ["Rijks", "rijksmuseum", "rex", "niks"]
+                    "keywords" : ["rijks", "rijksmuseum", "rex", "niks"]
                 },
 
                 "C3_C1_C2":
                 {
-                    "keywords" : ["Gogh", "gog", "van"]
+                    "keywords" : ["gogh", "gog", "van"]
                 }
             }
         },
 
         "C3_to_C2":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
                 "C3",
                 "C2"
@@ -41,7 +45,7 @@
 
         "C3_C1_C2":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
         	    "C3",
                 "C1",
@@ -61,6 +65,8 @@
         "DD_question":
 	    {
             "audio_file": "DD_VRAAG",
+            "choice_type" : "open",
+
             "choices":
             {
                 "D1_to_E1":
@@ -76,7 +82,7 @@
 
         "D1_to_E1":
 	    {
-            "audio_file": 
+            "audio_files": 
             [
 		        "D1",
                 "E1_TEKST"
@@ -87,15 +93,17 @@
         "E1_question":
 	    {
             "audio_file": "E1_VRAAG",
+            "choice_type" : "open",
+
             "choices":
             {
                 "D2_from_E":
                 {
-                    "keywords" : ["Tour", "hoer", "toe"]
+                    "keywords" : ["tour", "hoer", "toe"]
                 },
                 "Check_C1_played_top":
                 {
-                    "keywords" : ["Nachtwacht", "nacht", "wacht"] 
+                    "keywords" : ["nachtwacht", "nacht", "wacht"] 
                 }
             }
         },
@@ -170,6 +178,8 @@
         "F1_V2_question":
 	    {
             "audio_file": "F1_V2_VRAAG",
+            "choice_type" : "open",
+
             "choices":
             {
                 "D1":
@@ -233,7 +243,7 @@
 
         "JJ_to_end":
         {   
-            "audio_file": 
+            "audio_files": 
             [
 		        "JJ",
                 "KK",

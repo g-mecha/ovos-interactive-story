@@ -123,11 +123,15 @@ class MyGameSkill(ConversationalGameSkill):
 # <editor-fold desc="main game logic">
 
     def get_audio_clip_lenght(self, audio_clip):
-        return int(MP3(audio_clip).info.length) *10
+        self.gui.show_text(f"{int(MP3(audio_clip).info.length)}")
+        return int(MP3(audio_clip).info.length)
 
     #Play the TTS/ play the audio file(s) for this room
     def show_room(self, room):
-        if 'audio_file' in room:
+        if 'room_text_description' in room:
+            self.speak(f"{room['room_text_description']}", wait=True)
+
+        elif 'audio_file' in room:
             #TODO: Think how files are shared to users instead of being hardcoded like this
             audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{room['audio_file']}.mp3"
 
@@ -144,9 +148,6 @@ class MyGameSkill(ConversationalGameSkill):
             for audio_file in audio_files:
                 audio_clip = f"{self.root_dir}/.dontpush/iris/Ep{self.episode_number}/{audio_file}.mp3"
                 self.play_audio(audio_clip, wait=self.get_audio_clip_lenght(audio_clip))
-
-        elif 'room_text_description' in room:
-            self.speak(f"{room['room_text_description']}", wait=True)
 
     def reset_episode(self):
         self.current_room = self.episode_data['rooms']['start']
@@ -165,8 +166,8 @@ class MyGameSkill(ConversationalGameSkill):
                 current_question_option+=1
                 if current_question_option == len(choices): 
                     self.speak_dialog("final_option")
-                    self.speak(details["question_item"], wait=1, expect_response=True)
-                else: self.speak(details["question_item"], wait=2)
+                    self.speak(details["question_item"], expect_response=True)
+                else: self.speak(details["question_item"])
             
         else:
             self.response_reply = self.get_response()
@@ -184,6 +185,8 @@ class MyGameSkill(ConversationalGameSkill):
                 current_room_name = next((name for name, data in self.episode_data['rooms'].items() if data == self.current_room), None)
                 self.rooms_to_remember.add(current_room_name)
 
+
+
             if 'skip_to_room' in current_room:
                 self.change_rooms(current_room['skip_to_room'])
 
@@ -198,12 +201,11 @@ class MyGameSkill(ConversationalGameSkill):
                         break
                 #Stop the skill from going to the false room if the room condition has been met
                 if (room_condition_met == False): self.change_rooms(condition_data['false'])
-                
 
             else:
                 self.ask_questions(current_room)
 
-        if 'end' in current_room:
+        else:
             self.end_of_path(current_room)
 
 
@@ -341,9 +343,9 @@ class MyGameSkill(ConversationalGameSkill):
         (if enabled in self.settings)
 
         on_game_stop will be called after this handler"""
-        # TODO: Check if I can make this work with listen_for_player_input and wait=True
-        self.speak("abandoned game")
-        self.handle_game_over()
+        # TODO: This is a bad solution, find a more pernament solution
+        # self.speak("abandoned game")
+        # self.handle_game_over()
 
 # <editor-fold desc="Debugging">
 
