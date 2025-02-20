@@ -19,12 +19,12 @@
               
             "choices":
             {
-                "CC1":{"keywords" : ["links"]},
-                "CC2":{"keywords" : ["rechts"]}
+                "C2_to_DD":{"keywords" : ["links"]},
+                "C1_to_DD":{"keywords" : ["rechts"]}
             }
         },
 
-        "CC1":
+        "C2_to_DD":
         {
             "audio_files": 
             [
@@ -35,7 +35,7 @@
             "skip_to_room" : "EE_to_FF"
         },
         
-        "CC2":
+        "C1_to_DD":
         {
             "audio_files": 
             [
@@ -61,23 +61,18 @@
             "audio_file": "FF_vraag",
             "choice_type" : "yes_no",
             
-            "room_yes" : "F1",
-            "room_no" : "F2"
+            "room_yes" : "F2",
+            "room_no" : "F1"
         },
 
-        "F1":
+		"F1":
         {
-            "audio_file": "F2_tekst",
-            "skip_to_room" : "FF2_question"
+            "audio_file": "F1",
+            "skip_to_room" : "F2"
         },
-
         "F2":
         {
-            "audio_files": 
-            [
-                "F1",
-                "F2_tekst"
-            ],
+            "audio_file": "F2_tekst",
             "skip_to_room" : "FF2_question"
         },
 
@@ -91,19 +86,19 @@
 		    "room_false": "F1_fout"
         },
 
-	"F1_fout":
-	{
-		"audio_files": 
-        [
-            "F1_fout",
-            "F2_goed"
-        ],
-		"skip_to_room" : "GG_question"
-	},
-
-		"F2_goed": 
+		"F1_fout":
 		{
-			"audio_file": "F2_goed",
+			"audio_file": "F1_fout",
+			"skip_to_room" : "F2_goed"
+		},
+
+		"F2_goed_to_GG": 
+		{
+			"audio_files":
+			[
+				"F2_goed",
+				"GG_tekst"
+			],
 			"skip_to_room" : "GG_question"
 		},
 
@@ -114,12 +109,12 @@
             
             "choices":
             {
-                "GG1":{"keywords" : ["Bloem"]},
-                "GG2":{"keywords" : ["Vlinder"]}
+                "G2":{"keywords" : ["Bloem"]},
+                "G1":{"keywords" : ["Vlinder"]}
             }
         },
 
-		"GG1":
+		"G2":
 		{
 			"audio_files": 
 			[
@@ -129,7 +124,7 @@
 			"skip_to_room" : "HH_question"
 		},
 
-		"GG2":
+		"G1":
 		{
 			"audio_files": 
 			[
@@ -162,7 +157,7 @@
 		{
 			"room_remember_check" : 
             {
-               "room_to_remember" : "GG2",
+               "room_to_remember" : "G1",
                "true": "H2_true",
                "false": "H2_false"
             }
@@ -208,7 +203,7 @@
 		{
 			"room_remember_check" : 
             {
-               "room_to_remember" : "CC1",
+               "room_to_remember" : "C2_to_DD",
                "true": "J2_true",
                "false": "J2_false"
             }
@@ -230,8 +225,9 @@
 		{
 			"audio_files": 
             [
-                "EE",
-                "FF_tekst"
+                "KK",
+				"LL",
+                "MM_tekst"
             ],
 			"skip_to_room": "MM_question"
 		},
@@ -277,17 +273,17 @@
 			"audio_file": "NN_vraag",
             "choice_type" : "yes_no",
             
-            "room_yes": "NN1",
-			"room_no": "NN2"
+            "room_yes": "NN2",
+			"room_no": "NN1"
 		},
 
-		"NN1":
+		"NN2":
 		{
 			"audio_file": "N2",
 			"skip_to_room": "OO_to_end"
 		},
 
-		"NN2":
+		"NN1":
 		{
 			"audio_file": "N1",
 			"skip_to_room": "OO_to_end"
