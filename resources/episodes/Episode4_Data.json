@@ -30,7 +30,7 @@
                 "F2",
                 "GG",
                 "HH",
-                "JJ"
+                "JJ_TEKST"
             ],
             "skip_to_room" : "JJ_question_top"
         },
@@ -42,7 +42,7 @@
             "choices":
             {
                 "J1_top":{"keywords" : ["links"]},
-                "j2_top":{"keywords" : ["rechts"]}
+                "J2_top":{"keywords" : ["rechts"]}
             }
         },
         "J1_top":
@@ -56,7 +56,7 @@
             ],
             "skip_to_room" : "LL_to_QQ_top"
         },
-        "j2_top":
+        "J2_top":
         {
             "audio_files": 
             [
@@ -104,7 +104,7 @@
                 "F1",
                 "GG",
                 "HH",
-                "JJ"
+                "JJ_TEKST"
             ],
             "skip_to_room" : "JJ_question_bottom"
         },
@@ -116,7 +116,7 @@
             "choices":
             {
                 "J1_bottom":{"keywords" : ["links"]},
-                "j2_bottom":{"keywords" : ["rechts"]}
+                "J2_bottom":{"keywords" : ["rechts"]}
             }
         },
         "J1_bottom":
@@ -130,7 +130,7 @@
             ],
             "skip_to_room" : "LL_to_QQ_bottom"
         },
-        "j2_bottom":
+        "J2_bottom":
         {
             "audio_files": 
             [
@@ -181,9 +181,19 @@
             "room_no" : "TT_to_UU"
         },
 
+        "TT_to_UU":
+        {
+            "audio_files": 
+            [
+                "TT",
+                "UU_tekst"
+            ],
+            "skip_to_room" : "UU_question"
+        },
+
         "UU_question":
         {
-            "audio_file": "v4_DD_B_VRAAG",
+            "audio_file": "UU_vraag",
             "choice_type" : "open",
             
             "choices":
